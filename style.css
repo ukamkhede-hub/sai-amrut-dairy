@@ -1169,3 +1169,339 @@ section {
 #loading-screen {
     display: none !important;
 }
+/* =========================================================
+   PRODUCT DETAILS POPUP
+========================================================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 10000;
+}
+
+.product-modal.show {
+    display: flex;
+}
+
+.product-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.product-modal-content {
+    position: relative;
+    z-index: 2;
+    width: min(440px, 100%);
+    background: var(--white);
+    border-radius: 28px;
+    padding: 32px 25px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.30);
+    animation: productModalIn 0.25s ease;
+}
+
+@keyframes productModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* CLOSE BUTTON */
+
+.product-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--light-gray);
+    color: var(--dark);
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.25s ease;
+}
+
+.product-modal-close:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(90deg);
+}
+
+
+/* BADGE */
+
+.product-modal-badge {
+    min-height: 28px;
+    margin-bottom: 8px;
+}
+
+.product-modal-badge span {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 50px;
+
+    background: var(--soft-green);
+    color: var(--primary-dark);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+
+/* PRODUCT ICON */
+
+.product-modal-icon {
+    width: 120px;
+    height: 120px;
+
+    margin: 10px auto 20px;
+
+    border-radius: 30px;
+
+    background: var(--light-green);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(21, 128, 61, 0.08);
+}
+
+
+/* PRODUCT NAME */
+
+.product-modal-content h2 {
+    margin: 0;
+
+    color: var(--dark);
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+/* UNIT */
+
+.product-modal-unit {
+    margin: 8px 0 12px;
+
+    color: var(--gray);
+
+    font-size: 15px;
+}
+
+
+/* PRICE */
+
+.product-modal-price {
+    margin-bottom: 22px;
+
+    color: var(--primary);
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+
+/* QUANTITY */
+
+.modal-quantity {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.modal-quantity button {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.modal-quantity button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.modal-quantity span {
+    min-width: 45px;
+
+    color: var(--dark);
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+/* WHATSAPP BUTTON */
+
+.modal-whatsapp-btn {
+    width: 100%;
+
+    border: none;
+    border-radius: 15px;
+
+    padding: 15px 20px;
+
+    background: var(--whatsapp);
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+
+    transition: 0.25s ease;
+}
+
+.modal-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+}
+
+
+/* =========================================================
+   PRODUCT CARD CLICK EFFECT
+========================================================= */
+
+.product-card {
+    cursor: pointer;
+}
+
+.product-card .quantity-box {
+    cursor: default;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .product-modal-content {
+    background: #17201a;
+}
+
+body.dark .product-modal-content h2 {
+    color: #ffffff;
+}
+
+body.dark .product-modal-unit {
+    color: #a7b3aa;
+}
+
+body.dark .product-modal-close {
+    background: #26342b;
+    color: #ffffff;
+}
+
+body.dark .product-modal-icon {
+    background: #203b29;
+}
+
+body.dark .modal-quantity span {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .product-modal {
+        padding: 15px;
+    }
+
+    .product-modal-content {
+        padding: 28px 20px;
+        border-radius: 24px;
+    }
+
+    .product-modal-icon {
+        width: 100px;
+        height: 100px;
+
+        font-size: 58px;
+
+        border-radius: 25px;
+    }
+
+    .product-modal-content h2 {
+        font-size: 23px;
+    }
+
+    .product-modal-price {
+        font-size: 27px;
+    }
+
+    .modal-quantity button {
+        width: 44px;
+        height: 44px;
+    }
+
+}
+.product-modal-image {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: none;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+}
+
+.product-modal-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+}

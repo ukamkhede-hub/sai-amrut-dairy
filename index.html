@@ -1,1789 +1,1049 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Amrut Dairy</title>
 
-    <title>Sai Amrut Dairy | Fresh Dairy & Grocery</title>
+<style>
 
-    <meta
-        name="description"
-        content="Sai Amrut Dairy - Fresh milk, dairy products, beverages, grocery, snacks and frozen foods."
-    >
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
+:root {
+    --green: #15803d;
+    --dark-green: #14532d;
+    --light-green: #f0fdf4;
+    --soft-green: #dcfce7;
+    --white: #ffffff;
+    --dark: #17201a;
+    --gray: #64748b;
+    --border: #e2e8f0;
+    --whatsapp: #25d366;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: var(--dark);
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg,#f0fdf4,#dcfce7);
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 10px;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* PRODUCTS */
+
+.products-section {
+    padding: 70px 6%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--gray);
+}
+
+/* SEARCH */
+
+.product-tools {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    display: flex;
+    gap: 10px;
+}
+
+#productSearch {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#productSearch:focus {
+    border-color: var(--green);
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--green);
+    color: white;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 22px;
+}
+
+/* PRODUCT CARD */
+
+.product-card {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    transition: .25s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.14);
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--green);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.product-image {
+    height: 190px;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.product-emoji {
+    font-size: 85px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.product-unit {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--green);
+}
+
+/* QUANTITY */
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-box button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: var(--green);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.quantity-box span {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ORDER */
+
+.order-section {
+    text-align: center;
+    padding: 40px 20px 70px;
+}
+
+.whatsapp-btn {
+    border: none;
+    background: var(--whatsapp);
+    color: white;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* POPUP */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.product-modal.show {
+    display: flex;
+}
+
+.product-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(5px);
+}
+
+.product-modal-content {
+    position: relative;
+    z-index: 2;
+    width: min(430px,100%);
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+    animation: popup .25s ease;
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.product-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.product-modal-image {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: none;
+    margin: 15px auto;
+    border-radius: 20px;
+}
+
+.product-modal-icon {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    border-radius: 30px;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+.product-modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.product-modal-unit {
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.product-modal-price {
+    font-size: 30px;
+    color: var(--green);
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+/* POPUP QUANTITY */
+
+.modal-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.modal-quantity button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    background: var(--green);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-quantity span {
+    font-size: 25px;
+    font-weight: bold;
+    min-width: 40px;
+}
+
+.modal-whatsapp-btn {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--whatsapp);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: var(--dark-green);
+    color: white;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .products-section {
+        padding: 50px 20px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 140px;
+    }
+
+    .product-emoji {
+        font-size: 60px;
+    }
+
+    .product-info {
+        padding: 13px;
+    }
+
+    .product-info h3 {
+        font-size: 15px;
+    }
+
+    .price {
+        font-size: 17px;
+    }
+
+    .product-modal-content {
+        padding: 25px 18px;
+    }
+
+    .product-modal-image {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media(max-width:450px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- ================= LOADING SCREEN ================= -->
+<!-- NAVBAR -->
 
-<!-- ================= NAVBAR ================= -->
-
-<header class="navbar">
+<nav class="navbar">
 
     <div class="logo">
-        🥛
-        <div>
-            <h2>Sai Amrut</h2>
-            <span>Dairy & Grocery</span>
-        </div>
+        🥛 Sai Amrut Dairy
     </div>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#delivery">Delivery</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <ul class="nav-links">
 
-    <div class="nav-actions">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
 
-        <button class="dark-btn" onclick="toggleDarkMode()" title="Dark Mode">
-            🌙
-        </button>
+    </ul>
 
-        <a
-            href="https://wa.me/91XXXXXXXXXX"
-            class="nav-whatsapp"
-            target="_blank"
-        >
-            💬 WhatsApp
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>Sai Amrut Dairy</h1>
+
+        <p>
+            Fresh Dairy Products & Beverages
+        </p>
+
+        <a href="#products" class="hero-btn">
+            Shop Now
         </a>
 
     </div>
 
-</header>
+</section>
 
 
-<!-- ================= HERO ================= -->
+<!-- PRODUCTS -->
 
-<section id="home" class="hero">
+<section class="products-section" id="products">
 
-    <div class="hero-content">
+    <div class="section-title">
 
-        <div class="hero-badge">
-            🥛 100% Fresh & Quality Products
-        </div>
-
-        <h1>
-            Freshness You Can
-            <span>Trust</span>
-        </h1>
+        <h2>Our Products</h2>
 
         <p>
-            Fresh dairy products, beverages, grocery items and snacks
-            delivered with care to your doorstep.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#products" class="primary-btn">
-                🛍️ Explore Products
-            </a>
-
-            <a href="#contact" class="secondary-btn">
-                📞 Contact Us
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        <div class="hero-main-circle">
-            🥛
-        </div>
-
-        <div class="floating-card card-one">
-            🥛
-            <div>
-                <strong>Fresh Milk</strong>
-                <small>Every Day</small>
-            </div>
-        </div>
-
-        <div class="floating-card card-two">
-            🧈
-            <div>
-                <strong>Pure Dairy</strong>
-                <small>Quality First</small>
-            </div>
-        </div>
-
-        <div class="floating-card card-three">
-            🚚
-            <div>
-                <strong>Fast Delivery</strong>
-                <small>At Your Door</small>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= STATS ================= -->
-
-<section class="stats">
-
-    <div class="stat-box">
-        <span>🥛</span>
-        <h3>100%</h3>
-        <p>Fresh Products</p>
-    </div>
-
-    <div class="stat-box">
-        <span>📦</span>
-        <h3>100+</h3>
-        <p>Products</p>
-    </div>
-
-    <div class="stat-box">
-        <span>🚚</span>
-        <h3>Fast</h3>
-        <p>Home Delivery</p>
-    </div>
-
-    <div class="stat-box">
-        <span>❤️</span>
-        <h3>1000+</h3>
-        <p>Happy Customers</p>
-    </div>
-
-</section>
-
-
-<!-- ================= OFFER ================= -->
-
-<section class="offer-banner">
-
-    <div>
-        <span class="offer-icon">🎉</span>
-
-        <div>
-            <h3>Fresh Products. Fresh Savings.</h3>
-            <p>Order your daily essentials today.</p>
-        </div>
-    </div>
-
-    <a href="#products">
-        Shop Now →
-    </a>
-
-</section>
-
-
-<!-- ================= PRODUCTS ================= -->
-
-<section id="products" class="products-section">
-
-    <div class="section-heading">
-
-        <span>OUR PRODUCTS</span>
-
-        <h2>
-            Fresh Products For
-            <span>Everyday Needs</span>
-        </h2>
-
-        <p>
-            Choose from our wide range of dairy, beverages,
-            grocery, snacks and frozen products.
+            Fresh and quality products for you
         </p>
 
     </div>
 
-
-    <!-- SEARCH -->
 
     <div class="product-tools">
 
-        <div class="search-box">
-
-            <span>🔎</span>
-
-            <input
-                type="text"
-                id="productSearch"
-                placeholder="Search products..."
-                oninput="searchProducts()"
-            >
-
-            <button
-                id="clearSearch"
-                onclick="clearSearch()"
-            >
-                ✕
-            </button>
-
-        </div>
-
-
-        <!-- CATEGORY FILTER -->
-
-        <div class="category-filters">
-
-            <button
-                class="filter-btn active"
-                data-filter="all"
-                onclick="filterProducts('all', this)"
-            >
-                🛍️ All
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="dairy"
-                onclick="filterProducts('dairy', this)"
-            >
-                🥛 Dairy
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="drinks"
-                onclick="filterProducts('drinks', this)"
-            >
-                🥤 Drinks
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="grocery"
-                onclick="filterProducts('grocery', this)"
-            >
-                🛒 Grocery
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="snacks"
-                onclick="filterProducts('snacks', this)"
-            >
-                🍪 Snacks
-            </button>
-
-            <button
-                class="filter-btn"
-                data-filter="frozen"
-                onclick="filterProducts('frozen', this)"
-            >
-                ❄️ Frozen
-            </button>
-
-        </div>
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="🔍 Search products..."
+            oninput="searchProducts()"
+        >
 
     </div>
 
 
-    <div id="noProducts" class="no-products">
-        😔 No products found.
-    </div>
-
-
-    <!-- ================ DAIRY ================ -->
-
-    <div class="product-category" data-section="dairy">
-
-        <div class="category-title">
-            <div>
-                <span>🥛</span>
-                <h3>Dairy Products</h3>
-            </div>
-
-            <p>Fresh & Quality Dairy</p>
-        </div>
-
-        <div id="dairyProducts" class="product-grid"></div>
-
-    </div>
-
-
-    <!-- ================ DRINKS ================ -->
-
-    <div class="product-category" data-section="drinks">
-
-        <div class="category-title">
-            <div>
-                <span>🥤</span>
-                <h3>Drinks & Beverages</h3>
-            </div>
-
-            <p>Refresh Yourself</p>
-        </div>
-
-        <div id="energyProducts" class="product-grid"></div>
-
-    </div>
-
-
-    <!-- ================ GROCERY ================ -->
-
-    <div class="product-category" data-section="grocery">
-
-        <div class="category-title">
-            <div>
-                <span>🛒</span>
-                <h3>Grocery & Snacks</h3>
-            </div>
-
-            <p>Daily Essentials</p>
-        </div>
-
-        <div id="groceryProducts" class="product-grid"></div>
-
-    </div>
-
-
-    <!-- ================= ORDER BOX ================= -->
-
-    <div class="order-box">
-
-        <div class="order-info">
-
-            <div class="order-icon">
-                📲
-            </div>
-
-            <div>
-                <h3>Ready to Order?</h3>
-
-                <p>
-                    Select quantities and send your complete order
-                    directly to us on WhatsApp.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="selected-count">
-            <span id="selectedCount">0</span>
-            products selected
-        </div>
+    <div class="filters">
 
         <button
-            class="whatsapp-order-btn"
-            onclick="sendWhatsAppOrder()"
+            class="filter-btn active"
+            data-category="all"
+            onclick="filterProducts('all',this)"
         >
-            💬 Send Order on WhatsApp
+            All
+        </button>
+
+        <button
+            class="filter-btn"
+            data-category="dairy"
+            onclick="filterProducts('dairy',this)"
+        >
+            🥛 Dairy
+        </button>
+
+        <button
+            class="filter-btn"
+            data-category="energy"
+            onclick="filterProducts('energy',this)"
+        >
+            ⚡ Energy
+        </button>
+
+        <button
+            class="filter-btn"
+            data-category="grocery"
+            onclick="filterProducts('grocery',this)"
+        >
+            🛒 Grocery
         </button>
 
     </div>
 
-</section>
 
-
-<!-- ================= WHY CHOOSE US ================= -->
-
-<section class="features-section">
-
-    <div class="section-heading">
-
-        <span>WHY CHOOSE US</span>
-
-        <h2>
-            Quality You Can
-            <span>Trust</span>
-        </h2>
-
-    </div>
-
-
-    <div class="features-grid">
-
-        <div class="feature-card">
-            <div>🥛</div>
-            <h3>Fresh Products</h3>
-            <p>
-                Fresh and quality products selected
-                for your daily needs.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div>💯</div>
-            <h3>Quality First</h3>
-            <p>
-                We focus on maintaining product quality
-                and customer satisfaction.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div>🚚</div>
-            <h3>Fast Delivery</h3>
-            <p>
-                Get your daily essentials delivered
-                conveniently to your doorstep.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div>❤️</div>
-            <h3>Customer Care</h3>
-            <p>
-                Your satisfaction and trust are
-                important to us.
-            </p>
-        </div>
-
-    </div>
+    <div
+        class="product-grid"
+        id="productGrid"
+    ></div>
 
 </section>
 
 
-<!-- ================= DELIVERY ================= -->
+<!-- ORDER -->
 
-<section id="delivery" class="delivery-section">
+<section class="order-section">
 
-    <div class="delivery-content">
-
-        <span>🚚 HOME DELIVERY</span>
-
-        <h2>
-            Freshness Delivered
-            <span>To Your Door</span>
-        </h2>
-
-        <p>
-            Order milk, dairy products, beverages and grocery
-            items from Sai Amrut Dairy and get them delivered
-            conveniently to your home.
-        </p>
-
-        <div class="delivery-points">
-
-            <div>
-                <strong>📦 Easy Ordering</strong>
-                <span>Order through WhatsApp</span>
-            </div>
-
-            <div>
-                <strong>🚚 Quick Delivery</strong>
-                <span>Fast local delivery</span>
-            </div>
-
-            <div>
-                <strong>🥛 Fresh Products</strong>
-                <span>Quality products</span>
-            </div>
-
-        </div>
-
-        <a
-            href="https://wa.me/91XXXXXXXXXX"
-            target="_blank"
-            class="primary-btn"
-        >
-            💬 Order on WhatsApp
-        </a>
-
-    </div>
-
-
-    <div class="delivery-visual">
-
-        <div class="delivery-circle">
-            🚚
-        </div>
-
-        <div class="delivery-small one">
-            🥛
-        </div>
-
-        <div class="delivery-small two">
-            🛒
-        </div>
-
-        <div class="delivery-small three">
-            📦
-        </div>
-
-    </div>
+    <button
+        class="whatsapp-btn"
+        onclick="sendWhatsAppOrder()"
+    >
+        💬 Order Selected Products on WhatsApp
+    </button>
 
 </section>
 
 
-<!-- ================= GALLERY ================= -->
+<!-- CONTACT -->
 
-<section id="gallery" class="gallery-section">
+<section
+    id="contact"
+    style="
+        padding:60px 20px;
+        text-align:center;
+        background:white;
+    "
+>
 
-    <div class="section-heading">
+    <h2 style="margin-bottom:15px;">
+        Contact Us
+    </h2>
 
-        <span>OUR GALLERY</span>
-
-        <h2>
-            Freshness in
-            <span>Every Moment</span>
-        </h2>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-        <div class="gallery-card gallery-large">
-            <span>🥛</span>
-            <h3>Fresh Milk</h3>
-            <p>Freshness every day</p>
-        </div>
-
-        <div class="gallery-card">
-            <span>🧀</span>
-            <h3>Premium Dairy</h3>
-            <p>Quality products</p>
-        </div>
-
-        <div class="gallery-card">
-            <span>🛒</span>
-            <h3>Daily Grocery</h3>
-            <p>Everything you need</p>
-        </div>
-
-        <div class="gallery-card">
-            <span>🥤</span>
-            <h3>Refreshing Drinks</h3>
-            <p>Stay refreshed</p>
-        </div>
-
-        <div class="gallery-card">
-            <span>🍦</span>
-            <h3>Frozen Products</h3>
-            <p>Cool & delicious</p>
-        </div>
-
-    </div>
+    <p>
+        📞 7020034584
+    </p>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- FOOTER -->
 
-<section id="about" class="about-section">
+<footer>
 
-    <div class="about-visual">
-
-        <div class="about-circle">
-            🥛
-        </div>
-
-        <div class="about-badge">
-            <strong>100%</strong>
-            <span>Quality</span>
-        </div>
-
-    </div>
-
-
-    <div class="about-content">
-
-        <span>ABOUT SAI AMRUT</span>
-
-        <h2>
-            Your Trusted
-            <span>Daily Essentials</span>
-            Partner
-        </h2>
-
-        <p>
-            Sai Amrut Dairy is focused on providing fresh dairy
-            products, beverages, grocery items, snacks and frozen
-            products for everyday needs.
-        </p>
-
-        <p>
-            Our goal is simple — provide quality products,
-            convenient ordering and reliable delivery while
-            building long-term customer trust.
-        </p>
-
-
-        <div class="about-points">
-
-            <div>
-                ✓ Fresh Products
-            </div>
-
-            <div>
-                ✓ Quality Focus
-            </div>
-
-            <div>
-                ✓ Easy WhatsApp Ordering
-            </div>
-
-            <div>
-                ✓ Home Delivery
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= REVIEWS ================= -->
-
-<section class="reviews-section">
-
-    <div class="section-heading">
-
-        <span>CUSTOMER REVIEWS</span>
-
-        <h2>
-            What Our Customers
-            <span>Say</span>
-        </h2>
-
-    </div>
-
-
-    <div class="reviews-grid">
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                "Fresh milk and dairy products. Very convenient
-                ordering experience."
-            </p>
-
-            <div class="review-user">
-                👨
-                <div>
-                    <strong>Rahul</strong>
-                    <span>Regular Customer</span>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                "Good quality products and quick delivery.
-                Very useful for daily grocery."
-            </p>
-
-            <div class="review-user">
-                👩
-                <div>
-                    <strong>Priya</strong>
-                    <span>Happy Customer</span>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                "WhatsApp ordering makes it very easy to
-                order multiple products."
-            </p>
-
-            <div class="review-user">
-                👨
-                <div>
-                    <strong>Akash</strong>
-                    <span>Customer</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="contact-section">
-
-    <div class="section-heading">
-
-        <span>CONTACT US</span>
-
-        <h2>
-            Let's
-            <span>Connect</span>
-        </h2>
-
-        <p>
-            Have a question or want to place an order?
-            Contact us today.
-        </p>
-
-    </div>
-
-
-    <div class="contact-grid">
-
-        <div class="contact-card">
-            <div>📍</div>
-            <h3>Address</h3>
-            <p>Your Shop Address<br>Maharashtra, India</p>
-        </div>
-
-        <div class="contact-card">
-            <div>📞</div>
-            <h3>Phone</h3>
-            <p>+91 XXXXXXXXXX</p>
-        </div>
-
-        <div class="contact-card">
-            <div>💬</div>
-            <h3>WhatsApp</h3>
-            <p>Order anytime on WhatsApp</p>
-
-            <a
-                href="https://wa.me/91XXXXXXXXXX"
-                target="_blank"
-            >
-                Chat Now →
-            </a>
-        </div>
-
-        <div class="contact-card">
-            <div>🕐</div>
-            <h3>Opening Hours</h3>
-            <p>
-                Monday - Sunday<br>
-                7:00 AM - 10:00 PM
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <div class="footer-main">
-
-        <div class="footer-brand">
-
-            <div class="footer-logo">
-                🥛
-                <div>
-                    <h2>Sai Amrut Dairy</h2>
-                    <span>Freshness You Can Trust</span>
-                </div>
-            </div>
-
-            <p>
-                Fresh dairy, beverages, grocery, snacks and
-                frozen products for your everyday needs.
-            </p>
-
-            <div class="social-icons">
-
-                <a href="#" title="Facebook">f</a>
-                <a href="#" title="Instagram">◎</a>
-                <a
-                    href="https://wa.me/91XXXXXXXXXX"
-                    target="_blank"
-                    title="WhatsApp"
-                >
-                    ☎
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <h3>Quick Links</h3>
-
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#delivery">Delivery</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <h3>Categories</h3>
-
-            <a href="#products">Dairy</a>
-            <a href="#products">Drinks</a>
-            <a href="#products">Grocery</a>
-            <a href="#products">Snacks</a>
-            <a href="#products">Frozen</a>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <h3>Contact</h3>
-
-            <p>📍 Maharashtra, India</p>
-            <p>📞 +91 XXXXXXXXXX</p>
-            <p>💬 WhatsApp Orders</p>
-            <p>🕐 7 AM - 10 PM</p>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 Sai Amrut Dairy. All Rights Reserved.
-        </p>
-
-        <p>
-            Made with ❤️ for Freshness
-        </p>
-
-    </div>
+    © 2026 Sai Amrut Dairy | Fresh & Quality Products
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- PRODUCT POPUP -->
 
-<a
-    href="https://wa.me/91XXXXXXXXXX"
-    class="floating-whatsapp"
-    target="_blank"
-    title="Order on WhatsApp"
+<div
+    id="productModal"
+    class="product-modal"
 >
-    💬
-</a>
+
+    <div
+        class="product-modal-overlay"
+        onclick="closeProductDetails()"
+    ></div>
 
 
-<!-- ================= BACK TO TOP ================= -->
+    <div class="product-modal-content">
 
-<button
-    id="backToTop"
-    class="back-to-top"
-    onclick="window.scrollTo({top:0, behavior:'smooth'})"
->
-    ↑
-</button>
+        <button
+            class="product-modal-close"
+            onclick="closeProductDetails()"
+        >
+            ×
+        </button>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+        <div id="modalBadge"></div>
+
+
+        <!-- ACTUAL PRODUCT IMAGE -->
+
+        <img
+            id="modalProductImage"
+            class="product-modal-image"
+            src=""
+            alt="Product"
+        >
+
+
+        <!-- FALLBACK EMOJI -->
+
+        <div
+            id="modalIcon"
+            class="product-modal-icon"
+        >
+            🥛
+        </div>
+
+
+        <h2 id="modalProductName">
+            Product
+        </h2>
+
+
+        <p
+            id="modalProductUnit"
+            class="product-modal-unit"
+        >
+            1 Liter
+        </p>
+
+
+        <div
+            id="modalProductPrice"
+            class="product-modal-price"
+        >
+            ₹70
+        </div>
+
+
+        <div class="modal-quantity">
+
+            <button onclick="changePopupQty(-1)">
+                −
+            </button>
+
+            <span id="modalQuantity">
+                0
+            </span>
+
+            <button onclick="changePopupQty(1)">
+                +
+            </button>
+
+        </div>
+
+
+        <button
+            class="modal-whatsapp-btn"
+            onclick="orderPopupOnWhatsApp()"
+        >
+            💬 Order on WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
 
 <script>
 
-/* =========================================================
-   PRODUCT DATA
-========================================================= */
+/* PRODUCT DATA */
 
-
-/* ================= DAIRY ================= */
-
-const dairyProducts = [
+const products = [
 
     {
-        name: "Milk",
-        price: 70,
-        unit: "1 Liter",
-        icon: "🥛",
-        badge: "FRESH"
+        name:"Milk",
+        price:70,
+        unit:"1 Liter",
+        icon:"🥛",
+        category:"dairy",
+        badge:"FRESH",
+        image:"images/milk.jpg"
     },
 
     {
-        name: "Paneer",
-        price: 500,
-        unit: "1 Kg",
-        icon: "🧀",
-        badge: "POPULAR"
+        name:"Paneer",
+        price:500,
+        unit:"1 Kg",
+        icon:"🧀",
+        category:"dairy",
+        badge:"POPULAR",
+        image:"images/paneer.jpg"
     },
 
     {
-        name: "Curd",
-        price: 120,
-        unit: "1 Kg",
-        icon: "🥣",
-        badge: "FRESH"
+        name:"Curd",
+        price:120,
+        unit:"1 Kg",
+        icon:"🥣",
+        category:"dairy",
+        badge:"FRESH",
+        image:"images/curd.jpg"
     },
 
     {
-        name: "Ghee",
-        price: 1000,
-        unit: "1 Kg",
-        icon: "🫙",
-        badge: "PREMIUM"
+        name:"Ghee",
+        price:1000,
+        unit:"1 Kg",
+        icon:"🫙",
+        category:"dairy",
+        badge:"PREMIUM",
+        image:"images/ghee.jpg"
     },
 
     {
-        name: "Lassi",
-        price: 100,
-        unit: "1 Liter",
-        icon: "🥤",
-        badge: "POPULAR"
+        name:"Lassi",
+        price:100,
+        unit:"1 Liter",
+        icon:"🥤",
+        category:"dairy",
+        badge:"POPULAR",
+        image:"images/lassi.jpg"
     },
 
     {
-        name: "Cheese",
-        price: 200,
-        unit: "1 Kg",
-        icon: "🧀"
+        name:"Cheese",
+        price:200,
+        unit:"1 Kg",
+        icon:"🧀",
+        category:"dairy",
+        badge:"",
+        image:"images/cheese.jpg"
     },
 
     {
-        name: "Butter",
-        price: 80,
-        unit: "100 g",
-        icon: "🧈"
+        name:"Butter",
+        price:80,
+        unit:"100 g",
+        icon:"🧈",
+        category:"dairy",
+        badge:"",
+        image:"images/butter.jpg"
     },
 
     {
-        name: "Buttermilk",
-        price: 30,
-        unit: "1 L",
-        icon: "🥛",
-        badge: "FRESH"
+        name:"Buttermilk",
+        price:30,
+        unit:"1 Liter",
+        icon:"🥛",
+        category:"dairy",
+        badge:"FRESH",
+        image:"images/buttermilk.jpg"
     },
 
     {
-        name: "Cream",
-        price: 100,
-        unit: "200 g",
-        icon: "🥛"
+        name:"Red Bull",
+        price:125,
+        unit:"250 ml",
+        icon:"⚡",
+        category:"energy",
+        badge:"POPULAR",
+        image:"images/red-bull.jpg"
     },
 
     {
-        name: "Flavoured Milk",
-        price: 40,
-        unit: "200 ml",
-        icon: "🥤",
-        badge: "NEW"
+        name:"Sting",
+        price:20,
+        unit:"250 ml",
+        icon:"⚡",
+        category:"energy",
+        badge:"BEST SELLER",
+        image:"images/sting.jpg"
     },
 
     {
-        name: "Flavoured Yogurt",
-        price: 30,
-        unit: "100 g",
-        icon: "🥣",
-        badge: "NEW"
+        name:"Monster Energy",
+        price:120,
+        unit:"250 ml",
+        icon:"⚡",
+        category:"energy",
+        badge:"POPULAR",
+        image:"images/monster-energy.jpg"
     },
 
     {
-        name: "Greek Yogurt",
-        price: 60,
-        unit: "100 g",
-        icon: "🥣",
-        badge: "PREMIUM"
+        name:"Coca-Cola",
+        price:40,
+        unit:"300 ml",
+        icon:"🥤",
+        category:"energy",
+        badge:"",
+        image:"images/coca-cola.jpg"
     },
 
     {
-        name: "Milkshake",
-        price: 40,
-        unit: "200 ml",
-        icon: "🥤",
-        badge: "POPULAR"
+        name:"Pepsi",
+        price:40,
+        unit:"300 ml",
+        icon:"🥤",
+        category:"energy",
+        badge:"",
+        image:"images/pepsi.jpg"
     },
 
     {
-        name: "Custard",
-        price: 35,
-        unit: "100 g",
-        icon: "🍮"
+        name:"Sprite",
+        price:40,
+        unit:"300 ml",
+        icon:"🥤",
+        category:"energy",
+        badge:"",
+        image:"images/sprite.jpg"
     },
 
     {
-        name: "Cheese Slices",
-        price: 160,
-        unit: "200 g",
-        icon: "🧀",
-        badge: "POPULAR"
+        name:"Oats",
+        price:150,
+        unit:"500 g",
+        icon:"🌾",
+        category:"grocery",
+        badge:"HEALTHY",
+        image:"images/oats.jpg"
     },
 
     {
-        name: "Cheese Spread",
-        price: 150,
-        unit: "200 g",
-        icon: "🧀"
+        name:"Maggi",
+        price:15,
+        unit:"70 g",
+        icon:"🍜",
+        category:"grocery",
+        badge:"POPULAR",
+        image:"images/maggi.jpg"
     },
 
     {
-        name: "Condensed Milk",
-        price: 140,
-        unit: "200 g",
-        icon: "🥛"
+        name:"Nutella",
+        price:350,
+        unit:"350 g",
+        icon:"🍫",
+        category:"grocery",
+        badge:"",
+        image:"images/nutella.jpg"
+    },
+
+    {
+        name:"Chips",
+        price:20,
+        unit:"1 Pack",
+        icon:"🍟",
+        category:"grocery",
+        badge:"",
+        image:"images/chips.jpg"
+    },
+
+    {
+        name:"Biscuits",
+        price:30,
+        unit:"1 Pack",
+        icon:"🍪",
+        category:"grocery",
+        badge:"",
+        image:"images/biscuits.jpg"
+    },
+
+    {
+        name:"Coffee",
+        price:180,
+        unit:"200 g",
+        icon:"☕",
+        category:"grocery",
+        badge:"",
+        image:"images/coffee.jpg"
     }
 
 ];
 
 
-/* ================= DRINKS ================= */
+/* RENDER PRODUCTS */
 
-const energyProducts = [
+function renderProducts(list = products) {
 
-    {
-        name: "Red Bull",
-        price: 125,
-        unit: "250 ml",
-        icon: "⚡",
-        badge: "POPULAR"
-    },
+    const grid =
+        document.getElementById("productGrid");
 
-    {
-        name: "Sting",
-        price: 20,
-        unit: "250 ml",
-        icon: "⚡",
-        badge: "BEST SELLER"
-    },
+    grid.innerHTML = "";
 
-    {
-        name: "Monster Energy",
-        price: 120,
-        unit: "250 ml",
-        icon: "⚡",
-        badge: "POPULAR"
-    },
+    list.forEach(product => {
 
-    {
-        name: "Hell Energy",
-        price: 100,
-        unit: "250 ml",
-        icon: "⚡"
-    },
+        const card =
+            document.createElement("div");
 
-    {
-        name: "Adrenaline Rush",
-        price: 100,
-        unit: "250 ml",
-        icon: "⚡"
-    },
+        card.className = "product-card";
 
-    {
-        name: "Campa Energy",
-        price: 50,
-        unit: "250 ml",
-        icon: "⚡",
-        badge: "NEW"
-    },
+        card.dataset.name =
+            product.name.toLowerCase();
 
-    {
-        name: "Power Horse",
-        price: 100,
-        unit: "250 ml",
-        icon: "⚡"
-    },
+        card.dataset.category =
+            product.category;
 
-    {
-        name: "Tzinga",
-        price: 50,
-        unit: "250 ml",
-        icon: "⚡"
-    },
+        card.innerHTML = `
 
-    {
-        name: "Burn",
-        price: 100,
-        unit: "250 ml",
-        icon: "⚡"
-    },
-
-    {
-        name: "Gatorade",
-        price: 50,
-        unit: "250 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Coca-Cola",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Pepsi",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Sprite",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Fanta",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Thums Up",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Limca",
-        price: 40,
-        unit: "300 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Maaza",
-        price: 40,
-        unit: "600 ml",
-        icon: "🥭"
-    },
-
-    {
-        name: "Slice",
-        price: 40,
-        unit: "600 ml",
-        icon: "🥭"
-    },
-
-    {
-        name: "Frooti",
-        price: 40,
-        unit: "600 ml",
-        icon: "🥭"
-    },
-
-    {
-        name: "Appy Fizz",
-        price: 40,
-        unit: "600 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Real Juice",
-        price: 130,
-        unit: "1 L",
-        icon: "🧃",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Paper Boat Drinks",
-        price: 40,
-        unit: "200 ml",
-        icon: "🧃"
-    },
-
-    {
-        name: "Packaged Drinking Water",
-        price: 20,
-        unit: "1 L",
-        icon: "💧"
-    },
-
-    {
-        name: "Soda",
-        price: 25,
-        unit: "750 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Coconut Water",
-        price: 50,
-        unit: "200 ml",
-        icon: "🥥",
-        badge: "FRESH"
-    },
-
-    {
-        name: "Glucose Drink",
-        price: 100,
-        unit: "200 g",
-        icon: "🥤"
-    },
-
-    {
-        name: "Lemon Drink",
-        price: 20,
-        unit: "250 ml",
-        icon: "🍋"
-    }
-
-];
-
-
-/* ================= GROCERY ================= */
-
-const groceryProducts = [
-
-    {
-        name: "Oats",
-        price: 120,
-        unit: "500 g",
-        icon: "🌾",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Corn Flakes",
-        price: 180,
-        unit: "500 g",
-        icon: "🥣"
-    },
-
-    {
-        name: "Nutella",
-        price: 350,
-        unit: "350 g",
-        icon: "🍫",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Maggi / Instant Noodles",
-        price: 15,
-        unit: "70 g",
-        icon: "🍜",
-        badge: "BEST SELLER"
-    },
-
-    {
-        name: "Chips",
-        price: 20,
-        unit: "Pack",
-        icon: "🥔"
-    },
-
-    {
-        name: "Namkeen",
-        price: 50,
-        unit: "200 g",
-        icon: "🥨"
-    },
-
-    {
-        name: "Bhujia",
-        price: 50,
-        unit: "200 g",
-        icon: "🥨"
-    },
-
-    {
-        name: "Kurkure-type Snacks",
-        price: 20,
-        unit: "Pack",
-        icon: "🌽"
-    },
-
-    {
-        name: "Masala Packets",
-        price: 50,
-        unit: "100 g",
-        icon: "🌶️"
-    },
-
-    {
-        name: "Toffee / Candy",
-        price: 50,
-        unit: "100 g",
-        icon: "🍬"
-    },
-
-    {
-        name: "Biscuits",
-        price: 30,
-        unit: "100 g",
-        icon: "🍪"
-    },
-
-    {
-        name: "Tea Packets",
-        price: 150,
-        unit: "250 g",
-        icon: "🍵"
-    },
-
-    {
-        name: "Coffee",
-        price: 180,
-        unit: "100 g",
-        icon: "☕"
-    },
-
-    {
-        name: "Pickle / Packaged Food",
-        price: 100,
-        unit: "250 g",
-        icon: "🥫"
-    },
-
-    {
-        name: "Frozen Food Items",
-        price: 150,
-        unit: "Pack",
-        icon: "❄️",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Ice Cream / Frozen Product",
-        price: 100,
-        unit: "Pack",
-        icon: "🍦",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Flavoured Yogurt",
-        price: 30,
-        unit: "100 g",
-        icon: "🥣",
-        badge: "NEW"
-    },
-
-    {
-        name: "Greek Yogurt",
-        price: 60,
-        unit: "100 g",
-        icon: "🥣"
-    },
-
-    {
-        name: "Milkshake",
-        price: 40,
-        unit: "200 ml",
-        icon: "🥤"
-    },
-
-    {
-        name: "Custard",
-        price: 35,
-        unit: "100 g",
-        icon: "🍮"
-    },
-
-    {
-        name: "Cheese Slices",
-        price: 160,
-        unit: "200 g",
-        icon: "🧀"
-    },
-
-    {
-        name: "Cheese Spread",
-        price: 150,
-        unit: "200 g",
-        icon: "🧀"
-    },
-
-    {
-        name: "Condensed Milk",
-        price: 140,
-        unit: "200 g",
-        icon: "🥛"
-    },
-
-    {
-        name: "Cream Biscuits",
-        price: 30,
-        unit: "100 g",
-        icon: "🍪"
-    },
-
-    {
-        name: "Glucose Biscuits",
-        price: 20,
-        unit: "100 g",
-        icon: "🍪"
-    },
-
-    {
-        name: "Salt Biscuits",
-        price: 25,
-        unit: "100 g",
-        icon: "🍪"
-    },
-
-    {
-        name: "Cookies",
-        price: 40,
-        unit: "100 g",
-        icon: "🍪",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Rusk",
-        price: 50,
-        unit: "200 g",
-        icon: "🍞"
-    },
-
-    {
-        name: "Bread",
-        price: 45,
-        unit: "400 g",
-        icon: "🍞",
-        badge: "FRESH"
-    },
-
-    {
-        name: "Buns",
-        price: 40,
-        unit: "4 pcs",
-        icon: "🍔"
-    },
-
-    {
-        name: "Cake",
-        price: 80,
-        unit: "200 g",
-        icon: "🍰"
-    },
-
-    {
-        name: "Muffins",
-        price: 80,
-        unit: "4 pcs",
-        icon: "🧁"
-    },
-
-    {
-        name: "Dairy Milk",
-        price: 50,
-        unit: "50 g",
-        icon: "🍫",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "KitKat",
-        price: 40,
-        unit: "41.5 g",
-        icon: "🍫"
-    },
-
-    {
-        name: "5 Star",
-        price: 50,
-        unit: "45 g",
-        icon: "🍫"
-    },
-
-    {
-        name: "Perk",
-        price: 40,
-        unit: "40 g",
-        icon: "🍫"
-    },
-
-    {
-        name: "Munch",
-        price: 40,
-        unit: "42 g",
-        icon: "🍫"
-    },
-
-    {
-        name: "Gems",
-        price: 20,
-        unit: "22 g",
-        icon: "🍬"
-    },
-
-    {
-        name: "Eclairs",
-        price: 50,
-        unit: "100 g",
-        icon: "🍬"
-    },
-
-    {
-        name: "Lollipop",
-        price: 20,
-        unit: "10 pcs",
-        icon: "🍭"
-    },
-
-    {
-        name: "Yippee Noodles",
-        price: 15,
-        unit: "70 g",
-        icon: "🍜"
-    },
-
-    {
-        name: "Top Ramen",
-        price: 15,
-        unit: "70 g",
-        icon: "🍜"
-    },
-
-    {
-        name: "Pasta",
-        price: 80,
-        unit: "500 g",
-        icon: "🍝"
-    },
-
-    {
-        name: "Vermicelli / Sevai",
-        price: 70,
-        unit: "500 g",
-        icon: "🍜"
-    },
-
-    {
-        name: "Ready-to-Eat Poha",
-        price: 60,
-        unit: "200 g",
-        icon: "🍚"
-    },
-
-    {
-        name: "Ready-to-Eat Upma",
-        price: 60,
-        unit: "200 g",
-        icon: "🍚"
-    },
-
-    {
-        name: "Soup Packets",
-        price: 50,
-        unit: "50 g",
-        icon: "🍲"
-    },
-
-    {
-        name: "Tomato Ketchup",
-        price: 120,
-        unit: "500 g",
-        icon: "🍅"
-    },
-
-    {
-        name: "Mayonnaise",
-        price: 100,
-        unit: "250 g",
-        icon: "🥫"
-    },
-
-    {
-        name: "Jam",
-        price: 150,
-        unit: "500 g",
-        icon: "🍓"
-    },
-
-    {
-        name: "Peanut Butter",
-        price: 200,
-        unit: "340 g",
-        icon: "🥜"
-    },
-
-    {
-        name: "Pasta Sauce",
-        price: 120,
-        unit: "200 g",
-        icon: "🍝"
-    },
-
-    {
-        name: "Soy Sauce",
-        price: 70,
-        unit: "200 ml",
-        icon: "🥫"
-    },
-
-    {
-        name: "Vinegar",
-        price: 60,
-        unit: "500 ml",
-        icon: "🥫"
-    },
-
-    {
-        name: "Peanuts",
-        price: 60,
-        unit: "200 g",
-        icon: "🥜"
-    },
-
-    {
-        name: "Roasted Chana",
-        price: 60,
-        unit: "200 g",
-        icon: "🥜"
-    },
-
-    {
-        name: "Cashews",
-        price: 120,
-        unit: "100 g",
-        icon: "🥜",
-        badge: "PREMIUM"
-    },
-
-    {
-        name: "Almonds",
-        price: 110,
-        unit: "100 g",
-        icon: "🥜"
-    },
-
-    {
-        name: "Raisins",
-        price: 60,
-        unit: "100 g",
-        icon: "🍇"
-    },
-
-    {
-        name: "Mixed Dry Fruits",
-        price: 250,
-        unit: "200 g",
-        icon: "🥜",
-        badge: "PREMIUM"
-    },
-
-    {
-        name: "Frozen Peas",
-        price: 100,
-        unit: "500 g",
-        icon: "🫛",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Frozen Corn",
-        price: 100,
-        unit: "500 g",
-        icon: "🌽",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Frozen French Fries",
-        price: 150,
-        unit: "400 g",
-        icon: "🍟",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Frozen Paratha",
-        price: 120,
-        unit: "400 g",
-        icon: "🫓",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Frozen Samosa",
-        price: 150,
-        unit: "400 g",
-        icon: "🥟",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Frozen Momos",
-        price: 150,
-        unit: "250 g",
-        icon: "🥟",
-        badge: "FROZEN"
-    },
-
-    {
-        name: "Ice Cream Cups",
-        price: 40,
-        unit: "100 ml",
-        icon: "🍦",
-        badge: "POPULAR"
-    },
-
-    {
-        name: "Ice Cream Cones",
-        price: 50,
-        unit: "100 ml",
-        icon: "🍦"
-    },
-
-    {
-        name: "Ice Cream Family Pack",
-        price: 300,
-        unit: "1 L",
-        icon: "🍨",
-        badge: "FAMILY"
-    }
-
-];
-
-
-/* =========================================================
-   PRODUCT CARD
-========================================================= */
-
-function createProductCard(product, category) {
-
-    const badgeHTML = product.badge
-        ? `<span class="product-badge">${product.badge}</span>`
-        : "";
-
-    return `
-
-        <div
-            class="product-card"
-            data-category="${category}"
-            data-name="${product.name.toLowerCase()}"
-        >
-
-            ${badgeHTML}
+            ${
+                product.badge
+                ?
+                `<span class="product-badge">
+                    ${product.badge}
+                </span>`
+                :
+                ""
+            }
 
             <div class="product-image">
 
-                <div class="product-emoji">
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div
+                    class="product-emoji"
+                    style="display:none;"
+                >
                     ${product.icon}
                 </div>
 
             </div>
 
-
             <div class="product-info">
 
-                <h3>${product.name}</h3>
+                <h3>
+                    ${product.name}
+                </h3>
 
                 <p class="product-unit">
                     ${product.unit}
@@ -1795,11 +1055,13 @@ function createProductCard(product, category) {
                         ₹${product.price}
                     </div>
 
-
-                    <div class="quantity-box">
+                    <div
+                        class="quantity-box"
+                        onclick="event.stopPropagation()"
+                    >
 
                         <button
-                            onclick="changeQty(this, -1)"
+                            onclick="changeQty(this,-1)"
                         >
                             −
                         </button>
@@ -1807,7 +1069,7 @@ function createProductCard(product, category) {
                         <span>0</span>
 
                         <button
-                            onclick="changeQty(this, 1)"
+                            onclick="changeQty(this,1)"
                         >
                             +
                         </button>
@@ -1817,307 +1079,333 @@ function createProductCard(product, category) {
                 </div>
 
             </div>
+        `;
 
-        </div>
+        card.onclick = function() {
+            openProductDetails(card);
+        };
 
-    `;
-}
-
-
-/* =========================================================
-   RENDER PRODUCTS
-========================================================= */
-
-function renderProducts() {
-
-    document.getElementById("dairyProducts").innerHTML =
-        dairyProducts
-        .map(product => createProductCard(product, "dairy"))
-        .join("");
-
-
-    document.getElementById("energyProducts").innerHTML =
-        energyProducts
-        .map(product => createProductCard(product, "drinks"))
-        .join("");
-
-
-    document.getElementById("groceryProducts").innerHTML =
-        groceryProducts
-        .map(product => createProductCard(product, "grocery"))
-        .join("");
-
-}
-
-
-renderProducts();
-
-
-/* =========================================================
-   QUANTITY
-========================================================= */
-
-function changeQty(button, change) {
-
-    const quantitySpan =
-        button.parentElement.querySelector("span");
-
-    let quantity =
-        parseInt(quantitySpan.textContent);
-
-
-    quantity += change;
-
-
-    if (quantity < 0) {
-        quantity = 0;
-    }
-
-
-    if (quantity > 99) {
-        quantity = 99;
-    }
-
-
-    quantitySpan.textContent = quantity;
-
-    updateSelectedCount();
-
-}
-
-
-/* =========================================================
-   SELECTED PRODUCT COUNT
-========================================================= */
-
-function updateSelectedCount() {
-
-    const quantities =
-        document.querySelectorAll(".quantity-box span");
-
-
-    let count = 0;
-
-
-    quantities.forEach(span => {
-
-        const quantity =
-            parseInt(span.textContent);
-
-        if (quantity > 0) {
-            count++;
-        }
+        grid.appendChild(card);
 
     });
 
-
-    document.getElementById("selectedCount").textContent = count;
-
 }
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
+/* QUANTITY */
 
-let currentFilter = "all";
+function changeQty(button, change) {
 
+    const span =
+        button.parentElement.querySelector("span");
+
+    let quantity =
+        parseInt(span.textContent) || 0;
+
+    quantity += change;
+
+    if (quantity < 0) quantity = 0;
+
+    if (quantity > 99) quantity = 99;
+
+    span.textContent = quantity;
+}
+
+
+/* SEARCH */
 
 function searchProducts() {
 
-    const searchValue =
+    const search =
         document
         .getElementById("productSearch")
         .value
         .toLowerCase()
         .trim();
 
+    const activeButton =
+        document.querySelector(".filter-btn.active");
 
-    const cards =
-        document.querySelectorAll(".product-card");
+    const category =
+        activeButton
+        ? activeButton.dataset.category
+        : "all";
 
+    const filtered =
+        products.filter(product => {
 
-    let visibleCount = 0;
+            const matchesSearch =
+                product.name
+                .toLowerCase()
+                .includes(search);
 
+            const matchesCategory =
+                category === "all" ||
+                product.category === category;
 
-    cards.forEach(card => {
+            return matchesSearch &&
+                   matchesCategory;
 
-        const productName =
-            card.dataset.name;
+        });
 
-
-        const category =
-            card.dataset.category;
-
-
-        const matchesSearch =
-            productName.includes(searchValue);
-
-
-        const matchesCategory =
-            currentFilter === "all" ||
-            category === currentFilter;
-
-
-        if (
-            matchesSearch &&
-            matchesCategory
-        ) {
-
-            card.classList.remove("hidden-product");
-
-            visibleCount++;
-
-        } else {
-
-            card.classList.add("hidden-product");
-
-        }
-
-    });
-
-
-    updateCategorySections();
-
-    updateNoProducts(visibleCount);
-
+    renderProducts(filtered);
 }
 
 
-/* =========================================================
-   CATEGORY FILTER
-========================================================= */
+/* FILTER */
 
 function filterProducts(category, button) {
-
-    currentFilter = category;
-
 
     document
         .querySelectorAll(".filter-btn")
         .forEach(btn => {
-
             btn.classList.remove("active");
-
         });
-
 
     button.classList.add("active");
 
+    button.dataset.category = category;
 
     searchProducts();
-
 }
 
 
-/* =========================================================
-   CLEAR SEARCH
-========================================================= */
+/* POPUP */
 
-function clearSearch() {
+let selectedProductCard = null;
+
+
+function openProductDetails(card) {
+
+    selectedProductCard = card;
+
+    const name =
+        card.querySelector("h3").textContent.trim();
+
+    const unit =
+        card.querySelector(".product-unit").textContent.trim();
+
+    const price =
+        card.querySelector(".price").textContent.trim();
+
+    const icon =
+        card.querySelector(".product-emoji").textContent.trim();
+
+    const image =
+        card.querySelector(".product-image img");
+
+    const badge =
+        card.querySelector(".product-badge");
 
     document
-        .getElementById("productSearch")
-        .value = "";
-
-
-    searchProducts();
-
-}
-
-
-/* =========================================================
-   UPDATE CATEGORY SECTIONS
-========================================================= */
-
-function updateCategorySections() {
+        .getElementById("modalProductName")
+        .textContent = name;
 
     document
-        .querySelectorAll(".product-category")
-        .forEach(section => {
+        .getElementById("modalProductUnit")
+        .textContent = unit;
 
-            const cards =
-                section.querySelectorAll(".product-card");
+    document
+        .getElementById("modalProductPrice")
+        .textContent = price;
 
-
-            let visible = false;
-
-
-            cards.forEach(card => {
-
-                if (
-                    !card.classList.contains(
-                        "hidden-product"
-                    )
-                ) {
-
-                    visible = true;
-
-                }
-
-            });
+    document
+        .getElementById("modalQuantity")
+        .textContent =
+        card.querySelector(".quantity-box span").textContent;
 
 
-            if (visible) {
+    /* POPUP IMAGE */
 
-                section.classList.remove(
-                    "hidden-section"
-                );
+    const modalImage =
+        document.getElementById("modalProductImage");
 
-            } else {
+    const modalIcon =
+        document.getElementById("modalIcon");
 
-                section.classList.add(
-                    "hidden-section"
-                );
+    if (
+        image &&
+        image.getAttribute("src") &&
+        image.style.display !== "none"
+    ) {
 
-            }
+        modalImage.src =
+            image.getAttribute("src");
 
-        });
+        modalImage.style.display =
+            "block";
 
-}
+        modalImage.onerror = function() {
 
+            modalImage.style.display =
+                "none";
 
-/* =========================================================
-   NO PRODUCTS
-========================================================= */
+            modalIcon.style.display =
+                "flex";
 
-function updateNoProducts(count) {
+        };
 
-    const noProducts =
-        document.getElementById("noProducts");
-
-
-    if (count === 0) {
-
-        noProducts.classList.add("show");
+        modalIcon.style.display =
+            "none";
 
     } else {
 
-        noProducts.classList.remove("show");
+        modalImage.style.display =
+            "none";
 
+        modalIcon.style.display =
+            "flex";
+
+        modalIcon.textContent =
+            icon;
     }
 
+
+    /* BADGE */
+
+    document
+        .getElementById("modalBadge")
+        .innerHTML =
+        badge
+        ?
+        `<span class="product-badge">
+            ${badge.textContent}
+        </span>`
+        :
+        "";
+
+
+    document
+        .getElementById("productModal")
+        .classList.add("show");
+
+    document.body.style.overflow =
+        "hidden";
 }
 
 
-/* =========================================================
-   WHATSAPP ORDER
-========================================================= */
+/* CLOSE POPUP */
 
-function sendWhatsAppOrder() {
+function closeProductDetails() {
 
-    const phoneNumber =
+    document
+        .getElementById("productModal")
+        .classList.remove("show");
+
+    document.body.style.overflow = "";
+
+    selectedProductCard = null;
+}
+
+
+/* POPUP QUANTITY */
+
+function changePopupQty(change) {
+
+    if (!selectedProductCard) return;
+
+    const modalQuantity =
+        document.getElementById("modalQuantity");
+
+    let quantity =
+        parseInt(modalQuantity.textContent) || 0;
+
+    quantity += change;
+
+    if (quantity < 0) quantity = 0;
+
+    if (quantity > 99) quantity = 99;
+
+    modalQuantity.textContent =
+        quantity;
+
+    selectedProductCard
+        .querySelector(".quantity-box span")
+        .textContent =
+        quantity;
+}
+
+
+/* POPUP WHATSAPP */
+
+function orderPopupOnWhatsApp() {
+
+    if (!selectedProductCard) return;
+
+    const quantity =
+        parseInt(
+            document
+            .getElementById("modalQuantity")
+            .textContent
+        );
+
+    if (quantity <= 0) {
+
+        alert(
+            "Please select quantity first."
+        );
+
+        return;
+    }
+
+    const name =
+        selectedProductCard
+        .querySelector("h3")
+        .textContent
+        .trim();
+
+    const unit =
+        selectedProductCard
+        .querySelector(".product-unit")
+        .textContent
+        .trim();
+
+    const price =
+        parseInt(
+            selectedProductCard
+            .querySelector(".price")
+            .textContent
+            .replace("₹","")
+        );
+
+    const total =
+        price * quantity;
+
+    const message =
+
+`🛒 Sai Amrut Dairy Order
+
+Product: ${name}
+Unit: ${unit}
+Quantity: ${quantity}
+Price: ₹${price}
+Total: ₹${total}
+
+Please confirm my order and delivery details.`;
+
+    const phone =
         "7020034584";
 
+    const url =
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+
+/* ALL PRODUCTS WHATSAPP */
+
+function sendWhatsAppOrder() {
 
     const cards =
         document.querySelectorAll(".product-card");
 
-
     let orderItems = [];
 
     let total = 0;
-
 
     cards.forEach(card => {
 
@@ -2128,40 +1416,36 @@ function sendWhatsAppOrder() {
                 .textContent
             );
 
-
         if (quantity > 0) {
 
             const name =
-                card.querySelector("h3").textContent;
-
-
-            const unit =
-                card.querySelector(
-                    ".product-unit"
-                ).textContent;
-
-
-            const priceText =
-                card.querySelector(".price").textContent
-                .replace("₹", "")
+                card
+                .querySelector("h3")
+                .textContent
                 .trim();
 
+            const unit =
+                card
+                .querySelector(".product-unit")
+                .textContent
+                .trim();
 
             const price =
-                parseInt(priceText);
-
+                parseInt(
+                    card
+                    .querySelector(".price")
+                    .textContent
+                    .replace("₹","")
+                );
 
             const itemTotal =
                 price * quantity;
 
-
             total += itemTotal;
-
 
             orderItems.push(
                 `• ${name} (${unit}) × ${quantity} = ₹${itemTotal}`
             );
-
         }
 
     });
@@ -2174,227 +1458,49 @@ function sendWhatsAppOrder() {
         );
 
         return;
-
     }
 
 
-    let message =
-        "🛒 *Sai Amrut Dairy Order*%0A%0A";
+    const message =
 
+`🛒 Sai Amrut Dairy Order
 
-    message +=
-        orderItems.join("%0A");
+${orderItems.join("\n")}
 
+💰 Estimated Total: ₹${total}
 
-    message +=
-        `%0A%0A💰 *Estimated Total: ₹${total}*`;
+Please confirm my order and delivery details.`;
 
+    const phone =
+        "7020034584";
 
-    message +=
-        "%0A%0A📍 Please confirm my order and delivery details.";
-
-
-    const whatsappURL =
-        `https://wa.me/${phoneNumber}?text=${message}`;
-
+    const url =
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
     window.open(
-        whatsappURL,
+        url,
         "_blank"
     );
-
 }
 
 
-/* =========================================================
-   DARK MODE
-========================================================= */
+/* ESCAPE */
 
-function toggleDarkMode() {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    document
-        .body
-        .classList
-        .toggle("dark");
-
-
-    const button =
-        document.querySelector(".dark-btn");
-
-
-    if (
-        document.body.classList.contains("dark")
-    ) {
-
-        button.textContent = "☀️";
-
-        localStorage.setItem(
-            "saiAmrutDarkMode",
-            "true"
-        );
-
-    } else {
-
-        button.textContent = "🌙";
-
-        localStorage.setItem(
-            "saiAmrutDarkMode",
-            "false"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD DARK MODE
-========================================================= */
-
-if (
-    localStorage.getItem(
-        "saiAmrutDarkMode"
-    ) === "true"
-) {
-
-    document.body.classList.add("dark");
-
-    document.querySelector(
-        ".dark-btn"
-    ).textContent = "☀️";
-
-}
-
-
-/* =========================================================
-   LOADING SCREEN
-========================================================= */
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loadingScreen = document.getElementById("loading-screen");
-
-        if (loadingScreen) {
-            loadingScreen.style.display = "none";
-        }
-    });
-</script>
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".feature-card, .review-card, .contact-card, .gallery-card, .about-content, .delivery-content"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "revealed"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
-
-window.addEventListener(
-    "scroll",
-    function () {
-
-        const backToTop =
-            document.getElementById(
-                "backToTop"
-            );
-
-
-        if (
-            window.scrollY > 500
-        ) {
-
-            backToTop.classList.add(
-                "show"
-            );
-
-        } else {
-
-            backToTop.classList.remove(
-                "show"
-            );
-
+        if (event.key === "Escape") {
+            closeProductDetails();
         }
 
     }
 );
 
 
-/* =========================================================
-   NAVBAR SCROLL
-========================================================= */
+/* INITIAL LOAD */
 
-window.addEventListener(
-    "scroll",
-    function () {
-
-        const navbar =
-            document.querySelector(
-                ".navbar"
-            );
-
-
-        if (
-            window.scrollY > 30
-        ) {
-
-            navbar.classList.add(
-                "scrolled"
-            );
-
-        } else {
-
-            navbar.classList.remove(
-                "scrolled"
-            );
-
-        }
-
-    }
-);
+renderProducts();
 
 </script>
 
