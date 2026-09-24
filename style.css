@@ -510,3 +510,90 @@ transition: 0.3s;
 transform: translateY(-2px);
 opacity: 0.9;
 }
+/* =========================
+   CATEGORY TITLE
+========================= */
+
+.category-title {
+    text-align: center;
+    font-size: 28px;
+    margin: 50px 0 25px;
+}
+
+
+/* =========================
+   QUANTITY BOX
+========================= */
+
+.quantity-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.quantity-box button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background: #25D366;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.quantity-box button:hover {
+    opacity: 0.8;
+}
+
+.quantity-box input {
+    width: 55px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+/* =========================
+   WHATSAPP ORDER AREA
+========================= */
+
+.order-area {
+    text-align: center;
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 700px;
+    border-radius: 15px;
+    background: #f5f5f5;
+}
+
+.order-area h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.order-area p {
+    margin-bottom: 20px;
+}
+
+
+.whatsapp-order-btn {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: #25D366;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.whatsapp-order-btn:hover {
+    transform: scale(1.05);
+}
