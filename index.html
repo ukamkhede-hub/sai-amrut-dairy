@@ -1,402 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sai Amrut Dairy & Daily Needs</title>
+<title>Sai Amrut Dairy | Freshness You Can Trust</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7faf7;
-            color: #222;
-        }
+/* =========================
+   RESET
+========================= */
 
-        /* NAVBAR */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 6%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #15803d;
-        }
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7faf8;
+    color:#1f2937;
+    line-height:1.6;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            list-style: none;
-        }
+a{
+    text-decoration:none;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: #222;
-            font-weight: bold;
-        }
+button{
+    font-family:inherit;
+}
 
-        .nav-links a:hover {
-            color: #15803d;
-        }
 
-        /* HERO */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-        }
+/* =========================
+   NAVBAR
+========================= */
 
-        .hero-content h1 {
-            font-size: 50px;
-            color: #166534;
-            margin-bottom: 15px;
-        }
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(12px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 6%;
+    box-shadow:0 3px 20px rgba(0,0,0,0.08);
+}
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 25px;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:800;
+    color:#15803d;
+}
 
-        .hero-btn {
-            display: inline-block;
-            padding: 14px 25px;
-            background: #16a34a;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+.logo-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#dcfce7;
+    border-radius:50%;
+    font-size:24px;
+}
 
-        .hero-btn:hover {
-            background: #15803d;
-        }
+.nav-links{
+    display:flex;
+    gap:26px;
+    list-style:none;
+}
 
-        /* COMMON SECTION */
-        section {
-            padding: 70px 6%;
-        }
+.nav-links a{
+    color:#374151;
+    font-weight:600;
+    transition:0.3s;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 35px;
-            color: #166534;
-            margin-bottom: 40px;
-        }
+.nav-links a:hover{
+    color:#16a34a;
+}
 
-        /* PRODUCTS */
-        .category-title {
-            text-align: center;
-            margin: 45px 0 25px;
-            font-size: 28px;
-            color: #15803d;
-        }
+.nav-order{
+    background:#16a34a !important;
+    color:white !important;
+    padding:10px 18px;
+    border-radius:25px;
+}
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
-        }
+.nav-order:hover{
+    background:#15803d !important;
+}
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: 0.3s;
-        }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        }
+/* =========================
+   HERO
+========================= */
 
-        .product-emoji {
-            height: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f5f7f5;
-            border-radius: 10px;
-            font-size: 80px;
-            margin-bottom: 15px;
-        }
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+    position:relative;
+    overflow:hidden;
 
-        .product-card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
+    background:
+        radial-gradient(circle at 10% 20%,#bbf7d0 0,transparent 25%),
+        radial-gradient(circle at 90% 80%,#dcfce7 0,transparent 30%),
+        linear-gradient(135deg,#f0fdf4,#ffffff);
+}
 
-        .product-price {
-            color: #15803d;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+.hero::before{
+    content:"🥛";
+    position:absolute;
+    font-size:220px;
+    opacity:0.07;
+    left:-50px;
+    top:50px;
+}
 
-        .quantity-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
+.hero::after{
+    content:"🧀";
+    position:absolute;
+    font-size:180px;
+    opacity:0.07;
+    right:-20px;
+    bottom:20px;
+}
 
-        .quantity-box button {
-            width: 35px;
-            height: 35px;
-            border: none;
-            border-radius: 6px;
-            background: #16a34a;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
 
-        .quantity-box button:hover {
-            background: #15803d;
-        }
+.hero-badge{
+    display:inline-block;
+    background:#dcfce7;
+    color:#166534;
+    padding:9px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-        .qty-input {
-            width: 60px;
-            height: 35px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-        }
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1.1;
+    color:#14532d;
+    margin-bottom:20px;
+}
 
-        /* ORDER */
-        .order-area {
-            text-align: center;
-            margin-top: 45px;
-            padding: 35px 20px;
-            background: #dcfce7;
-            border-radius: 15px;
-        }
+.hero h1 span{
+    color:#16a34a;
+}
 
-        .order-area h3 {
-            font-size: 25px;
-            margin-bottom: 10px;
-            color: #166534;
-        }
+.hero p{
+    font-size:20px;
+    color:#4b5563;
+    max-width:700px;
+    margin:0 auto 30px;
+}
 
-        .whatsapp-order-btn {
-            margin-top: 20px;
-            border: none;
-            padding: 15px 30px;
-            background: #25D366;
-            color: white;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-        .whatsapp-order-btn:hover {
-            background: #128C7E;
-        }
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
 
-        /* INFO CARDS */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+.btn-primary{
+    background:#16a34a;
+    color:white;
+    box-shadow:0 8px 20px rgba(22,163,74,0.25);
+}
 
-        .info-card {
-            background: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:#15803d;
+}
 
-        .info-card .icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
+.btn-outline{
+    border:2px solid #16a34a;
+    color:#15803d;
+    background:white;
+}
 
-        .info-card h3 {
-            color: #166534;
-            margin-bottom: 10px;
-        }
+.btn-outline:hover{
+    background:#dcfce7;
+    transform:translateY(-3px);
+}
 
-        /* GALLERY */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
 
-        .gallery-item {
-            height: 180px;
-            background: #dcfce7;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 75px;
-        }
+/* =========================
+   STATS
+========================= */
 
-        /* ABOUT */
-        .about-box {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            text-align: center;
-            line-height: 1.8;
-            font-size: 17px;
-        }
+.stats{
+    max-width:1050px;
+    margin:-55px auto 0;
+    position:relative;
+    z-index:5;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.1);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:25px;
+}
 
-        /* CONTACT */
-        .contact-box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+.stat{
+    text-align:center;
+    border-right:1px solid #e5e7eb;
+}
 
-        .contact-box p {
-            margin: 12px 0;
-            font-size: 18px;
-        }
+.stat:last-child{
+    border-right:none;
+}
 
-        /* REVIEWS */
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
+.stat h3{
+    font-size:30px;
+    color:#15803d;
+}
 
-        .review-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+.stat p{
+    color:#6b7280;
+}
 
-        .stars {
-            color: #f59e0b;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
 
-        .review-card p {
-            line-height: 1.6;
-        }
+/* =========================
+   SECTIONS
+========================= */
 
-        /* FOOTER */
-        footer {
-            background: #14532d;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
+section{
+    padding:90px 6%;
+}
 
-        footer p {
-            margin: 8px;
-        }
+.section-header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 50px;
+}
 
-        /* MOBILE */
-        @media (max-width: 768px) {
+.section-tag{
+    color:#16a34a;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
 
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
+.section-title{
+    font-size:42px;
+    color:#14532d;
+    margin-bottom:12px;
+}
 
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
+.section-description{
+    color:#6b7280;
+    font-size:17px;
+}
 
-            .hero-content h1 {
-                font-size: 36px;
-            }
 
-            .hero-content p {
-                font-size: 17px;
-            }
+/* =========================
+   OFFER BANNER
+========================= */
 
-            .section-title {
-                font-size: 28px;
-            }
-        }
-    </style>
+.offer-banner{
+    max-width:1100px;
+    margin:30px auto 0;
+    padding:25px 30px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#166534,#22c55e);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 10px 30px rgba(22,101,52,0.2);
+}
+
+.offer-banner h3{
+    font-size:25px;
+}
+
+.offer-banner p{
+    opacity:0.9;
+}
+
+.offer-icon{
+    font-size:55px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.category-title{
+    text-align:center;
+    color:#166534;
+    font-size:30px;
+    margin:55px 0 25px;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.product-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    overflow:hidden;
+    padding-bottom:20px;
+    text-align:center;
+    transition:0.35s;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    border-color:#bbf7d0;
+}
+
+.product-emoji{
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#f0fdf4,#ecfdf5);
+    font-size:78px;
+}
+
+.product-card h3{
+    margin:18px 10px 7px;
+    font-size:19px;
+    color:#1f2937;
+}
+
+.product-price{
+    color:#15803d;
+    font-size:17px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+}
+
+.quantity-box button{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:10px;
+    background:#16a34a;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.quantity-box button:hover{
+    background:#15803d;
+    transform:scale(1.08);
+}
+
+.qty-input{
+    width:58px;
+    height:36px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
+.order-area{
+    margin:60px auto 0;
+    max-width:850px;
+    text-align:center;
+    padding:40px 25px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#ecfdf5,#dcfce7);
+    border:1px solid #bbf7d0;
+}
+
+.order-area h3{
+    color:#14532d;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.order-area p{
+    color:#4b5563;
+}
+
+.whatsapp-order-btn{
+    border:none;
+    margin-top:20px;
+    padding:16px 30px;
+    border-radius:30px;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(37,211,102,0.25);
+    transition:0.3s;
+}
+
+.whatsapp-order-btn:hover{
+    transform:translateY(-3px);
+    background:#128C7E;
+}
+
+
+/* =========================
+   WHY CHOOSE US
+========================= */
+
+.features{
+    background:#f0fdf4;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.feature-card{
+    background:white;
+    padding:35px 25px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-7px);
+}
+
+.feature-icon{
+    width:75px;
+    height:75px;
+    margin:0 auto 18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#dcfce7;
+    border-radius:50%;
+    font-size:38px;
+}
+
+.feature-card h3{
+    color:#14532d;
+    margin-bottom:8px;
+}
+
+.feature-card p{
+    color:#6b7280;
+}
+
+
+/* =========================
+   DELIVERY
+========================= */
+
+.delivery-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.delivery-card{
+    text-align:center;
+    padding:35px 25px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.delivery-number{
+    width:55px;
+    height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:#16a34a;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.delivery-card h3{
+    color:#14532d;
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#f9fafb;
+}
+
+.gallery-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.gallery-item{
+    height:170px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    background:linear-gradient(135deg,#dcfce7,#f0fdf4);
+    transition:0.3s;
+}
+
+.gallery-item:hover{
+    transform:scale(1.04);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box{
+    max-width:950px;
+    margin:auto;
+    padding:45px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.07);
+    text-align:center;
+}
+
+.about-box h3{
+    font-size:30px;
+    color:#14532d;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:#6b7280;
+    font-size:17px;
+}
+
+
+/* =========================
+   REVIEWS
+========================= */
+
+.review-section{
+    background:#f0fdf4;
+}
+
+.review-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.review-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.stars{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.review-card p{
+    color:#4b5563;
+    font-style:italic;
+    margin-bottom:18px;
+}
+
+.reviewer{
+    font-weight:bold;
+    color:#14532d;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.contact-card{
+    background:white;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.contact-card-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.contact-card h3{
+    color:#14532d;
+}
+
+.contact-card p{
+    color:#6b7280;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#052e16;
+    color:white;
+    padding:55px 6% 25px;
+}
+
+.footer-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand h2{
+    margin-bottom:12px;
+}
+
+.footer-brand p{
+    color:#bbf7d0;
+    max-width:400px;
+}
+
+.footer-column h3{
+    margin-bottom:15px;
+}
+
+.footer-column a{
+    display:block;
+    color:#d1fae5;
+    margin:8px 0;
+}
+
+.footer-column a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1100px;
+    margin:40px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    text-align:center;
+    color:#bbf7d0;
+}
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topButton{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:#16a34a;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    display:none;
+    z-index:999;
+}
+
+#topButton:hover{
+    background:#15803d;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+.fade-up{
+    animation:fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        gap:12px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat:nth-child(2){
+        border-right:none;
+    }
+
+    .stat{
+        padding:10px;
+    }
+
+    .delivery-grid,
+    .review-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+@media(max-width:650px){
+
+    .navbar{
+        padding:13px 4%;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        font-size:14px;
+    }
+
+    .nav-order{
+        display:none;
+    }
+
+    section{
+        padding:65px 5%;
+    }
+
+    .hero{
+        min-height:75vh;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .stats{
+        margin:0 15px;
+        grid-template-columns:1fr 1fr;
+        border-radius:15px;
+    }
+
+    .offer-banner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery-item{
+        height:140px;
+    }
+
+    .about-box{
+        padding:30px 20px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="logo">🥛 Sai Amrut Dairy</div>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+
+        <span class="logo-icon">🥛</span>
+
+        <span>Sai Amrut Dairy</span>
+
+    </a>
+
 
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#delivery">Delivery</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#products">Products</a>
+        </li>
+
+        <li>
+            <a href="#delivery">Delivery</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#reviews">Reviews</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
     </ul>
+
 </nav>
 
 
-<!-- HOME -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero" id="home">
 
-    <div class="hero-content">
+    <div class="hero-content fade-up">
 
-        <h1>🥛 Sai Amrut Dairy</h1>
+        <div class="hero-badge">
+            🥛 Fresh • Quality • Trusted
+        </div>
+
+        <h1>
+            Freshness You
+            <span>Can Trust.</span>
+        </h1>
 
         <p>
-            Fresh Dairy Products & Daily Needs at Your Doorstep
+            Fresh dairy products and daily essentials
+            delivered conveniently to your doorstep.
         </p>
 
-        <a href="#products" class="hero-btn">
-            🛒 View Products
-        </a>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="btn btn-primary">
+                🛒 Explore Products
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                📞 Contact Us
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- PRODUCTS -->
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <h3>100+</h3>
+        <p>Products</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h3>24/7</h3>
+        <p>Easy Ordering</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h3>100%</h3>
+        <p>Freshness Focus</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h3>❤️</h3>
+        <p>Customer First</p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
 <section id="products">
 
-    <h2 class="section-title">
-        🛍️ Our Products
-    </h2>
+    <div class="section-header">
+
+        <div class="section-tag">
+            Our Collection
+        </div>
+
+        <h2 class="section-title">
+            🛍️ Fresh & Daily Essentials
+        </h2>
+
+        <p class="section-description">
+            Choose from dairy products, beverages,
+            snacks, grocery items and frozen products.
+        </p>
+
+    </div>
+
+
+    <!-- OFFER -->
+
+    <div class="offer-banner">
+
+        <div>
+
+            <h3>
+                🔥 Daily Essentials at Your Convenience
+            </h3>
+
+            <p>
+                Select your quantity and place your complete
+                order directly through WhatsApp.
+            </p>
+
+        </div>
+
+        <div class="offer-icon">
+            🛒
+        </div>
+
+    </div>
+
 
 
     <!-- DAIRY -->
+
     <h3 class="category-title">
         🥛 Dairy Products
     </h3>
@@ -404,7 +1060,9 @@
     <div class="products-grid" id="dairyProducts"></div>
 
 
+
     <!-- ENERGY -->
+
     <h3 class="category-title">
         ⚡ Energy Drinks
     </h3>
@@ -412,7 +1070,9 @@
     <div class="products-grid" id="energyProducts"></div>
 
 
+
     <!-- GROCERY -->
+
     <h3 class="category-title">
         🛒 Grocery & Daily Needs
     </h3>
@@ -420,20 +1080,24 @@
     <div class="products-grid" id="groceryProducts"></div>
 
 
-    <!-- ORDER -->
+
+    <!-- WHATSAPP -->
+
     <div class="order-area">
 
-        <h3>📱 Place Your Order on WhatsApp</h3>
+        <h3>
+            📱 Ready to Order?
+        </h3>
 
         <p>
-            Select quantity of any products and click the button below.
+            Select quantities above and send your complete
+            order directly to WhatsApp.
         </p>
 
-        <p>
-            You can order multiple products together.
-        </p>
-
-        <button class="whatsapp-order-btn" onclick="sendWhatsAppOrder()">
+        <button
+            class="whatsapp-order-btn"
+            onclick="sendWhatsAppOrder()"
+        >
             💬 Order on WhatsApp
         </button>
 
@@ -442,37 +1106,180 @@
 </section>
 
 
-<!-- DELIVERY -->
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
+<section class="features" id="why">
+
+    <div class="section-header">
+
+        <div class="section-tag">
+            Why Us
+        </div>
+
+        <h2 class="section-title">
+            ⭐ Why Choose Sai Amrut?
+        </h2>
+
+        <p class="section-description">
+            Simple, convenient and customer-friendly shopping.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🥛
+            </div>
+
+            <h3>
+                Fresh Products
+            </h3>
+
+            <p>
+                Dairy and daily-use products with
+                freshness in mind.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🚚
+            </div>
+
+            <h3>
+                Convenient Delivery
+            </h3>
+
+            <p>
+                Get your selected products delivered
+                conveniently.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📱
+            </div>
+
+            <h3>
+                Easy Ordering
+            </h3>
+
+            <p>
+                Place multiple-product orders easily
+                through WhatsApp.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Customer First
+            </h3>
+
+            <p>
+                We focus on making everyday shopping
+                simple and convenient.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DELIVERY
+========================= -->
+
 <section id="delivery">
 
-    <h2 class="section-title">
-        🚚 Delivery
-    </h2>
+    <div class="section-header">
 
-    <div class="info-grid">
-
-        <div class="info-card">
-            <div class="icon">🏠</div>
-            <h3>Home Delivery</h3>
-            <p>
-                Get your daily needs delivered directly to your home.
-            </p>
+        <div class="section-tag">
+            How It Works
         </div>
 
-        <div class="info-card">
-            <div class="icon">⚡</div>
-            <h3>Fast Delivery</h3>
+        <h2 class="section-title">
+            🚚 Simple Delivery Process
+        </h2>
+
+    </div>
+
+
+    <div class="delivery-grid">
+
+
+        <div class="delivery-card">
+
+            <div class="delivery-number">
+                1
+            </div>
+
+            <h3>
+                Select Products
+            </h3>
+
             <p>
-                Quick and convenient local delivery service.
+                Choose products and required quantities.
             </p>
+
         </div>
 
-        <div class="info-card">
-            <div class="icon">📦</div>
-            <h3>Safe Packaging</h3>
+
+        <div class="delivery-card">
+
+            <div class="delivery-number">
+                2
+            </div>
+
+            <h3>
+                Place Order
+            </h3>
+
             <p>
-                Products are packed carefully for delivery.
+                Send your complete order through WhatsApp.
             </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <div class="delivery-number">
+                3
+            </div>
+
+            <h3>
+                Get Delivery
+            </h3>
+
+            <p>
+                Your order is prepared and delivered locally.
+            </p>
+
         </div>
 
     </div>
@@ -480,99 +1287,102 @@
 </section>
 
 
-<!-- WHY CHOOSE US -->
-<section id="why">
 
-    <h2 class="section-title">
-        ⭐ Why Choose Us
-    </h2>
+<!-- =========================
+     GALLERY
+========================= -->
 
-    <div class="info-grid">
+<section class="gallery" id="gallery">
 
-        <div class="info-card">
-            <div class="icon">🥛</div>
-            <h3>Fresh Products</h3>
-            <p>
-                Fresh dairy products and daily-use items.
-            </p>
+    <div class="section-header">
+
+        <div class="section-tag">
+            Our Gallery
         </div>
 
-        <div class="info-card">
-            <div class="icon">💰</div>
-            <h3>Affordable Prices</h3>
-            <p>
-                Reasonable demo prices for everyday products.
-            </p>
-        </div>
-
-        <div class="info-card">
-            <div class="icon">📱</div>
-            <h3>Easy Ordering</h3>
-            <p>
-                Order multiple products easily through WhatsApp.
-            </p>
-        </div>
-
-        <div class="info-card">
-            <div class="icon">❤️</div>
-            <h3>Customer Friendly</h3>
-            <p>
-                We focus on convenient service for customers.
-            </p>
-        </div>
+        <h2 class="section-title">
+            📸 Fresh Everyday
+        </h2>
 
     </div>
 
-</section>
-
-
-<!-- GALLERY -->
-<section id="gallery">
-
-    <h2 class="section-title">
-        📸 Gallery
-    </h2>
 
     <div class="gallery-grid">
 
         <div class="gallery-item">🥛</div>
+
         <div class="gallery-item">🧀</div>
+
+        <div class="gallery-item">🧈</div>
+
+        <div class="gallery-item">🥣</div>
+
         <div class="gallery-item">🍦</div>
-        <div class="gallery-item">🍪</div>
+
         <div class="gallery-item">🛒</div>
+
+        <div class="gallery-item">🍪</div>
+
+        <div class="gallery-item">🥤</div>
+
+        <div class="gallery-item">🍫</div>
+
+        <div class="gallery-item">🍜</div>
+
         <div class="gallery-item">🚚</div>
+
+        <div class="gallery-item">❤️</div>
 
     </div>
 
 </section>
 
 
-<!-- ABOUT -->
+
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about">
 
-    <h2 class="section-title">
-        👨‍👩‍👦 About Us
-    </h2>
+    <div class="section-header">
+
+        <div class="section-tag">
+            About Us
+        </div>
+
+        <h2 class="section-title">
+            🥛 Sai Amrut Dairy
+        </h2>
+
+    </div>
+
 
     <div class="about-box">
 
+        <h3>
+            Freshness You Can Trust
+        </h3>
+
         <p>
-            <strong>Sai Amrut Dairy & Daily Needs</strong>
-            is a demo online dairy and daily-needs store website.
+            Sai Amrut Dairy & Daily Needs is a demo online
+            dairy and daily-needs store designed to make
+            everyday shopping simple and convenient.
         </p>
 
         <br>
 
         <p>
-            We provide dairy products, beverages, grocery items,
-            snacks, frozen products and ice creams in one place.
+            Our website brings dairy products, beverages,
+            grocery items, snacks, frozen foods and ice creams
+            together in one place.
         </p>
 
         <br>
 
         <p>
-            Customers can select product quantities and send their
-            complete order directly through WhatsApp.
+            Customers can select the required quantity and
+            send their complete order directly through WhatsApp.
         </p>
 
     </div>
@@ -580,36 +1390,28 @@
 </section>
 
 
-<!-- CONTACT -->
-<section id="contact">
 
-    <h2 class="section-title">
-        📞 Contact Us
-    </h2>
+<!-- =========================
+     REVIEWS
+========================= -->
 
-    <div class="contact-box">
+<section class="review-section" id="reviews">
 
-        <p>📍 Location: Your Local Area</p>
+    <div class="section-header">
 
-        <p>📱 Phone: +91 XXXXX XXXXX</p>
+        <div class="section-tag">
+            Customer Feedback
+        </div>
 
-        <p>💬 WhatsApp: Available for Orders</p>
-
-        <p>🕐 Timing: 7:00 AM - 10:00 PM</p>
+        <h2 class="section-title">
+            💬 What Customers Say
+        </h2>
 
     </div>
 
-</section>
-
-
-<!-- REVIEWS -->
-<section id="reviews">
-
-    <h2 class="section-title">
-        ⭐ Customer Reviews
-    </h2>
 
     <div class="review-grid">
+
 
         <div class="review-card">
 
@@ -618,12 +1420,13 @@
             </div>
 
             <p>
-                "Fresh products and very easy ordering process."
+                "The ordering process is very simple and
+                convenient."
             </p>
 
-            <br>
-
-            <strong>— Customer</strong>
+            <div class="reviewer">
+                — Happy Customer
+            </div>
 
         </div>
 
@@ -635,12 +1438,13 @@
             </div>
 
             <p>
-                "I liked the WhatsApp ordering system. Very convenient."
+                "I can select multiple products and send
+                everything together on WhatsApp."
             </p>
 
-            <br>
-
-            <strong>— Customer</strong>
+            <div class="reviewer">
+                — Happy Customer
+            </div>
 
         </div>
 
@@ -652,12 +1456,13 @@
             </div>
 
             <p>
-                "Good collection of daily-use products."
+                "Good collection of daily-use products
+                in one place."
             </p>
 
-            <br>
-
-            <strong>— Customer</strong>
+            <div class="reviewer">
+                — Happy Customer
+            </div>
 
         </div>
 
@@ -666,512 +1471,695 @@
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="section-header">
+
+        <div class="section-tag">
+            Get In Touch
+        </div>
+
+        <h2 class="section-title">
+            📞 Contact Us
+        </h2>
+
+        <p class="section-description">
+            Have a question? Get in touch with us.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <div class="contact-card-icon">
+                📍
+            </div>
+
+            <h3>
+                Location
+            </h3>
+
+            <p>
+                Your Local Area
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-card-icon">
+                📱
+            </div>
+
+            <h3>
+                Phone
+            </h3>
+
+            <p>
+                +91 XXXXX XXXXX
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-card-icon">
+                💬
+            </div>
+
+            <h3>
+                WhatsApp
+            </h3>
+
+            <p>
+                Available for Orders
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    <h3>🥛 Sai Amrut Dairy & Daily Needs</h3>
+    <div class="footer-grid">
 
-    <p>
-        Fresh Products • Daily Needs • Easy Ordering
-    </p>
 
-    <p>
-        © 2026 Sai Amrut Dairy. All Rights Reserved.
-    </p>
+        <div class="footer-brand">
+
+            <h2>
+                🥛 Sai Amrut Dairy
+            </h2>
+
+            <p>
+                Fresh dairy products and daily essentials
+                made convenient for everyday shopping.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="#home">Home</a>
+
+            <a href="#products">Products</a>
+
+            <a href="#delivery">Delivery</a>
+
+            <a href="#about">About</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Connect
+            </h3>
+
+            <a href="#contact">Contact Us</a>
+
+            <a href="#reviews">Reviews</a>
+
+            <a href="#products">Order Now</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Sai Amrut Dairy & Daily Needs.
+        All Rights Reserved.
+
+    </div>
 
 </footer>
 
 
+
+<!-- BACK TO TOP -->
+
+<button id="topButton" onclick="goTop()">
+    ↑
+</button>
+
+
+
 <script>
 
-    /* ==========================================
-       PRODUCT DATA
-    ========================================== */
-
-    const dairyProducts = [
-
-        ["Milk", 70, "Liter"],
-        ["Paneer", 500, "Kg"],
-        ["Curd", 120, "Kg"],
-        ["Ghee", 1000, "Kg"],
-        ["Lassi", 100, "Liter"],
-        ["Cheese", 200, "Kg"],
-        ["Butter", 80, "100 g"],
-        ["Buttermilk", 30, "1 L"],
-        ["Cream", 100, "200 g"],
-        ["Flavoured Milk", 40, "200 ml"],
-        ["Flavoured Yogurt", 30, "100 g"],
-        ["Greek Yogurt", 60, "100 g"],
-        ["Milkshake", 40, "200 ml"],
-        ["Custard", 35, "100 g"],
-        ["Cheese Slices", 160, "200 g"],
-        ["Cheese Spread", 150, "200 g"],
-        ["Condensed Milk", 140, "200 g"]
-    ];
+/* ==========================================
+   PRODUCT DATA
+========================================== */
 
 
-    const energyProducts = [
+const dairyProducts = [
 
-        ["Red Bull", 125, "250 ml"],
-        ["Sting", 20, "250 ml"],
-        ["Monster Energy", 120, "250 ml"],
-        ["Hell Energy", 100, "250 ml"],
-        ["Adrenaline Rush", 100, "250 ml"],
-        ["Campa Energy", 50, "250 ml"],
-        ["Power Horse", 100, "250 ml"],
-        ["Tzinga", 50, "250 ml"],
-        ["Burn", 100, "250 ml"],
-        ["Gatorade", 50, "250 ml"]
-    ];
+    ["Milk",70,"Liter"],
+    ["Paneer",500,"Kg"],
+    ["Curd",120,"Kg"],
+    ["Ghee",1000,"Kg"],
+    ["Lassi",100,"Liter"],
+    ["Cheese",200,"Kg"],
+    ["Butter",80,"100 g"],
+    ["Buttermilk",30,"1 L"],
+    ["Cream",100,"200 g"],
+    ["Flavoured Milk",40,"200 ml"],
+    ["Flavoured Yogurt",30,"100 g"],
+    ["Greek Yogurt",60,"100 g"],
+    ["Milkshake",40,"200 ml"],
+    ["Custard",35,"100 g"],
+    ["Cheese Slices",160,"200 g"],
+    ["Cheese Spread",150,"200 g"],
+    ["Condensed Milk",140,"200 g"]
 
-
-    const groceryProducts = [
-
-        ["Oats", 180, "500 g"],
-        ["Corn Flakes", 220, "500 g"],
-        ["Nutella", 350, "350 g"],
-        ["Maggi / Instant Noodles", 15, "70 g"],
-        ["Chips", 20, "Pack"],
-        ["Namkeen", 60, "200 g"],
-        ["Bhujia", 60, "200 g"],
-        ["Kurkure", 20, "Pack"],
-        ["Masala Packets", 50, "Pack"],
-        ["Toffee / Candy", 50, "100 g"],
-        ["Biscuits", 30, "100 g"],
-        ["Tea Packets", 120, "250 g"],
-        ["Coffee", 180, "200 g"],
-        ["Pickle / Packaged Food", 100, "Pack"],
-        ["Frozen Food Items", 150, "Pack"],
-        ["Ice Cream / Frozen Product", 100, "Pack"],
-
-        ["Cream Biscuits", 30, "100 g"],
-        ["Glucose Biscuits", 20, "100 g"],
-        ["Salt Biscuits", 25, "100 g"],
-        ["Cookies", 40, "100 g"],
-        ["Rusk", 50, "200 g"],
-        ["Bread", 45, "400 g"],
-        ["Buns", 40, "4 pcs"],
-        ["Cake", 80, "200 g"],
-        ["Muffins", 80, "4 pcs"],
-
-        ["Dairy Milk", 50, "50 g"],
-        ["KitKat", 40, "41.5 g"],
-        ["5 Star", 50, "45 g"],
-        ["Perk", 40, "40 g"],
-        ["Munch", 40, "42 g"],
-        ["Gems", 20, "22 g"],
-        ["Eclairs", 50, "100 g"],
-        ["Lollipop", 20, "10 pcs"],
-
-        ["Coca-Cola", 40, "300 ml"],
-        ["Pepsi", 40, "300 ml"],
-        ["Sprite", 40, "300 ml"],
-        ["Fanta", 40, "300 ml"],
-        ["Thums Up", 40, "300 ml"],
-        ["Limca", 40, "300 ml"],
-        ["Maaza", 40, "600 ml"],
-        ["Slice", 40, "600 ml"],
-        ["Frooti", 40, "600 ml"],
-        ["Appy Fizz", 40, "600 ml"],
-        ["Real Juice", 130, "1 L"],
-        ["Paper Boat Drinks", 40, "200 ml"],
-        ["Packaged Drinking Water", 20, "1 L"],
-        ["Soda", 25, "750 ml"],
-        ["Coconut Water", 50, "200 ml"],
-        ["Glucose Drink", 100, "200 g"],
-        ["Lemon Drink", 20, "250 ml"],
-
-        ["Yippee Noodles", 15, "70 g"],
-        ["Top Ramen", 15, "70 g"],
-        ["Pasta", 80, "500 g"],
-        ["Vermicelli / Sevai", 70, "500 g"],
-        ["Ready-to-Eat Poha", 60, "200 g"],
-        ["Ready-to-Eat Upma", 60, "200 g"],
-        ["Soup Packets", 50, "50 g"],
-
-        ["Tomato Ketchup", 120, "500 g"],
-        ["Mayonnaise", 100, "250 g"],
-        ["Jam", 150, "500 g"],
-        ["Peanut Butter", 200, "340 g"],
-        ["Pasta Sauce", 120, "200 g"],
-        ["Soy Sauce", 70, "200 ml"],
-        ["Vinegar", 60, "500 ml"],
-
-        ["Peanuts", 60, "200 g"],
-        ["Roasted Chana", 60, "200 g"],
-        ["Cashews", 120, "100 g"],
-        ["Almonds", 110, "100 g"],
-        ["Raisins", 60, "100 g"],
-        ["Mixed Dry Fruits", 250, "200 g"],
-
-        ["Frozen Peas", 100, "500 g"],
-        ["Frozen Corn", 100, "500 g"],
-        ["Frozen French Fries", 150, "400 g"],
-        ["Frozen Paratha", 120, "400 g"],
-        ["Frozen Samosa", 150, "400 g"],
-        ["Frozen Momos", 150, "250 g"],
-
-        ["Ice Cream Cups", 40, "100 ml"],
-        ["Ice Cream Cones", 50, "100 ml"],
-        ["Ice Cream Family Pack", 300, "1 L"]
-    ];
+];
 
 
-    /* ==========================================
-       PRODUCT EMOJI
-    ========================================== */
+const energyProducts = [
 
-    function getProductEmoji(name) {
+    ["Red Bull",125,"250 ml"],
+    ["Sting",20,"250 ml"],
+    ["Monster Energy",120,"250 ml"],
+    ["Hell Energy",100,"250 ml"],
+    ["Adrenaline Rush",100,"250 ml"],
+    ["Campa Energy",50,"250 ml"],
+    ["Power Horse",100,"250 ml"],
+    ["Tzinga",50,"250 ml"],
+    ["Burn",100,"250 ml"],
+    ["Gatorade",50,"250 ml"]
 
-        const n = name.toLowerCase();
-
-        if (n.includes("milk") && !n.includes("milkshake")) return "🥛";
-        if (n.includes("paneer")) return "🧀";
-        if (n.includes("curd")) return "🥣";
-        if (n.includes("ghee")) return "🫙";
-        if (n.includes("lassi")) return "🥤";
-        if (n.includes("cheese")) return "🧀";
-        if (n.includes("butter")) return "🧈";
-        if (n.includes("buttermilk")) return "🥛";
-        if (n.includes("cream")) return "🥛";
-        if (n.includes("yogurt")) return "🥣";
-        if (n.includes("milkshake")) return "🥤";
-        if (n.includes("custard")) return "🍮";
-        if (n.includes("condensed")) return "🥛";
-
-        if (
-            n.includes("red bull") ||
-            n.includes("sting") ||
-            n.includes("monster") ||
-            n.includes("hell energy") ||
-            n.includes("adrenaline") ||
-            n.includes("campa energy") ||
-            n.includes("power horse") ||
-            n.includes("tzinga") ||
-            n.includes("burn") ||
-            n.includes("gatorade")
-        ) return "⚡";
-
-        if (n.includes("oats")) return "🌾";
-        if (n.includes("corn flakes")) return "🥣";
-        if (n.includes("nutella")) return "🍫";
-        if (n.includes("noodles") || n.includes("maggi")) return "🍜";
-        if (n.includes("chips")) return "🥔";
-        if (n.includes("namkeen")) return "🥨";
-        if (n.includes("bhujia")) return "🥨";
-        if (n.includes("kurkure")) return "🥨";
-        if (n.includes("masala")) return "🌶️";
-        if (n.includes("toffee") || n.includes("candy")) return "🍬";
-        if (n.includes("biscuit")) return "🍪";
-        if (n.includes("cookies")) return "🍪";
-        if (n.includes("tea")) return "🍵";
-        if (n.includes("coffee")) return "☕";
-        if (n.includes("pickle")) return "🥒";
-        if (n.includes("frozen")) return "❄️";
-        if (n.includes("ice cream")) return "🍦";
-
-        if (n.includes("rusk")) return "🍞";
-        if (n.includes("bread")) return "🍞";
-        if (n.includes("bun")) return "🥯";
-        if (n.includes("cake")) return "🍰";
-        if (n.includes("muffin")) return "🧁";
-
-        if (
-            n.includes("dairy milk") ||
-            n.includes("kitkat") ||
-            n.includes("5 star") ||
-            n.includes("perk") ||
-            n.includes("munch") ||
-            n.includes("gems") ||
-            n.includes("eclairs")
-        ) return "🍫";
-
-        if (n.includes("lollipop")) return "🍭";
-
-        if (
-            n.includes("coca") ||
-            n.includes("pepsi") ||
-            n.includes("sprite") ||
-            n.includes("fanta") ||
-            n.includes("thums") ||
-            n.includes("limca")
-        ) return "🥤";
-
-        if (
-            n.includes("maaza") ||
-            n.includes("slice") ||
-            n.includes("frooti") ||
-            n.includes("appy") ||
-            n.includes("juice")
-        ) return "🧃";
-
-        if (n.includes("water")) return "💧";
-        if (n.includes("soda")) return "🥤";
-        if (n.includes("coconut")) return "🥥";
-        if (n.includes("glucose")) return "🥤";
-        if (n.includes("lemon")) return "🍋";
-
-        if (n.includes("pasta")) return "🍝";
-        if (n.includes("vermicelli") || n.includes("sevai")) return "🍜";
-        if (n.includes("poha")) return "🍚";
-        if (n.includes("upma")) return "🍚";
-        if (n.includes("soup")) return "🍲";
-
-        if (n.includes("ketchup")) return "🍅";
-        if (n.includes("mayonnaise")) return "🥫";
-        if (n.includes("jam")) return "🍓";
-        if (n.includes("peanut butter")) return "🥜";
-        if (n.includes("pasta sauce")) return "🍝";
-        if (n.includes("soy sauce")) return "🥫";
-        if (n.includes("vinegar")) return "🫙";
-
-        if (n.includes("peanuts")) return "🥜";
-        if (n.includes("chana")) return "🥜";
-        if (n.includes("cashews")) return "🥜";
-        if (n.includes("almonds")) return "🥜";
-        if (n.includes("raisins")) return "🍇";
-        if (n.includes("dry fruits")) return "🥜";
-
-        return "🛒";
-    }
+];
 
 
-    /* ==========================================
-       CREATE PRODUCT CARD
-    ========================================== */
+const groceryProducts = [
 
-    function createProductCard(name, price, unit) {
+    ["Oats",180,"500 g"],
+    ["Corn Flakes",220,"500 g"],
+    ["Nutella",350,"350 g"],
+    ["Maggi / Instant Noodles",15,"70 g"],
+    ["Chips",20,"Pack"],
+    ["Namkeen",60,"200 g"],
+    ["Bhujia",60,"200 g"],
+    ["Kurkure",20,"Pack"],
+    ["Masala Packets",50,"Pack"],
+    ["Toffee / Candy",50,"100 g"],
+    ["Biscuits",30,"100 g"],
+    ["Tea Packets",120,"250 g"],
+    ["Coffee",180,"200 g"],
+    ["Pickle / Packaged Food",100,"Pack"],
+    ["Frozen Food Items",150,"Pack"],
+    ["Ice Cream / Frozen Product",100,"Pack"],
 
-        return `
-            <div
-                class="product-card"
-                data-name="${name}"
-                data-price="${price}"
-            >
+    ["Cream Biscuits",30,"100 g"],
+    ["Glucose Biscuits",20,"100 g"],
+    ["Salt Biscuits",25,"100 g"],
+    ["Cookies",40,"100 g"],
+    ["Rusk",50,"200 g"],
+    ["Bread",45,"400 g"],
+    ["Buns",40,"4 pcs"],
+    ["Cake",80,"200 g"],
+    ["Muffins",80,"4 pcs"],
 
-                <div class="product-emoji">
-                    ${getProductEmoji(name)}
-                </div>
+    ["Dairy Milk",50,"50 g"],
+    ["KitKat",40,"41.5 g"],
+    ["5 Star",50,"45 g"],
+    ["Perk",40,"40 g"],
+    ["Munch",40,"42 g"],
+    ["Gems",20,"22 g"],
+    ["Eclairs",50,"100 g"],
+    ["Lollipop",20,"10 pcs"],
 
-                <h3>${name}</h3>
+    ["Coca-Cola",40,"300 ml"],
+    ["Pepsi",40,"300 ml"],
+    ["Sprite",40,"300 ml"],
+    ["Fanta",40,"300 ml"],
+    ["Thums Up",40,"300 ml"],
+    ["Limca",40,"300 ml"],
+    ["Maaza",40,"600 ml"],
+    ["Slice",40,"600 ml"],
+    ["Frooti",40,"600 ml"],
+    ["Appy Fizz",40,"600 ml"],
+    ["Real Juice",130,"1 L"],
+    ["Paper Boat Drinks",40,"200 ml"],
+    ["Packaged Drinking Water",20,"1 L"],
+    ["Soda",25,"750 ml"],
+    ["Coconut Water",50,"200 ml"],
+    ["Glucose Drink",100,"200 g"],
+    ["Lemon Drink",20,"250 ml"],
 
-                <div class="product-price">
-                    ₹${price} / ${unit}
-                </div>
+    ["Yippee Noodles",15,"70 g"],
+    ["Top Ramen",15,"70 g"],
+    ["Pasta",80,"500 g"],
+    ["Vermicelli / Sevai",70,"500 g"],
+    ["Ready-to-Eat Poha",60,"200 g"],
+    ["Ready-to-Eat Upma",60,"200 g"],
+    ["Soup Packets",50,"50 g"],
 
-                <div class="quantity-box">
+    ["Tomato Ketchup",120,"500 g"],
+    ["Mayonnaise",100,"250 g"],
+    ["Jam",150,"500 g"],
+    ["Peanut Butter",200,"340 g"],
+    ["Pasta Sauce",120,"200 g"],
+    ["Soy Sauce",70,"200 ml"],
+    ["Vinegar",60,"500 ml"],
 
-                    <button onclick="changeQty(this, -1)">
-                        −
-                    </button>
+    ["Peanuts",60,"200 g"],
+    ["Roasted Chana",60,"200 g"],
+    ["Cashews",120,"100 g"],
+    ["Almonds",110,"100 g"],
+    ["Raisins",60,"100 g"],
+    ["Mixed Dry Fruits",250,"200 g"],
 
-                    <input
-                        type="number"
-                        class="qty-input"
-                        value="0"
-                        min="0"
-                    >
+    ["Frozen Peas",100,"500 g"],
+    ["Frozen Corn",100,"500 g"],
+    ["Frozen French Fries",150,"400 g"],
+    ["Frozen Paratha",120,"400 g"],
+    ["Frozen Samosa",150,"400 g"],
+    ["Frozen Momos",150,"250 g"],
 
-                    <button onclick="changeQty(this, 1)">
-                        +
-                    </button>
+    ["Ice Cream Cups",40,"100 ml"],
+    ["Ice Cream Cones",50,"100 ml"],
+    ["Ice Cream Family Pack",300,"1 L"]
 
-                </div>
+];
+
+
+/* ==========================================
+   EMOJI
+========================================== */
+
+
+function getProductEmoji(name){
+
+    const n=name.toLowerCase();
+
+    if(n.includes("milk") && !n.includes("milkshake")) return "🥛";
+    if(n.includes("paneer")) return "🧀";
+    if(n.includes("curd")) return "🥣";
+    if(n.includes("ghee")) return "🫙";
+    if(n.includes("lassi")) return "🥤";
+    if(n.includes("cheese")) return "🧀";
+    if(n.includes("butter")) return "🧈";
+    if(n.includes("buttermilk")) return "🥛";
+    if(n.includes("cream")) return "🥛";
+    if(n.includes("yogurt")) return "🥣";
+    if(n.includes("milkshake")) return "🥤";
+    if(n.includes("custard")) return "🍮";
+    if(n.includes("condensed")) return "🥛";
+
+    if(
+        n.includes("red bull") ||
+        n.includes("sting") ||
+        n.includes("monster") ||
+        n.includes("hell energy") ||
+        n.includes("adrenaline") ||
+        n.includes("campa energy") ||
+        n.includes("power horse") ||
+        n.includes("tzinga") ||
+        n.includes("burn") ||
+        n.includes("gatorade")
+    ) return "⚡";
+
+    if(n.includes("oats")) return "🌾";
+    if(n.includes("corn flakes")) return "🥣";
+    if(n.includes("nutella")) return "🍫";
+    if(n.includes("noodles") || n.includes("maggi")) return "🍜";
+    if(n.includes("chips")) return "🥔";
+    if(n.includes("namkeen")) return "🥨";
+    if(n.includes("bhujia")) return "🥨";
+    if(n.includes("kurkure")) return "🥨";
+    if(n.includes("masala")) return "🌶️";
+    if(n.includes("toffee") || n.includes("candy")) return "🍬";
+    if(n.includes("biscuit")) return "🍪";
+    if(n.includes("cookies")) return "🍪";
+    if(n.includes("tea")) return "🍵";
+    if(n.includes("coffee")) return "☕";
+    if(n.includes("pickle")) return "🥒";
+    if(n.includes("frozen")) return "❄️";
+    if(n.includes("ice cream")) return "🍦";
+
+    if(n.includes("rusk")) return "🍞";
+    if(n.includes("bread")) return "🍞";
+    if(n.includes("bun")) return "🥯";
+    if(n.includes("cake")) return "🍰";
+    if(n.includes("muffin")) return "🧁";
+
+    if(
+        n.includes("dairy milk") ||
+        n.includes("kitkat") ||
+        n.includes("5 star") ||
+        n.includes("perk") ||
+        n.includes("munch") ||
+        n.includes("gems") ||
+        n.includes("eclairs")
+    ) return "🍫";
+
+    if(n.includes("lollipop")) return "🍭";
+
+    if(
+        n.includes("coca") ||
+        n.includes("pepsi") ||
+        n.includes("sprite") ||
+        n.includes("fanta") ||
+        n.includes("thums") ||
+        n.includes("limca")
+    ) return "🥤";
+
+    if(
+        n.includes("maaza") ||
+        n.includes("slice") ||
+        n.includes("frooti") ||
+        n.includes("appy") ||
+        n.includes("juice")
+    ) return "🧃";
+
+    if(n.includes("water")) return "💧";
+    if(n.includes("soda")) return "🥤";
+    if(n.includes("coconut")) return "🥥";
+    if(n.includes("glucose")) return "🥤";
+    if(n.includes("lemon")) return "🍋";
+
+    if(n.includes("pasta")) return "🍝";
+    if(n.includes("vermicelli") || n.includes("sevai")) return "🍜";
+    if(n.includes("poha")) return "🍚";
+    if(n.includes("upma")) return "🍚";
+    if(n.includes("soup")) return "🍲";
+
+    if(n.includes("ketchup")) return "🍅";
+    if(n.includes("mayonnaise")) return "🥫";
+    if(n.includes("jam")) return "🍓";
+    if(n.includes("peanut butter")) return "🥜";
+    if(n.includes("pasta sauce")) return "🍝";
+    if(n.includes("soy sauce")) return "🥫";
+    if(n.includes("vinegar")) return "🫙";
+
+    if(n.includes("peanuts")) return "🥜";
+    if(n.includes("chana")) return "🥜";
+    if(n.includes("cashews")) return "🥜";
+    if(n.includes("almonds")) return "🥜";
+    if(n.includes("raisins")) return "🍇";
+    if(n.includes("dry fruits")) return "🥜";
+
+    return "🛒";
+}
+
+
+/* ==========================================
+   CREATE PRODUCT
+========================================== */
+
+
+function createProductCard(name,price,unit){
+
+    return `
+
+        <div
+            class="product-card"
+            data-name="${name}"
+            data-price="${price}"
+        >
+
+            <div class="product-emoji">
+
+                ${getProductEmoji(name)}
 
             </div>
-        `;
+
+
+            <h3>
+                ${name}
+            </h3>
+
+
+            <div class="product-price">
+
+                ₹${price} / ${unit}
+
+            </div>
+
+
+            <div class="quantity-box">
+
+                <button
+                    onclick="changeQty(this,-1)"
+                >
+                    −
+                </button>
+
+
+                <input
+                    type="number"
+                    class="qty-input"
+                    value="0"
+                    min="0"
+                >
+
+
+                <button
+                    onclick="changeQty(this,1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==========================================
+   RENDER PRODUCTS
+========================================== */
+
+
+function renderProducts(){
+
+    document.getElementById("dairyProducts").innerHTML =
+
+        dairyProducts
+        .map(p =>
+            createProductCard(p[0],p[1],p[2])
+        )
+        .join("");
+
+
+    document.getElementById("energyProducts").innerHTML =
+
+        energyProducts
+        .map(p =>
+            createProductCard(p[0],p[1],p[2])
+        )
+        .join("");
+
+
+    document.getElementById("groceryProducts").innerHTML =
+
+        groceryProducts
+        .map(p =>
+            createProductCard(p[0],p[1],p[2])
+        )
+        .join("");
+
+}
+
+
+/* ==========================================
+   QUANTITY
+========================================== */
+
+
+function changeQty(button,change){
+
+    const card =
+        button.closest(".product-card");
+
+    const input =
+        card.querySelector(".qty-input");
+
+    let quantity =
+        parseInt(input.value) || 0;
+
+    quantity += change;
+
+    if(quantity < 0){
+
+        quantity = 0;
+
     }
 
+    input.value = quantity;
 
-    /* ==========================================
-       RENDER PRODUCTS
-    ========================================== */
-
-    function renderProducts() {
-
-        const dairyContainer =
-            document.getElementById("dairyProducts");
-
-        const energyContainer =
-            document.getElementById("energyProducts");
-
-        const groceryContainer =
-            document.getElementById("groceryProducts");
+}
 
 
-        dairyContainer.innerHTML =
-            dairyProducts
-            .map(product =>
-                createProductCard(
-                    product[0],
-                    product[1],
-                    product[2]
-                )
-            )
-            .join("");
+/* ==========================================
+   WHATSAPP ORDER
+========================================== */
 
 
-        energyContainer.innerHTML =
-            energyProducts
-            .map(product =>
-                createProductCard(
-                    product[0],
-                    product[1],
-                    product[2]
-                )
-            )
-            .join("");
+function sendWhatsAppOrder(){
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    let orderItems = [];
+
+    let total = 0;
 
 
-        groceryContainer.innerHTML =
-            groceryProducts
-            .map(product =>
-                createProductCard(
-                    product[0],
-                    product[1],
-                    product[2]
-                )
-            )
-            .join("");
-    }
+    products.forEach(product => {
+
+        const quantity =
+            parseInt(
+                product.querySelector(".qty-input").value
+            ) || 0;
 
 
-    /* ==========================================
-       QUANTITY FUNCTION
-       ONLY ONE changeQty()
-    ========================================== */
+        if(quantity > 0){
 
-    function changeQty(button, change) {
+            const name =
+                product.dataset.name;
 
-        const card =
-            button.closest(".product-card");
+            const price =
+                parseInt(product.dataset.price);
 
-        const input =
-            card.querySelector(".qty-input");
+            const itemTotal =
+                price * quantity;
 
-        let quantity =
-            parseInt(input.value) || 0;
-
-        quantity = quantity + change;
-
-        if (quantity < 0) {
-            quantity = 0;
-        }
-
-        input.value = quantity;
-    }
+            total += itemTotal;
 
 
-    /* ==========================================
-       WHATSAPP ORDER
-    ========================================== */
-
-    function sendWhatsAppOrder() {
-
-        const products =
-            document.querySelectorAll(".product-card");
-
-        let orderItems = [];
-
-        let total = 0;
-
-
-        products.forEach(product => {
-
-            const input =
-                product.querySelector(".qty-input");
-
-            const quantity =
-                parseInt(input.value) || 0;
-
-
-            if (quantity > 0) {
-
-                const name =
-                    product.dataset.name;
-
-                const price =
-                    parseInt(product.dataset.price);
-
-                const itemTotal =
-                    price * quantity;
-
-                total =
-                    total + itemTotal;
-
-
-                orderItems.push(
-                    `${name} × ${quantity} = ₹${itemTotal}`
-                );
-            }
-
-        });
-
-
-        if (orderItems.length === 0) {
-
-            alert(
-                "Please select at least one product quantity."
+            orderItems.push(
+                `${name} × ${quantity} = ₹${itemTotal}`
             );
 
-            return;
         }
 
-
-        /*
-            IMPORTANT:
-            Replace this number with your
-            real WhatsApp number.
-
-            Example:
-            919876543210
-        */
-
-        const phoneNumber =
-            "7020034584";
+    });
 
 
-        let message =
-            "Hello Sai Amrut Dairy 👋\n\n";
+    if(orderItems.length === 0){
 
-        message +=
-            "I want to place an order:\n\n";
-
-
-        orderItems.forEach((item, index) => {
-
-            message +=
-                `${index + 1}. ${item}\n`;
-
-        });
-
-
-        message +=
-            `\nEstimated Total: ₹${total}`;
-
-        message +=
-            "\n\nPlease confirm my order. Thank you!";
-
-
-        const whatsappURL =
-            "https://wa.me/" +
-            phoneNumber +
-            "?text=" +
-            encodeURIComponent(message);
-
-
-        window.open(
-            whatsappURL,
-            "_blank"
+        alert(
+            "Please select at least one product quantity."
         );
+
+        return;
+
     }
 
 
-    /* ==========================================
-       START WEBSITE
-    ========================================== */
+    /* CHANGE YOUR WHATSAPP NUMBER HERE */
 
-    renderProducts();
+    const phoneNumber =
+        "7020034584";
+
+
+    let message =
+        "Hello Sai Amrut Dairy 👋\n\n";
+
+    message +=
+        "I want to place an order:\n\n";
+
+
+    orderItems.forEach((item,index)=>{
+
+        message +=
+            `${index + 1}. ${item}\n`;
+
+    });
+
+
+    message +=
+        `\nEstimated Total: ₹${total}`;
+
+    message +=
+        "\n\nPlease confirm my order. Thank you!";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+/* ==========================================
+   BACK TO TOP
+========================================== */
+
+
+const topButton =
+    document.getElementById("topButton");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 400){
+
+        topButton.style.display = "block";
+
+    }else{
+
+        topButton.style.display = "none";
+
+    }
+
+});
+
+
+function goTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   START
+========================================== */
+
+
+renderProducts();
 
 </script>
 
