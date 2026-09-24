@@ -1,392 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sai Amrut Dairy</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f7f9fb;
-    color:#222;
-}
-
-/* NAVBAR */
-
-.navbar{
-    background:#0b7a3b;
-    padding:15px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    color:white;
-    font-size:25px;
-    font-weight:bold;
-}
-
-.navbar ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-}
-
-.navbar ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.navbar ul li a:hover{
-    color:#ffe600;
-}
-
-/* HERO */
-
-.hero{
-    min-height:500px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-
-    background:
-    linear-gradient(rgba(0,80,40,.70),rgba(0,80,40,.70)),
-    url("https://loremflickr.com/1600/700/dairy,milk?lock=1");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero-content{
-    color:white;
-}
-
-.hero h1{
-    font-size:52px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:21px;
-    margin-bottom:25px;
-}
-
-.hero-btn{
-    display:inline-block;
-    background:#ffe600;
-    color:#111;
-    padding:14px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-/* COMMON */
-
-section{
-    padding:60px 6%;
-}
-
-.section-title{
-    text-align:center;
-    color:#087a3b;
-    font-size:35px;
-    margin-bottom:35px;
-}
-
-.category-title{
-    color:#087a3b;
-    margin:35px 0 20px;
-    font-size:27px;
-}
-
-/* PRODUCTS */
-
-.products-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-}
-
-.product-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,.10);
-    transition:.3s;
-}
-
-.product-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
-}
-
-.product-card img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    display:block;
-}
-
-.product-info{
-    padding:17px;
-}
-
-.product-info h3{
-    color:#087a3b;
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-.product-info p{
-    color:#555;
-    margin-bottom:7px;
-}
-
-.price{
-    font-size:19px;
-    font-weight:bold;
-    color:#111;
-}
-
-.quantity-box{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin-top:15px;
-}
-
-.quantity-box button{
-    width:35px;
-    height:35px;
-    border:none;
-    background:#087a3b;
-    color:white;
-    font-size:21px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-.quantity-box input{
-    width:55px;
-    height:35px;
-    text-align:center;
-    border:1px solid #bbb;
-    border-radius:6px;
-    font-size:17px;
-}
-
-/* ORDER */
-
-.order-area{
-    text-align:center;
-    margin-top:40px;
-}
-
-.whatsapp-order-btn{
-    background:#25D366;
-    color:white;
-    border:none;
-    padding:17px 30px;
-    border-radius:10px;
-    font-size:19px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-.whatsapp-order-btn:hover{
-    background:#1ebe5b;
-}
-
-/* DELIVERY */
-
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:25px;
-}
-
-.info-card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-}
-
-.info-card h3{
-    color:#087a3b;
-    margin-bottom:12px;
-}
-
-/* GALLERY */
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.gallery-grid img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
-/* ABOUT */
-
-.about{
-    background:white;
-    text-align:center;
-}
-
-.about p{
-    max-width:850px;
-    margin:auto;
-    line-height:1.8;
-    font-size:17px;
-}
-
-/* CONTACT */
-
-.contact-box{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-    text-align:center;
-}
-
-.contact-box p{
-    margin:12px;
-    font-size:17px;
-}
-
-/* REVIEWS */
-
-.review-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:22px;
-}
-
-.review{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-}
-
-.review h3{
-    color:#087a3b;
-    margin-bottom:10px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#075b2d;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-footer p{
-    margin:7px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .navbar ul{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:36px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    section{
-        padding:45px 4%;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sai Amrut Dairy & Daily Needs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7faf7;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #15803d;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            color: #166534;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .hero-btn:hover {
+            background: #15803d;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 70px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            color: #166534;
+            margin-bottom: 40px;
+        }
+
+        /* PRODUCTS */
+        .category-title {
+            text-align: center;
+            margin: 45px 0 25px;
+            font-size: 28px;
+            color: #15803d;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .product-emoji {
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f7f5;
+            border-radius: 10px;
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            color: #15803d;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quantity-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quantity-box button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 6px;
+            background: #16a34a;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .quantity-box button:hover {
+            background: #15803d;
+        }
+
+        .qty-input {
+            width: 60px;
+            height: 35px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        /* ORDER */
+        .order-area {
+            text-align: center;
+            margin-top: 45px;
+            padding: 35px 20px;
+            background: #dcfce7;
+            border-radius: 15px;
+        }
+
+        .order-area h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+            color: #166534;
+        }
+
+        .whatsapp-order-btn {
+            margin-top: 20px;
+            border: none;
+            padding: 15px 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .whatsapp-order-btn:hover {
+            background: #128C7E;
+        }
+
+        /* INFO CARDS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .info-card .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            color: #166534;
+            margin-bottom: 10px;
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 180px;
+            background: #dcfce7;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 75px;
+        }
+
+        /* ABOUT */
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+
+        /* REVIEWS */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #14532d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
+<nav>
+    <div class="logo">🥛 Sai Amrut Dairy</div>
 
-<nav class="navbar">
-
-    <div class="logo">
-        🥛 Sai Amrut Dairy
-    </div>
-
-    <ul>
+    <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#delivery">Delivery</a></li>
-        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
-
 </nav>
 
 
 <!-- HOME -->
-
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <h1>Welcome to Sai Amrut Dairy</h1>
+        <h1>🥛 Sai Amrut Dairy</h1>
 
         <p>
-            Fresh Dairy Products & Daily Essentials
+            Fresh Dairy Products & Daily Needs at Your Doorstep
         </p>
 
         <a href="#products" class="hero-btn">
-            View Products
+            🛒 View Products
         </a>
 
     </div>
@@ -395,243 +389,294 @@ footer p{
 
 
 <!-- PRODUCTS -->
-
 <section id="products">
 
-<h2 class="section-title">
-    Our Products
-</h2>
+    <h2 class="section-title">
+        🛍️ Our Products
+    </h2>
 
 
-<h3 class="category-title">
-    🥛 Dairy Products
-</h3>
+    <!-- DAIRY -->
+    <h3 class="category-title">
+        🥛 Dairy Products
+    </h3>
 
-<div class="products-grid" id="dairyProducts"></div>
-
-
-<h3 class="category-title">
-    ⚡ Energy Drinks
-</h3>
-
-<div class="products-grid" id="energyProducts"></div>
+    <div class="products-grid" id="dairyProducts"></div>
 
 
-<h3 class="category-title">
-    🛒 Grocery & Snacks
-</h3>
+    <!-- ENERGY -->
+    <h3 class="category-title">
+        ⚡ Energy Drinks
+    </h3>
 
-<div class="products-grid" id="groceryProducts"></div>
+    <div class="products-grid" id="energyProducts"></div>
 
 
-<div class="order-area">
+    <!-- GROCERY -->
+    <h3 class="category-title">
+        🛒 Grocery & Daily Needs
+    </h3>
 
-    <p style="margin-bottom:15px;font-weight:bold;">
-        Select quantities and order multiple products together on WhatsApp.
-    </p>
+    <div class="products-grid" id="groceryProducts"></div>
 
-    <button class="whatsapp-order-btn" onclick="sendWhatsAppOrder()">
-        📱 Order Selected Products on WhatsApp
-    </button>
 
-</div>
+    <!-- ORDER -->
+    <div class="order-area">
+
+        <h3>📱 Place Your Order on WhatsApp</h3>
+
+        <p>
+            Select quantity of any products and click the button below.
+        </p>
+
+        <p>
+            You can order multiple products together.
+        </p>
+
+        <button class="whatsapp-order-btn" onclick="sendWhatsAppOrder()">
+            💬 Order on WhatsApp
+        </button>
+
+    </div>
 
 </section>
 
 
 <!-- DELIVERY -->
-
 <section id="delivery">
 
-<h2 class="section-title">
-    🚚 Home Delivery
-</h2>
+    <h2 class="section-title">
+        🚚 Delivery
+    </h2>
 
-<div class="info-grid">
+    <div class="info-grid">
 
-    <div class="info-card">
-        <h3>Fresh Products</h3>
-        <p>
-            Fresh dairy and grocery products for your daily needs.
-        </p>
+        <div class="info-card">
+            <div class="icon">🏠</div>
+            <h3>Home Delivery</h3>
+            <p>
+                Get your daily needs delivered directly to your home.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">⚡</div>
+            <h3>Fast Delivery</h3>
+            <p>
+                Quick and convenient local delivery service.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">📦</div>
+            <h3>Safe Packaging</h3>
+            <p>
+                Products are packed carefully for delivery.
+            </p>
+        </div>
+
     </div>
-
-    <div class="info-card">
-        <h3>Fast Delivery</h3>
-        <p>
-            We provide convenient home delivery for your orders.
-        </p>
-    </div>
-
-    <div class="info-card">
-        <h3>Easy Ordering</h3>
-        <p>
-            Select products and send your complete order directly on WhatsApp.
-        </p>
-    </div>
-
-</div>
 
 </section>
 
 
 <!-- WHY CHOOSE US -->
+<section id="why">
 
-<section>
+    <h2 class="section-title">
+        ⭐ Why Choose Us
+    </h2>
 
-<h2 class="section-title">
-    ⭐ Why Choose Us
-</h2>
+    <div class="info-grid">
 
-<div class="info-grid">
+        <div class="info-card">
+            <div class="icon">🥛</div>
+            <h3>Fresh Products</h3>
+            <p>
+                Fresh dairy products and daily-use items.
+            </p>
+        </div>
 
-    <div class="info-card">
-        <h3>🥛 Fresh Quality</h3>
-        <p>
-            Fresh and quality products.
-        </p>
+        <div class="info-card">
+            <div class="icon">💰</div>
+            <h3>Affordable Prices</h3>
+            <p>
+                Reasonable demo prices for everyday products.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">📱</div>
+            <h3>Easy Ordering</h3>
+            <p>
+                Order multiple products easily through WhatsApp.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">❤️</div>
+            <h3>Customer Friendly</h3>
+            <p>
+                We focus on convenient service for customers.
+            </p>
+        </div>
+
     </div>
-
-    <div class="info-card">
-        <h3>💰 Reasonable Price</h3>
-        <p>
-            Competitive and affordable prices.
-        </p>
-    </div>
-
-    <div class="info-card">
-        <h3>📱 Easy Ordering</h3>
-        <p>
-            Simple WhatsApp ordering system.
-        </p>
-    </div>
-
-    <div class="info-card">
-        <h3>🚚 Home Delivery</h3>
-        <p>
-            Convenient delivery service.
-        </p>
-    </div>
-
-</div>
 
 </section>
 
 
 <!-- GALLERY -->
-
 <section id="gallery">
 
-<h2 class="section-title">
-    📸 Gallery
-</h2>
+    <h2 class="section-title">
+        📸 Gallery
+    </h2>
 
-<div class="gallery-grid">
+    <div class="gallery-grid">
 
-    <img src="https://loremflickr.com/600/400/dairy,milk?lock=201">
-    <img src="https://loremflickr.com/600/400/paneer,cheese?lock=202">
-    <img src="https://loremflickr.com/600/400/yogurt,curd?lock=203">
-    <img src="https://loremflickr.com/600/400/grocery,shop?lock=204">
+        <div class="gallery-item">🥛</div>
+        <div class="gallery-item">🧀</div>
+        <div class="gallery-item">🍦</div>
+        <div class="gallery-item">🍪</div>
+        <div class="gallery-item">🛒</div>
+        <div class="gallery-item">🚚</div>
 
-</div>
+    </div>
 
 </section>
 
 
 <!-- ABOUT -->
+<section id="about">
 
-<section class="about" id="about">
+    <h2 class="section-title">
+        👨‍👩‍👦 About Us
+    </h2>
 
-<h2 class="section-title">
-    About Sai Amrut Dairy
-</h2>
+    <div class="about-box">
 
-<p>
-    Sai Amrut Dairy provides fresh dairy products, beverages,
-    snacks, grocery items and frozen products.
-    Our goal is to make everyday shopping simple and convenient
-    through easy online ordering and home delivery.
-</p>
+        <p>
+            <strong>Sai Amrut Dairy & Daily Needs</strong>
+            is a demo online dairy and daily-needs store website.
+        </p>
+
+        <br>
+
+        <p>
+            We provide dairy products, beverages, grocery items,
+            snacks, frozen products and ice creams in one place.
+        </p>
+
+        <br>
+
+        <p>
+            Customers can select product quantities and send their
+            complete order directly through WhatsApp.
+        </p>
+
+    </div>
 
 </section>
 
 
 <!-- CONTACT -->
-
 <section id="contact">
 
-<h2 class="section-title">
-    📞 Contact Us
-</h2>
+    <h2 class="section-title">
+        📞 Contact Us
+    </h2>
 
-<div class="contact-box">
+    <div class="contact-box">
 
-    <p>📍 Location: Maharashtra, India</p>
+        <p>📍 Location: Your Local Area</p>
 
-    <p>📱 WhatsApp: Add your WhatsApp number</p>
+        <p>📱 Phone: +91 XXXXX XXXXX</p>
 
-    <p>🕐 Opening Hours: 7:00 AM – 10:00 PM</p>
+        <p>💬 WhatsApp: Available for Orders</p>
 
-</div>
+        <p>🕐 Timing: 7:00 AM - 10:00 PM</p>
+
+    </div>
 
 </section>
 
 
 <!-- REVIEWS -->
+<section id="reviews">
 
-<section>
+    <h2 class="section-title">
+        ⭐ Customer Reviews
+    </h2>
 
-<h2 class="section-title">
-    ⭐ Customer Reviews
-</h2>
+    <div class="review-grid">
 
-<div class="review-grid">
+        <div class="review-card">
 
-    <div class="review">
-        <h3>Rahul</h3>
-        <p>
-            ⭐⭐⭐⭐⭐
-        </p>
-        <p>
-            Fresh products and easy ordering.
-        </p>
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Fresh products and very easy ordering process."
+            </p>
+
+            <br>
+
+            <strong>— Customer</strong>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "I liked the WhatsApp ordering system. Very convenient."
+            </p>
+
+            <br>
+
+            <strong>— Customer</strong>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <p>
+                "Good collection of daily-use products."
+            </p>
+
+            <br>
+
+            <strong>— Customer</strong>
+
+        </div>
+
     </div>
-
-    <div class="review">
-        <h3>Priya</h3>
-        <p>
-            ⭐⭐⭐⭐⭐
-        </p>
-        <p>
-            Good quality dairy products.
-        </p>
-    </div>
-
-    <div class="review">
-        <h3>Amit</h3>
-        <p>
-            ⭐⭐⭐⭐⭐
-        </p>
-        <p>
-            WhatsApp ordering is very convenient.
-        </p>
-    </div>
-
-</div>
 
 </section>
 
 
 <!-- FOOTER -->
-
 <footer>
 
+    <h3>🥛 Sai Amrut Dairy & Daily Needs</h3>
+
     <p>
-        © 2026 Sai Amrut Dairy
+        Fresh Products • Daily Needs • Easy Ordering
     </p>
 
     <p>
-        Fresh Products • Easy Ordering • Home Delivery
+        © 2026 Sai Amrut Dairy. All Rights Reserved.
     </p>
 
 </footer>
@@ -639,492 +684,494 @@ footer p{
 
 <script>
 
-/* =====================================================
-   PRODUCT DATA
-===================================================== */
+    /* ==========================================
+       PRODUCT DATA
+    ========================================== */
+
+    const dairyProducts = [
+
+        ["Milk", 70, "Liter"],
+        ["Paneer", 500, "Kg"],
+        ["Curd", 120, "Kg"],
+        ["Ghee", 1000, "Kg"],
+        ["Lassi", 100, "Liter"],
+        ["Cheese", 200, "Kg"],
+        ["Butter", 80, "100 g"],
+        ["Buttermilk", 30, "1 L"],
+        ["Cream", 100, "200 g"],
+        ["Flavoured Milk", 40, "200 ml"],
+        ["Flavoured Yogurt", 30, "100 g"],
+        ["Greek Yogurt", 60, "100 g"],
+        ["Milkshake", 40, "200 ml"],
+        ["Custard", 35, "100 g"],
+        ["Cheese Slices", 160, "200 g"],
+        ["Cheese Spread", 150, "200 g"],
+        ["Condensed Milk", 140, "200 g"]
+    ];
 
 
-/* DAIRY */
+    const energyProducts = [
 
-const dairyProducts = [
-
-{
-name:"Milk",
-size:"1 Liter",
-price:70,
-image:"https://loremflickr.com/500/400/milk?lock=1"
-},
-
-{
-name:"Paneer",
-size:"1 Kg",
-price:500,
-image:"https://loremflickr.com/500/400/paneer?lock=2"
-},
-
-{
-name:"Curd",
-size:"1 Kg",
-price:120,
-image:"https://loremflickr.com/500/400/curd,yogurt?lock=3"
-},
-
-{
-name:"Ghee",
-size:"1 Kg",
-price:1000,
-image:"https://loremflickr.com/500/400/ghee?lock=4"
-},
-
-{
-name:"Lassi",
-size:"1 Liter",
-price:100,
-image:"https://loremflickr.com/500/400/lassi?lock=5"
-},
-
-{
-name:"Cheese",
-size:"1 Kg",
-price:200,
-image:"https://loremflickr.com/500/400/cheese?lock=6"
-},
-
-{
-name:"Butter",
-size:"100 g",
-price:80,
-image:"https://loremflickr.com/500/400/butter?lock=7"
-},
-
-{
-name:"Buttermilk",
-size:"1 Liter",
-price:30,
-image:"https://loremflickr.com/500/400/buttermilk?lock=8"
-},
-
-{
-name:"Cream",
-size:"200 g",
-price:100,
-image:"https://loremflickr.com/500/400/cream?lock=9"
-},
-
-{
-name:"Flavoured Milk",
-size:"200 ml",
-price:40,
-image:"https://loremflickr.com/500/400/flavoured,milk?lock=10"
-}
-
-];
+        ["Red Bull", 125, "250 ml"],
+        ["Sting", 20, "250 ml"],
+        ["Monster Energy", 120, "250 ml"],
+        ["Hell Energy", 100, "250 ml"],
+        ["Adrenaline Rush", 100, "250 ml"],
+        ["Campa Energy", 50, "250 ml"],
+        ["Power Horse", 100, "250 ml"],
+        ["Tzinga", 50, "250 ml"],
+        ["Burn", 100, "250 ml"],
+        ["Gatorade", 50, "250 ml"]
+    ];
 
 
-/* ENERGY DRINKS */
+    const groceryProducts = [
 
-const energyProducts = [
+        ["Oats", 180, "500 g"],
+        ["Corn Flakes", 220, "500 g"],
+        ["Nutella", 350, "350 g"],
+        ["Maggi / Instant Noodles", 15, "70 g"],
+        ["Chips", 20, "Pack"],
+        ["Namkeen", 60, "200 g"],
+        ["Bhujia", 60, "200 g"],
+        ["Kurkure", 20, "Pack"],
+        ["Masala Packets", 50, "Pack"],
+        ["Toffee / Candy", 50, "100 g"],
+        ["Biscuits", 30, "100 g"],
+        ["Tea Packets", 120, "250 g"],
+        ["Coffee", 180, "200 g"],
+        ["Pickle / Packaged Food", 100, "Pack"],
+        ["Frozen Food Items", 150, "Pack"],
+        ["Ice Cream / Frozen Product", 100, "Pack"],
 
-{
-name:"Red Bull",
-size:"250 ml",
-price:125,
-image:"https://loremflickr.com/500/400/energy,drink?lock=11"
-},
+        ["Cream Biscuits", 30, "100 g"],
+        ["Glucose Biscuits", 20, "100 g"],
+        ["Salt Biscuits", 25, "100 g"],
+        ["Cookies", 40, "100 g"],
+        ["Rusk", 50, "200 g"],
+        ["Bread", 45, "400 g"],
+        ["Buns", 40, "4 pcs"],
+        ["Cake", 80, "200 g"],
+        ["Muffins", 80, "4 pcs"],
 
-{
-name:"Sting",
-size:"250 ml",
-price:20,
-image:"https://loremflickr.com/500/400/energy,drink?lock=12"
-},
+        ["Dairy Milk", 50, "50 g"],
+        ["KitKat", 40, "41.5 g"],
+        ["5 Star", 50, "45 g"],
+        ["Perk", 40, "40 g"],
+        ["Munch", 40, "42 g"],
+        ["Gems", 20, "22 g"],
+        ["Eclairs", 50, "100 g"],
+        ["Lollipop", 20, "10 pcs"],
 
-{
-name:"Monster Energy",
-size:"250 ml",
-price:120,
-image:"https://loremflickr.com/500/400/energy,drink?lock=13"
-},
+        ["Coca-Cola", 40, "300 ml"],
+        ["Pepsi", 40, "300 ml"],
+        ["Sprite", 40, "300 ml"],
+        ["Fanta", 40, "300 ml"],
+        ["Thums Up", 40, "300 ml"],
+        ["Limca", 40, "300 ml"],
+        ["Maaza", 40, "600 ml"],
+        ["Slice", 40, "600 ml"],
+        ["Frooti", 40, "600 ml"],
+        ["Appy Fizz", 40, "600 ml"],
+        ["Real Juice", 130, "1 L"],
+        ["Paper Boat Drinks", 40, "200 ml"],
+        ["Packaged Drinking Water", 20, "1 L"],
+        ["Soda", 25, "750 ml"],
+        ["Coconut Water", 50, "200 ml"],
+        ["Glucose Drink", 100, "200 g"],
+        ["Lemon Drink", 20, "250 ml"],
 
-{
-name:"Hell Energy",
-size:"250 ml",
-price:100,
-image:"https://loremflickr.com/500/400/energy,drink?lock=14"
-},
+        ["Yippee Noodles", 15, "70 g"],
+        ["Top Ramen", 15, "70 g"],
+        ["Pasta", 80, "500 g"],
+        ["Vermicelli / Sevai", 70, "500 g"],
+        ["Ready-to-Eat Poha", 60, "200 g"],
+        ["Ready-to-Eat Upma", 60, "200 g"],
+        ["Soup Packets", 50, "50 g"],
 
-{
-name:"Adrenaline Rush",
-size:"250 ml",
-price:100,
-image:"https://loremflickr.com/500/400/energy,drink?lock=15"
-},
+        ["Tomato Ketchup", 120, "500 g"],
+        ["Mayonnaise", 100, "250 g"],
+        ["Jam", 150, "500 g"],
+        ["Peanut Butter", 200, "340 g"],
+        ["Pasta Sauce", 120, "200 g"],
+        ["Soy Sauce", 70, "200 ml"],
+        ["Vinegar", 60, "500 ml"],
 
-{
-name:"Campa Energy",
-size:"250 ml",
-price:50,
-image:"https://loremflickr.com/500/400/energy,drink?lock=16"
-},
+        ["Peanuts", 60, "200 g"],
+        ["Roasted Chana", 60, "200 g"],
+        ["Cashews", 120, "100 g"],
+        ["Almonds", 110, "100 g"],
+        ["Raisins", 60, "100 g"],
+        ["Mixed Dry Fruits", 250, "200 g"],
 
-{
-name:"Power Horse",
-size:"250 ml",
-price:100,
-image:"https://loremflickr.com/500/400/energy,drink?lock=17"
-},
+        ["Frozen Peas", 100, "500 g"],
+        ["Frozen Corn", 100, "500 g"],
+        ["Frozen French Fries", 150, "400 g"],
+        ["Frozen Paratha", 120, "400 g"],
+        ["Frozen Samosa", 150, "400 g"],
+        ["Frozen Momos", 150, "250 g"],
 
-{
-name:"Tzinga",
-size:"250 ml",
-price:50,
-image:"https://loremflickr.com/500/400/energy,drink?lock=18"
-},
-
-{
-name:"Burn",
-size:"250 ml",
-price:100,
-image:"https://loremflickr.com/500/400/energy,drink?lock=19"
-},
-
-{
-name:"Gatorade",
-size:"250 ml",
-price:50,
-image:"https://loremflickr.com/500/400/sports,drink?lock=20"
-}
-
-];
-
-
-/* GROCERY */
-
-const groceryProducts = [
-
-["Oats","500 g",150,"oats"],
-["Corn Flakes","500 g",180,"cornflakes"],
-["Nutella","350 g",350,"nutella"],
-["Maggi / Instant Noodles","70 g",15,"instant,noodles"],
-["Chips","100 g",50,"chips"],
-["Namkeen","200 g",80,"namkeen"],
-["Bhujia","200 g",80,"bhujia"],
-["Kurkure","90 g",30,"snacks"],
-["Masala Packets","100 g",60,"spices"],
-["Toffee / Candy","100 g",50,"candy"],
-["Biscuits","100 g",30,"biscuits"],
-["Tea Packets","250 g",150,"tea"],
-["Coffee","100 g",180,"coffee"],
-["Pickle / Packaged Food","500 g",150,"pickle"],
-["Frozen Food Items","500 g",150,"frozen,food"],
-
-["Ice Cream / Frozen Product","500 ml",180,"ice,cream"],
-
-["Flavoured Yogurt","100 g",30,"yogurt"],
-["Greek Yogurt","100 g",60,"greek,yogurt"],
-["Milkshake","200 ml",40,"milkshake"],
-["Custard","100 g",35,"custard"],
-["Cheese Slices","200 g",160,"cheese,slices"],
-["Cheese Spread","200 g",150,"cheese,spread"],
-["Condensed Milk","200 g",140,"condensed,milk"],
-["Cream Biscuits","100 g",30,"cream,biscuits"],
-["Glucose Biscuits","100 g",20,"biscuits"],
-["Salt Biscuits","100 g",25,"salt,biscuits"],
-["Cookies","100 g",40,"cookies"],
-["Rusk","200 g",50,"rusk"],
-["Bread","400 g",45,"bread"],
-["Buns","4 pcs",40,"bread,buns"],
-["Cake","200 g",80,"cake"],
-["Muffins","4 pcs",80,"muffins"],
-["Dairy Milk","50 g",50,"chocolate"],
-["KitKat","41.5 g",40,"kitkat,chocolate"],
-["5 Star","45 g",50,"chocolate"],
-["Perk","40 g",40,"chocolate"],
-["Munch","42 g",40,"chocolate"],
-["Gems","22 g",20,"chocolate,candy"],
-["Eclairs","100 g",50,"candy"],
-["Lollipop","10 pcs",20,"lollipop,candy"],
-["Coca-Cola","300 ml",40,"cola"],
-["Pepsi","300 ml",40,"cola"],
-["Sprite","300 ml",40,"lemon,soda"],
-["Fanta","300 ml",40,"orange,soda"],
-["Thums Up","300 ml",40,"cola"],
-["Limca","300 ml",40,"lemon,soda"],
-["Maaza","600 ml",40,"mango,drink"],
-["Slice","600 ml",40,"mango,drink"],
-["Frooti","600 ml",40,"mango,drink"],
-["Appy Fizz","600 ml",40,"apple,drink"],
-["Real Juice","1 L",130,"fruit,juice"],
-["Paper Boat Drinks","200 ml",40,"fruit,drink"],
-["Packaged Drinking Water","1 L",20,"water,bottle"],
-["Soda","750 ml",25,"soda"],
-["Coconut Water","200 ml",50,"coconut,water"],
-["Glucose Drink","200 g",100,"glucose,drink"],
-["Lemon Drink","250 ml",20,"lemon,drink"],
-["Yippee Noodles","70 g",15,"noodles"],
-["Top Ramen","70 g",15,"noodles"],
-["Pasta","500 g",80,"pasta"],
-["Vermicelli / Sevai","500 g",70,"vermicelli"],
-["Ready-to-Eat Poha","200 g",60,"poha"],
-["Ready-to-Eat Upma","200 g",60,"upma"],
-["Soup Packets","50 g",50,"soup"],
-["Tomato Ketchup","500 g",120,"tomato,ketchup"],
-["Mayonnaise","250 g",100,"mayonnaise"],
-["Jam","500 g",150,"jam"],
-["Peanut Butter","340 g",200,"peanut,butter"],
-["Pasta Sauce","200 g",120,"pasta,sauce"],
-["Soy Sauce","200 ml",70,"soy,sauce"],
-["Vinegar","500 ml",60,"vinegar"],
-["Peanuts","200 g",60,"peanuts"],
-["Roasted Chana","200 g",60,"roasted,chana"],
-["Cashews","100 g",120,"cashews"],
-["Almonds","100 g",110,"almonds"],
-["Raisins","100 g",60,"raisins"],
-["Mixed Dry Fruits","200 g",250,"dry,fruits"],
-["Frozen Peas","500 g",100,"frozen,peas"],
-["Frozen Corn","500 g",100,"frozen,corn"],
-["Frozen French Fries","400 g",150,"french,fries"],
-["Frozen Paratha","400 g",120,"paratha"],
-["Frozen Samosa","400 g",150,"samosa"],
-["Frozen Momos","250 g",150,"momos"],
-["Ice Cream Cups","100 ml",40,"ice,cream"],
-["Ice Cream Cones","100 ml",50,"ice,cream"],
-["Ice Cream Family Pack","1 L",300,"ice,cream"]
-
-];
+        ["Ice Cream Cups", 40, "100 ml"],
+        ["Ice Cream Cones", 50, "100 ml"],
+        ["Ice Cream Family Pack", 300, "1 L"]
+    ];
 
 
-/* =====================================================
-   CREATE PRODUCT CARD
-===================================================== */
+    /* ==========================================
+       PRODUCT EMOJI
+    ========================================== */
 
-function createProductCard(product,index){
+    function getProductEmoji(name) {
 
-    let name;
-    let size;
-    let price;
-    let image;
+        const n = name.toLowerCase();
 
-    if(Array.isArray(product)){
+        if (n.includes("milk") && !n.includes("milkshake")) return "🥛";
+        if (n.includes("paneer")) return "🧀";
+        if (n.includes("curd")) return "🥣";
+        if (n.includes("ghee")) return "🫙";
+        if (n.includes("lassi")) return "🥤";
+        if (n.includes("cheese")) return "🧀";
+        if (n.includes("butter")) return "🧈";
+        if (n.includes("buttermilk")) return "🥛";
+        if (n.includes("cream")) return "🥛";
+        if (n.includes("yogurt")) return "🥣";
+        if (n.includes("milkshake")) return "🥤";
+        if (n.includes("custard")) return "🍮";
+        if (n.includes("condensed")) return "🥛";
 
-        name=product[0];
-        size=product[1];
-        price=product[2];
+        if (
+            n.includes("red bull") ||
+            n.includes("sting") ||
+            n.includes("monster") ||
+            n.includes("hell energy") ||
+            n.includes("adrenaline") ||
+            n.includes("campa energy") ||
+            n.includes("power horse") ||
+            n.includes("tzinga") ||
+            n.includes("burn") ||
+            n.includes("gatorade")
+        ) return "⚡";
 
-        image=
-        "https://loremflickr.com/500/400/"
-        + product[3]
-        + "?lock="
-        + (index+100);
+        if (n.includes("oats")) return "🌾";
+        if (n.includes("corn flakes")) return "🥣";
+        if (n.includes("nutella")) return "🍫";
+        if (n.includes("noodles") || n.includes("maggi")) return "🍜";
+        if (n.includes("chips")) return "🥔";
+        if (n.includes("namkeen")) return "🥨";
+        if (n.includes("bhujia")) return "🥨";
+        if (n.includes("kurkure")) return "🥨";
+        if (n.includes("masala")) return "🌶️";
+        if (n.includes("toffee") || n.includes("candy")) return "🍬";
+        if (n.includes("biscuit")) return "🍪";
+        if (n.includes("cookies")) return "🍪";
+        if (n.includes("tea")) return "🍵";
+        if (n.includes("coffee")) return "☕";
+        if (n.includes("pickle")) return "🥒";
+        if (n.includes("frozen")) return "❄️";
+        if (n.includes("ice cream")) return "🍦";
 
-    }else{
+        if (n.includes("rusk")) return "🍞";
+        if (n.includes("bread")) return "🍞";
+        if (n.includes("bun")) return "🥯";
+        if (n.includes("cake")) return "🍰";
+        if (n.includes("muffin")) return "🧁";
 
-        name=product.name;
-        size=product.size;
-        price=product.price;
-        image=product.image;
+        if (
+            n.includes("dairy milk") ||
+            n.includes("kitkat") ||
+            n.includes("5 star") ||
+            n.includes("perk") ||
+            n.includes("munch") ||
+            n.includes("gems") ||
+            n.includes("eclairs")
+        ) return "🍫";
 
+        if (n.includes("lollipop")) return "🍭";
+
+        if (
+            n.includes("coca") ||
+            n.includes("pepsi") ||
+            n.includes("sprite") ||
+            n.includes("fanta") ||
+            n.includes("thums") ||
+            n.includes("limca")
+        ) return "🥤";
+
+        if (
+            n.includes("maaza") ||
+            n.includes("slice") ||
+            n.includes("frooti") ||
+            n.includes("appy") ||
+            n.includes("juice")
+        ) return "🧃";
+
+        if (n.includes("water")) return "💧";
+        if (n.includes("soda")) return "🥤";
+        if (n.includes("coconut")) return "🥥";
+        if (n.includes("glucose")) return "🥤";
+        if (n.includes("lemon")) return "🍋";
+
+        if (n.includes("pasta")) return "🍝";
+        if (n.includes("vermicelli") || n.includes("sevai")) return "🍜";
+        if (n.includes("poha")) return "🍚";
+        if (n.includes("upma")) return "🍚";
+        if (n.includes("soup")) return "🍲";
+
+        if (n.includes("ketchup")) return "🍅";
+        if (n.includes("mayonnaise")) return "🥫";
+        if (n.includes("jam")) return "🍓";
+        if (n.includes("peanut butter")) return "🥜";
+        if (n.includes("pasta sauce")) return "🍝";
+        if (n.includes("soy sauce")) return "🥫";
+        if (n.includes("vinegar")) return "🫙";
+
+        if (n.includes("peanuts")) return "🥜";
+        if (n.includes("chana")) return "🥜";
+        if (n.includes("cashews")) return "🥜";
+        if (n.includes("almonds")) return "🥜";
+        if (n.includes("raisins")) return "🍇";
+        if (n.includes("dry fruits")) return "🥜";
+
+        return "🛒";
     }
 
 
-    return `
+    /* ==========================================
+       CREATE PRODUCT CARD
+    ========================================== */
 
-    <div class="product-card">
+    function createProductCard(name, price, unit) {
 
-        <img
-            src="${image}"
-            alt="${name}"
-            loading="lazy"
-        >
+        return `
+            <div
+                class="product-card"
+                data-name="${name}"
+                data-price="${price}"
+            >
 
-        <div class="product-info">
+                <div class="product-emoji">
+                    ${getProductEmoji(name)}
+                </div>
 
-            <h3>${name}</h3>
+                <h3>${name}</h3>
 
-            <p>${size}</p>
+                <div class="product-price">
+                    ₹${price} / ${unit}
+                </div>
 
-            <p class="price">
-                ₹${price}
-            </p>
+                <div class="quantity-box">
 
-            <div class="quantity-box">
+                    <button onclick="changeQty(this, -1)">
+                        −
+                    </button>
 
-                <button
-                    onclick="changeQty(this,-1)"
-                >
-                    −
-                </button>
+                    <input
+                        type="number"
+                        class="qty-input"
+                        value="0"
+                        min="0"
+                    >
 
-                <input
-                    type="number"
-                    value="0"
-                    min="0"
-                    data-name="${name}"
-                    data-price="${price}"
-                    readonly
-                >
+                    <button onclick="changeQty(this, 1)">
+                        +
+                    </button>
 
-                <button
-                    onclick="changeQty(this,1)"
-                >
-                    +
-                </button>
+                </div>
 
             </div>
-
-        </div>
-
-    </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   DISPLAY PRODUCTS
-===================================================== */
-
-document.getElementById("dairyProducts").innerHTML =
-dairyProducts.map((p,i)=>createProductCard(p,i)).join("");
-
-
-document.getElementById("energyProducts").innerHTML =
-energyProducts.map((p,i)=>createProductCard(p,i+20)).join("");
-
-
-document.getElementById("groceryProducts").innerHTML =
-groceryProducts.map((p,i)=>createProductCard(p,i+40)).join("");
-
-
-/* =====================================================
-   QUANTITY
-===================================================== */
-
-function changeQty(button,change){
-
-    const input =
-    button.parentElement.querySelector("input");
-
-    let value =
-    parseInt(input.value) || 0;
-
-    value += change;
-
-    if(value < 0){
-        value=0;
+        `;
     }
 
-    input.value=value;
 
-}
+    /* ==========================================
+       RENDER PRODUCTS
+    ========================================== */
 
+    function renderProducts() {
 
-/* =====================================================
-   WHATSAPP ORDER
-===================================================== */
+        const dairyContainer =
+            document.getElementById("dairyProducts");
 
-function sendWhatsAppOrder(){
+        const energyContainer =
+            document.getElementById("energyProducts");
 
-    /*
-       IMPORTANT:
-       Replace this number with your real WhatsApp number.
-
-       Example:
-       const phoneNumber = "919876543210";
-    */
-
-    const phoneNumber = "7020034584";
+        const groceryContainer =
+            document.getElementById("groceryProducts");
 
 
-    const products =
-    document.querySelectorAll(".product-card");
+        dairyContainer.innerHTML =
+            dairyProducts
+            .map(product =>
+                createProductCard(
+                    product[0],
+                    product[1],
+                    product[2]
+                )
+            )
+            .join("");
 
 
-    let message =
-    "Hello Sai Amrut Dairy,%0A%0A";
+        energyContainer.innerHTML =
+            energyProducts
+            .map(product =>
+                createProductCard(
+                    product[0],
+                    product[1],
+                    product[2]
+                )
+            )
+            .join("");
 
-    message +=
-    "I want to place the following order:%0A%0A";
+
+        groceryContainer.innerHTML =
+            groceryProducts
+            .map(product =>
+                createProductCard(
+                    product[0],
+                    product[1],
+                    product[2]
+                )
+            )
+            .join("");
+    }
 
 
-    let hasOrder=false;
+    /* ==========================================
+       QUANTITY FUNCTION
+       ONLY ONE changeQty()
+    ========================================== */
 
-    let grandTotal=0;
+    function changeQty(button, change) {
 
-
-    products.forEach(card=>{
+        const card =
+            button.closest(".product-card");
 
         const input =
-        card.querySelector("input");
+            card.querySelector(".qty-input");
 
-        const quantity =
-        parseInt(input.value) || 0;
+        let quantity =
+            parseInt(input.value) || 0;
 
+        quantity = quantity + change;
 
-        if(quantity > 0){
-
-            hasOrder=true;
-
-            const name =
-            input.dataset.name;
-
-            const price =
-            parseFloat(input.dataset.price);
-
-            const total =
-            quantity * price;
-
-            grandTotal += total;
-
-
-            message +=
-            "• "
-            + name
-            + " × "
-            + quantity
-            + " = ₹"
-            + total
-            + "%0A";
-
+        if (quantity < 0) {
+            quantity = 0;
         }
 
-    });
-
-
-    if(!hasOrder){
-
-        alert(
-            "Please select at least one product."
-        );
-
-        return;
-
+        input.value = quantity;
     }
 
 
-    message +=
-    "%0AEstimated Total: ₹"
-    + grandTotal;
+    /* ==========================================
+       WHATSAPP ORDER
+    ========================================== */
+
+    function sendWhatsAppOrder() {
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+        let orderItems = [];
+
+        let total = 0;
 
 
-    message +=
-    "%0A%0AThank you!";
+        products.forEach(product => {
+
+            const input =
+                product.querySelector(".qty-input");
+
+            const quantity =
+                parseInt(input.value) || 0;
 
 
-    const whatsappURL =
-    "https://wa.me/"
-    + phoneNumber
-    + "?text="
-    + message;
+            if (quantity > 0) {
+
+                const name =
+                    product.dataset.name;
+
+                const price =
+                    parseInt(product.dataset.price);
+
+                const itemTotal =
+                    price * quantity;
+
+                total =
+                    total + itemTotal;
 
 
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
+                orderItems.push(
+                    `${name} × ${quantity} = ₹${itemTotal}`
+                );
+            }
 
-}
+        });
+
+
+        if (orderItems.length === 0) {
+
+            alert(
+                "Please select at least one product quantity."
+            );
+
+            return;
+        }
+
+
+        /*
+            IMPORTANT:
+            Replace this number with your
+            real WhatsApp number.
+
+            Example:
+            919876543210
+        */
+
+        const phoneNumber =
+            "7020034584";
+
+
+        let message =
+            "Hello Sai Amrut Dairy 👋\n\n";
+
+        message +=
+            "I want to place an order:\n\n";
+
+
+        orderItems.forEach((item, index) => {
+
+            message +=
+                `${index + 1}. ${item}\n`;
+
+        });
+
+
+        message +=
+            `\nEstimated Total: ₹${total}`;
+
+        message +=
+            "\n\nPlease confirm my order. Thank you!";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            phoneNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+    }
+
+
+    /* ==========================================
+       START WEBSITE
+    ========================================== */
+
+    renderProducts();
 
 </script>
 
