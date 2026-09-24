@@ -1,523 +1,1170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sai Amrut Dairy | Fresh Dairy Products</title>
+    <title>Sai Amrut Dairy</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fff8;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            background: #ffffff;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #16833b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #16833b;
+        }
+
+        /* ================= HOME ================= */
+
+        .home {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
+                url("https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home-content {
+            max-width: 800px;
+        }
+
+        .home h1 {
+            font-size: 55px;
+            color: #16833b;
+            margin-bottom: 15px;
+        }
+
+        .home h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .home p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #16833b;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0d642b;
+        }
+
+        /* ================= COMMON ================= */
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #16833b;
+            margin-bottom: 40px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            background: #ffffff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #16833b;
+        }
+
+        .price {
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .no-price {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        /* ================= ONLINE ORDER ================= */
+
+        .order {
+            background: #effaf1;
+        }
+
+        .order-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .total-box {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e9f8eb;
+            border-radius: 8px;
+            font-size: 21px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* ================= DELIVERY ================= */
+
+        .delivery {
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f1faf2;
+            border-radius: 15px;
+        }
+
+        .info-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            color: #16833b;
+            margin-bottom: 10px;
+        }
+
+        /* ================= WHY CHOOSE US ================= */
+
+        .why {
+            background: #effaf1;
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #effaf1;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f1faf2;
+        }
+
+        .contact-card h3 {
+            color: #16833b;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: #16833b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ================= REVIEWS ================= */
+
+        .reviews {
+            background: #effaf1;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: #f5b400;
+            font-size: 22px;
+            margin: 10px 0;
+        }
+
+        .review-card p {
+            line-height: 1.6;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp-section {
+            text-align: center;
+            background: #16833b;
+            color: white;
+        }
+
+        .whatsapp-section h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-section p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .whatsapp-btn {
+            background: white;
+            color: #16833b;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #102d18;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .home h1 {
+                font-size: 40px;
+            }
+
+            .home h2 {
+                font-size: 22px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+<!-- ================= NAVBAR ================= -->
 
-    <header class="navbar">
+<nav>
+    <div class="logo">🥛 Sai Amrut Dairy</div>
 
-        <div class="logo">
-            🥛 Sai Amrut Dairy
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#order">Order</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="home" id="home">
+
+    <div class="home-content">
+
+        <h1>Sai Amrut Dairy</h1>
+
+        <h2>Freshness You Can Trust 🥛</h2>
+
+        <p>
+            Fresh and quality dairy products delivered to your doorstep.
+        </p>
+
+        <a href="#order" class="btn">Order Now</a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products" id="products">
+
+    <h2 class="section-title">🥛 Our Products</h2>
+
+    <div class="product-grid">
+
+        <!-- Milk -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🥛 Fresh Milk</h3>
+
+                <div class="price">₹70 / Liter</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
         </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
 
-    </header>
+        <!-- Paneer -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🧀 Paneer</h3>
+
+                <div class="price">₹500 / Kg</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
 
 
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
+        <!-- Curd -->
 
-    <section id="home" class="hero">
+        <div class="product-card">
 
-        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=800&q=80">
 
-            <p class="hero-small">
-                WELCOME TO SAI AMRUT DAIRY
-            </p>
+            <div class="product-info">
 
-            <h1>
-                Freshness You Can
-                <span>Trust Every Day</span>
-            </h1>
+                <h3>🥣 Fresh Curd</h3>
+
+                <div class="price">₹120 / Kg</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Ghee -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🫙 Pure Ghee</h3>
+
+                <div class="price">₹1000 / Kg</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Lassi -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1571071314803-2f9f1c2c6c9e?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🥤 Lassi</h3>
+
+                <div class="price">₹100 / Liter</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cheese -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🧀 Cheese</h3>
+
+                <div class="price">₹200 / Kg</div>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Butter -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🧈 Butter</h3>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Buttermilk -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🥛 Buttermilk</h3>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cream -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🍶 Fresh Cream</h3>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Flavoured Milk -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1600788907416-456578634209?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>🥛 Flavoured Milk</h3>
+
+                <a href="#order" class="btn">Order Now</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ONLINE ORDER ================= -->
+
+<section class="order" id="order">
+
+    <h2 class="section-title">🛒 Online Order</h2>
+
+    <div class="order-box">
+
+        <div class="form-group">
+
+            <label>Product</label>
+
+            <select id="product" onchange="calculateTotal()">
+
+                <option value="">Select Product</option>
+
+                <option value="70">Milk - ₹70/Liter</option>
+
+                <option value="500">Paneer - ₹500/Kg</option>
+
+                <option value="120">Curd - ₹120/Kg</option>
+
+                <option value="1000">Ghee - ₹1000/Kg</option>
+
+                <option value="100">Lassi - ₹100/Liter</option>
+
+                <option value="200">Cheese - ₹200/Kg</option>
+
+                <option value="0">Butter - Price on request</option>
+
+                <option value="0">Buttermilk - Price on request</option>
+
+                <option value="0">Cream - Price on request</option>
+
+                <option value="0">Flavoured Milk - Price on request</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                id="quantity"
+                min="1"
+                value="1"
+                onchange="calculateTotal()"
+                oninput="calculateTotal()"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Customer Name</label>
+
+            <input type="text" id="customerName" placeholder="Enter your name">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Mobile Number</label>
+
+            <input type="tel" id="mobile" placeholder="Enter mobile number">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Address</label>
+
+            <textarea
+                id="address"
+                rows="4"
+                placeholder="Enter delivery address">
+            </textarea>
+
+        </div>
+
+
+        <div class="total-box">
+
+            Total Price:
+            ₹<span id="total">0</span>
+
+        </div>
+
+
+        <button class="btn" onclick="sendOrder()">
+            📱 Order on WhatsApp
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DELIVERY ================= -->
+
+<section class="delivery" id="delivery">
+
+    <h2 class="section-title">📦 Delivery</h2>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="icon">🏠</div>
+
+            <h3>Home Delivery</h3>
+
+            <p>Fresh dairy products delivered directly to your home.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">📍</div>
+
+            <h3>Delivery Area</h3>
+
+            <p>Delivery available in selected nearby areas.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">⏰</div>
+
+            <h3>Delivery Timing</h3>
+
+            <p>Morning and evening delivery available.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">📦</div>
+
+            <h3>Minimum Order</h3>
+
+            <p>Minimum order information can be confirmed on WhatsApp.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why">
+
+    <h2 class="section-title">⭐ Why Choose Us?</h2>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="icon">🥛</div>
+
+            <h3>Fresh & Quality</h3>
+
+            <p>Quality dairy products for your family.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">🧼</div>
+
+            <h3>Hygienic Processing</h3>
+
+            <p>Products prepared with proper hygiene and care.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">🌅</div>
+
+            <h3>Fresh Daily</h3>
+
+            <p>Fresh dairy products prepared regularly.</p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="icon">🚚</div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>Quick and convenient home delivery.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery" id="gallery">
+
+    <h2 class="section-title">📸 Gallery</h2>
+
+    <div class="gallery-grid">
+
+        <img src="https://images.unsplash.com/photo-1594761051656-1c4e7c7c4f4d?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=900&q=80">
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <h2 class="section-title">👨‍🌾 About Sai Amrut Dairy</h2>
+
+    <div class="about-box">
+
+        <p>
+            Sai Amrut Dairy is focused on providing fresh and quality
+            dairy products to customers. Our goal is to provide
+            hygienic, fresh and delicious dairy products with
+            convenient home delivery.
+        </p>
+
+        <br>
+
+        <p>
+            We believe in quality, freshness and customer satisfaction.
+            From milk and curd to paneer, ghee, lassi and cheese,
+            we aim to serve products that customers can enjoy every day.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <h2 class="section-title">📞 Contact Us</h2>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <h3>📱 Phone</h3>
+
+            <p>+91 7020034584</p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>💬 WhatsApp</h3>
 
             <p>
-                Fresh and quality dairy products for your family.
-                Pure taste, trusted quality and fresh products every day.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="tel:7588153581" class="btn primary-btn">
-                    📞 Call Now
-                </a>
-
-                <a href="#products" class="btn secondary-btn">
-                    🛒 View Products
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-image">
-
-            <div class="milk-circle">
-                🥛
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FEATURES
-    ========================== -->
-
-    <section class="features">
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                🥛
-            </div>
-
-            <h3>Fresh Milk</h3>
-
-            <p>
-                Fresh and pure milk every day.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                ⭐
-            </div>
-
-            <h3>Quality Products</h3>
-
-            <p>
-                High quality dairy products.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                ❤️
-            </div>
-
-            <h3>Trusted Quality</h3>
-
-            <p>
-                Trusted by our customers.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PRODUCTS SECTION
-    ========================== -->
-
-    <section id="products" class="products-section">
-
-        <div class="section-title">
-
-            <p>OUR PRODUCTS</p>
-
-            <h2>Fresh Dairy Products</h2>
-
-            <span>
-                Pure quality products for your family
-            </span>
-
-        </div>
-
-
-        <div class="product-grid">
-
-
-            <!-- =====================
-                 FRESH MILK
-            ====================== -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🥛
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-tag">
-                        FRESH
-                    </span>
-
-                    <h3>
-                        Fresh Milk
-                    </h3>
-
-                    <p>
-                        Fresh and pure milk for your daily needs.
-                    </p>
-
-                    <div class="price">
-                        ₹60
-                        <small>/ litre</small>
-                    </div>
-
-                    <a
-                        class="order-btn"
-                        href="https://wa.me/917588153581?text=Hello%20Sai%20Amrut%20Dairy%2C%20I%20want%20to%20order%20Fresh%20Milk."
-                        target="_blank">
-
-                        🛒 Order on WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================
-                 CURD
-            ====================== -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🥣
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-tag">
-                        FRESH
-                    </span>
-
-                    <h3>
-                        Fresh Curd
-                    </h3>
-
-                    <p>
-                        Fresh, creamy and delicious curd.
-                    </p>
-
-                    <div class="price">
-                        ₹50
-                        <small>/ kg</small>
-                    </div>
-
-                    <a
-                        class="order-btn"
-                        href="https://wa.me/917588153581?text=Hello%20Sai%20Amrut%20Dairy%2C%20I%20want%20to%20order%20Curd."
-                        target="_blank">
-
-                        🛒 Order on WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================
-                 PANEER
-            ====================== -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🧀
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-tag">
-                        QUALITY
-                    </span>
-
-                    <h3>
-                        Fresh Paneer
-                    </h3>
-
-                    <p>
-                        Soft and fresh paneer for delicious meals.
-                    </p>
-
-                    <div class="price">
-                        ₹320
-                        <small>/ kg</small>
-                    </div>
-
-                    <a
-                        class="order-btn"
-                        href="https://wa.me/917588153581?text=Hello%20Sai%20Amrut%20Dairy%2C%20I%20want%20to%20order%20Paneer."
-                        target="_blank">
-
-                        🛒 Order on WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================
-                 BUTTER
-            ====================== -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-                    🧈
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-tag">
-                        PREMIUM
-                    </span>
-
-                    <h3>
-                        Fresh Butter
-                    </h3>
-
-                    <p>
-                        Rich and creamy butter with great taste.
-                    </p>
-
-                    <div class="price">
-                        ₹500
-                        <small>/ kg</small>
-                    </div>
-
-                    <a
-                        class="order-btn"
-                        href="https://wa.me/917588153581?text=Hello%20Sai%20Amrut%20Dairy%2C%20I%20want%20to%20order%20Butter."
-                        target="_blank">
-
-                        🛒 Order on WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT SECTION
-    ========================== -->
-
-    <section id="about" class="about-section">
-
-        <div class="about-content">
-
-            <p class="section-label">
-                ABOUT US
-            </p>
-
-            <h2>
-                Freshness & Quality You Can Trust
-            </h2>
-
-            <p>
-                Sai Amrut Dairy provides fresh and quality dairy
-                products for your daily needs. We focus on freshness,
-                quality and customer satisfaction.
-            </p>
-
-            <p>
-                From fresh milk to delicious dairy products,
-                we aim to provide trusted products for every family.
-            </p>
-
-        </div>
-
-        <div class="about-box">
-
-            <div>
-                🥛
-            </div>
-
-            <h3>
-                Fresh Every Day
-            </h3>
-
-            <p>
-                Quality dairy products with fresh taste.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT SECTION
-    ========================== -->
-
-    <section id="contact" class="contact-section">
-
-        <div class="section-title">
-
-            <p>CONTACT US</p>
-
-            <h2>
-                Visit Sai Amrut Dairy
-            </h2>
-
-            <span>
-                We are happy to serve you
-            </span>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-
-            <!-- PHONE -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    📞
-                </div>
-
-                <h3>
-                    Call Us
-                </h3>
-
-                <p>
-                    7588153581
-                </p>
-
-                <a href="tel:7588153581">
-                    Call Now
-                </a>
-
-            </div>
-
-
-            <!-- LOCATION -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    📍
-                </div>
-
-                <h3>
-                    Shop Location
-                </h3>
-
-                <p>
-                    Akare Medical Samor,
-                    Post Office Road,
-                    Hingoli
-                </p>
-
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Akare+Medical+Post+Office+Road+Hingoli"
-                    target="_blank">
-
-                    Open in Google Maps
-
-                </a>
-
-            </div>
-
-
-            <!-- WHATSAPP -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    💬
-                </div>
-
-                <h3>
-                    WhatsApp
-                </h3>
-
-                <p>
-                    Order dairy products easily.
-                </p>
-
-                <a
-                    href="https://wa.me/917588153581?text=Hello%20Sai%20Amrut%20Dairy"
-                    target="_blank">
-
+                <a href="https://wa.me/7020034584" target="_blank">
                     Chat on WhatsApp
-
                 </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="footer-content">
-
-            <h3>
-                🥛 Sai Amrut Dairy
-            </h3>
-
-            <p>
-                Freshness You Can Trust Every Day
-            </p>
-
-            <p>
-                📍 Hingoli | 📞 7588153581
             </p>
 
         </div>
 
-        <div class="footer-bottom">
+
+        <div class="contact-card">
+
+            <h3>📧 Email</h3>
 
             <p>
-                © 2026 Sai Amrut Dairy. All Rights Reserved.
+                <a href="mailto:yourmail@example.com">
+                    yourmail@example.com
+                </a>
             </p>
 
         </div>
 
-    </footer>
 
+        <div class="contact-card">
+
+            <h3>📍 Address</h3>
+
+            <p>
+                Sai Amrut Dairy<br>
+                Your City, Maharashtra
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews">
+
+    <h2 class="section-title">⭐ Customer Reviews</h2>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <h3>Rahul</h3>
+
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+
+            <p>
+                Fresh milk and very good quality products.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <h3>Pooja</h3>
+
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+
+            <p>
+                Paneer quality is very good and delivery is convenient.
+            </p>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <h3>Amit</h3>
+
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+
+            <p>
+                Good dairy products and excellent service.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHATSAPP ORDER ================= -->
+
+<section class="whatsapp-section">
+
+    <h2>📱 Order on WhatsApp</h2>
+
+    <p>
+        Send your order directly to Sai Amrut Dairy on WhatsApp.
+    </p>
+
+    <a
+        class="whatsapp-btn"
+        href="https://wa.me/91XXXXXXXXXX?text=Hello%20Sai%20Amrut%20Dairy,%20I%20want%20to%20place%20an%20order."
+        target="_blank">
+
+        💬 Order on WhatsApp
+
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Sai Amrut Dairy. All Rights Reserved.
+    </p>
+
+    <p>
+        Freshness • Quality • Trust
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function calculateTotal() {
+
+        const product =
+            Number(document.getElementById("product").value);
+
+        const quantity =
+            Number(document.getElementById("quantity").value);
+
+        const total =
+            product * quantity;
+
+        document.getElementById("total").innerText =
+            total;
+
+    }
+
+
+    function sendOrder() {
+
+        const productSelect =
+            document.getElementById("product");
+
+        const productName =
+            productSelect.options[productSelect.selectedIndex].text;
+
+        const quantity =
+            document.getElementById("quantity").value;
+
+        const name =
+            document.getElementById("customerName").value;
+
+        const mobile =
+            document.getElementById("mobile").value;
+
+        const address =
+            document.getElementById("address").value;
+
+        const total =
+            document.getElementById("total").innerText;
+
+
+        if (!productSelect.value) {
+
+            alert("Please select a product.");
+
+            return;
+
+        }
+
+
+        if (!name || !mobile || !address) {
+
+            alert("Please fill all customer details.");
+
+            return;
+
+        }
+
+
+        const message =
+            `Hello Sai Amrut Dairy,
+
+I want to place an order.
+
+Product: ${productName}
+Quantity: ${quantity}
+Customer Name: ${name}
+Mobile: ${mobile}
+Address: ${address}
+Total Price: ₹${total}
+
+Thank you.`;
+
+
+        const whatsappNumber =
+            "7020034584";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(whatsappURL, "_blank");
+
+    }
+
+</script>
 
 </body>
-
 </html>
