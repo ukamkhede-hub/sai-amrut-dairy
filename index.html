@@ -2270,25 +2270,15 @@ if (
    LOADING SCREEN
 ========================================================= */
 
-window.addEventListener(
-    "load",
-    function () {
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loading-screen");
 
-        setTimeout(
-            function () {
-
-                document
-                    .getElementById(
-                        "loadingScreen"
-                    )
-                    .classList.add("hide");
-
-            },
-            800
-        );
-
-    }
-);
+        if (loadingScreen) {
+            loadingScreen.style.display = "none";
+        }
+    });
+</script>
 
 
 /* =========================================================

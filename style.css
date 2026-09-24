@@ -1166,3 +1166,6 @@ section {
         font-size: 55px;
     }
 }
+#loading-screen {
+    display: none !important;
+}
