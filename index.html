@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sai Amrut Dairy</title>
+    <title>Sai Amrut Dairy | Fresh Dairy & Grocery</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -18,32 +20,34 @@
             font-family: Arial, sans-serif;
             background: #f8fff8;
             color: #222;
+            line-height: 1.6;
         }
 
-        /* ================= NAVBAR ================= */
+        /* NAVBAR */
 
         nav {
-            background: #ffffff;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
             font-size: 25px;
             font-weight: bold;
-            color: #16833b;
+            color: #168a3a;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 25px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
@@ -53,86 +57,75 @@
         }
 
         nav ul li a:hover {
-            color: #16833b;
+            color: #168a3a;
         }
 
-        /* ================= HOME ================= */
+        /* HERO */
 
-        .home {
-            min-height: 90vh;
+        .hero {
+            min-height: 85vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
-
+            padding: 30px;
             background:
-                linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
+                linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
                 url("https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1600&q=80");
-
             background-size: cover;
             background-position: center;
-        }
-
-        .home-content {
-            max-width: 800px;
-        }
-
-        .home h1 {
-            font-size: 55px;
-            color: #16833b;
-            margin-bottom: 15px;
-        }
-
-        .home h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .home p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #16833b;
             color: white;
-            padding: 13px 28px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 28px;
             border-radius: 30px;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
             font-weight: bold;
         }
 
-        .btn:hover {
-            background: #0d642b;
-        }
-
-        /* ================= COMMON ================= */
+        /* COMMON */
 
         section {
-            padding: 70px 7%;
+            padding: 70px 6%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 36px;
-            color: #16833b;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
-        /* ================= PRODUCTS ================= */
-
-        .products {
-            background: #ffffff;
+        .section-title h2 {
+            font-size: 35px;
+            color: #168a3a;
+            margin-bottom: 8px;
         }
 
-        .product-grid {
+        /* PRODUCTS */
+
+        .category-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 45px 0 25px;
+            color: #168a3a;
+        }
+
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
         }
 
@@ -140,92 +133,108 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
             text-align: center;
+            padding-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
 
         .product-card img {
             width: 100%;
-            height: 210px;
+            height: 180px;
             object-fit: cover;
         }
 
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #16833b;
-        }
-
-        .price {
+        .product-card h3 {
+            margin: 12px 8px 5px;
             font-size: 19px;
-            font-weight: bold;
-            margin-bottom: 15px;
         }
 
-        .no-price {
-            color: #777;
-            margin-bottom: 15px;
+        .product-card p {
+            color: #666;
+            font-size: 14px;
         }
 
-        /* ================= ONLINE ORDER ================= */
-
-        .order {
-            background: #effaf1;
-        }
-
-        .order-box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
+        .product-card span {
             display: block;
-            margin-bottom: 7px;
+            color: #168a3a;
             font-weight: bold;
+            margin-top: 8px;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 13px;
+        /* QUANTITY */
+
+        .quantity-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .quantity-box button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: #25D366;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .quantity-box button:hover {
+            opacity: 0.8;
+        }
+
+        .quantity-box input {
+            width: 55px;
+            height: 36px;
+            text-align: center;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 16px;
         }
 
-        .total-box {
-            margin: 20px 0;
-            padding: 15px;
-            background: #e9f8eb;
-            border-radius: 8px;
-            font-size: 21px;
-            font-weight: bold;
+        /* WHATSAPP */
+
+        .order-area {
             text-align: center;
+            margin: 55px auto 0;
+            padding: 35px;
+            max-width: 750px;
+            border-radius: 18px;
+            background: #eafff0;
         }
 
-        /* ================= DELIVERY ================= */
-
-        .delivery {
-            background: white;
+        .order-area h3 {
+            font-size: 28px;
+            color: #168a3a;
+            margin-bottom: 10px;
         }
+
+        .whatsapp-order-btn {
+            margin-top: 20px;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: #25D366;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .whatsapp-order-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* INFO SECTIONS */
 
         .info-grid {
             display: grid;
@@ -234,524 +243,627 @@
         }
 
         .info-card {
+            background: white;
+            padding: 30px;
             text-align: center;
-            padding: 30px 20px;
-            background: #f1faf2;
             border-radius: 15px;
-        }
-
-        .info-card .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .info-card h3 {
-            color: #16833b;
+            color: #168a3a;
             margin-bottom: 10px;
         }
 
-        /* ================= WHY CHOOSE US ================= */
-
-        .why {
-            background: #effaf1;
-        }
-
-        /* ================= GALLERY ================= */
-
-        .gallery {
-            background: white;
-        }
+        /* GALLERY */
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
         }
 
         .gallery-grid img {
             width: 100%;
-            height: 230px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 15px;
-            transition: 0.3s;
+            border-radius: 12px;
         }
 
-        .gallery-grid img:hover {
-            transform: scale(1.03);
-        }
+        /* CONTACT */
 
-        /* ================= ABOUT ================= */
-
-        .about {
-            background: #effaf1;
-        }
-
-        .about-box {
-            max-width: 900px;
+        .contact-box {
+            max-width: 700px;
             margin: auto;
             text-align: center;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* ================= CONTACT ================= */
-
-        .contact {
             background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .contact-card {
-            text-align: center;
-            padding: 30px;
+            padding: 35px;
             border-radius: 15px;
-            background: #f1faf2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
-        .contact-card h3 {
-            color: #16833b;
-            margin-bottom: 10px;
+        .contact-box p {
+            margin: 10px;
         }
 
-        .contact-card a {
-            color: #16833b;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        /* REVIEWS */
 
-        /* ================= REVIEWS ================= */
-
-        .reviews {
-            background: #effaf1;
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .review-card {
+        .review {
             background: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
-        .stars {
-            color: #f5b400;
-            font-size: 22px;
-            margin: 10px 0;
+        .review strong {
+            color: #168a3a;
         }
 
-        .review-card p {
-            line-height: 1.6;
-        }
-
-        /* ================= WHATSAPP ================= */
-
-        .whatsapp-section {
-            text-align: center;
-            background: #16833b;
-            color: white;
-        }
-
-        .whatsapp-section h2 {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
-
-        .whatsapp-section p {
-            margin-bottom: 25px;
-            font-size: 18px;
-        }
-
-        .whatsapp-btn {
-            background: white;
-            color: #16833b;
-            padding: 14px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        /* ================= FOOTER ================= */
+        /* FOOTER */
 
         footer {
-            background: #102d18;
+            background: #123d23;
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 30px;
         }
 
-        /* ================= MOBILE ================= */
+        /* MOBILE */
 
         @media(max-width: 768px) {
 
             nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
             }
 
             nav ul {
-                flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 10px;
             }
 
-            .home h1 {
-                font-size: 40px;
+            .hero h1 {
+                font-size: 35px;
             }
 
-            .home h2 {
-                font-size: 22px;
-            }
-
-            section {
-                padding: 50px 5%;
+            .hero p {
+                font-size: 17px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
-    <div class="logo">🥛 Sai Amrut Dairy</div>
+
+    <div class="logo">
+        🥛 Sai Amrut Dairy
+    </div>
 
     <ul>
+
         <li><a href="#home">Home</a></li>
+
         <li><a href="#products">Products</a></li>
-        <li><a href="#order">Order</a></li>
+
         <li><a href="#delivery">Delivery</a></li>
+
+        <li><a href="#why">Why Choose Us</a></li>
+
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#about">About</a></li>
+
+        <li><a href="#about">About Us</a></li>
+
         <li><a href="#contact">Contact</a></li>
+
+        <li><a href="#reviews">Reviews</a></li>
+
     </ul>
+
 </nav>
 
 
-<!-- ================= HOME ================= -->
+<!-- =========================
+     HOME
+========================= -->
 
-<section class="home" id="home">
+<section id="home" class="hero">
 
-    <div class="home-content">
+    <div>
 
-        <h1>Sai Amrut Dairy</h1>
-
-        <h2>Freshness You Can Trust 🥛</h2>
+        <h1>Welcome to Sai Amrut Dairy</h1>
 
         <p>
-            Fresh and quality dairy products delivered to your doorstep.
+            Fresh Dairy Products, Energy Drinks,
+            Snacks & Grocery Products
         </p>
 
-        <a href="#order" class="btn">Order Now</a>
+        <a href="#products" class="hero-btn">
+            View Products
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-<section class="products" id="products">
+<section id="products">
 
-    <h2 class="section-title">🥛 Our Products</h2>
+    <div class="section-title">
 
-    <div class="product-grid">
+        <h2>Our Products</h2>
 
-        <!-- Milk -->
+        <p>
+            Choose your products and order directly on WhatsApp
+        </p>
 
-        <div class="product-card">
+    </div>
 
-            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80">
 
-            <div class="product-info">
+    <!-- DAIRY -->
 
-                <h3>🥛 Fresh Milk</h3>
+    <h3 class="category-title">
+        🥛 Dairy Products
+    </h3>
 
-                <div class="price">₹70 / Liter</div>
+    <div class="products-grid">
 
-                <a href="#order" class="btn">Order Now</a>
 
+        <div class="product-card" data-name="Milk" data-price="70">
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80">
+            <h3>Milk</h3>
+            <p>1 Liter</p>
+            <span>₹70</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Paneer -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🧀 Paneer</h3>
-
-                <div class="price">₹500 / Kg</div>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Paneer" data-price="500">
+            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80">
+            <h3>Paneer</h3>
+            <p>1 Kg</p>
+            <span>₹500</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Curd -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🥣 Fresh Curd</h3>
-
-                <div class="price">₹120 / Kg</div>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Curd" data-price="120">
+            <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80">
+            <h3>Curd</h3>
+            <p>1 Kg</p>
+            <span>₹120</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Ghee -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🫙 Pure Ghee</h3>
-
-                <div class="price">₹1000 / Kg</div>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Ghee" data-price="1000">
+            <img src="https://images.unsplash.com/photo-1632785814797-9a0b1c4e9c7e?auto=format&fit=crop&w=600&q=80">
+            <h3>Ghee</h3>
+            <p>1 Kg</p>
+            <span>₹1000</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Lassi -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1571071314803-2f9f1c2c6c9e?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🥤 Lassi</h3>
-
-                <div class="price">₹100 / Liter</div>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Lassi" data-price="100">
+            <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=600&q=80">
+            <h3>Lassi</h3>
+            <p>1 Liter</p>
+            <span>₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Cheese -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🧀 Cheese</h3>
-
-                <div class="price">₹200 / Kg</div>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Cheese" data-price="200">
+            <img src="https://images.unsplash.com/photo-1618164436241-4473940d1f5c?auto=format&fit=crop&w=600&q=80">
+            <h3>Cheese</h3>
+            <p>1 Kg</p>
+            <span>₹200</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Butter -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🧈 Butter</h3>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Butter" data-price="80">
+            <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=600&q=80">
+            <h3>Butter</h3>
+            <p>100 g</p>
+            <span>₹80</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Buttermilk -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🥛 Buttermilk</h3>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Buttermilk" data-price="30">
+            <img src="https://images.unsplash.com/photo-1553530666-ba11a90a0868?auto=format&fit=crop&w=600&q=80">
+            <h3>Buttermilk</h3>
+            <p>1 Liter</p>
+            <span>₹30</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Cream -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🍶 Fresh Cream</h3>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Cream" data-price="100">
+            <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80">
+            <h3>Cream</h3>
+            <p>200 g</p>
+            <span>₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
 
-        <!-- Flavoured Milk -->
-
-        <div class="product-card">
-
-            <img src="https://images.unsplash.com/photo-1600788907416-456578634209?auto=format&fit=crop&w=800&q=80">
-
-            <div class="product-info">
-
-                <h3>🥛 Flavoured Milk</h3>
-
-                <a href="#order" class="btn">Order Now</a>
-
+        <div class="product-card" data-name="Flavoured Milk" data-price="40">
+            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80">
+            <h3>Flavoured Milk</h3>
+            <p>200 ml</p>
+            <span>₹40</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
             </div>
-
         </div>
 
     </div>
 
-</section>
+
+    <!-- ENERGY DRINKS -->
+
+    <h3 class="category-title">
+        ⚡ Energy Drinks – 250 ml
+    </h3>
+
+    <div class="products-grid">
 
 
-<!-- ================= ONLINE ORDER ================= -->
-
-<section class="order" id="order">
-
-    <h2 class="section-title">🛒 Online Order</h2>
-
-    <div class="order-box">
-
-        <div class="form-group">
-
-            <label>Product</label>
-
-            <select id="product" onchange="calculateTotal()">
-
-                <option value="">Select Product</option>
-
-                <option value="70">Milk - ₹70/Liter</option>
-
-                <option value="500">Paneer - ₹500/Kg</option>
-
-                <option value="120">Curd - ₹120/Kg</option>
-
-                <option value="1000">Ghee - ₹1000/Kg</option>
-
-                <option value="100">Lassi - ₹100/Liter</option>
-
-                <option value="200">Cheese - ₹200/Kg</option>
-
-                <option value="0">Butter - Price on request</option>
-
-                <option value="0">Buttermilk - Price on request</option>
-
-                <option value="0">Cream - Price on request</option>
-
-                <option value="0">Flavoured Milk - Price on request</option>
-
-            </select>
-
+        <div class="product-card" data-name="Red Bull 250ml" data-price="125">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Red Bull</h3>
+            <p>250 ml</p>
+            <span>MRP ₹125</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <div class="form-group">
-
-            <label>Quantity</label>
-
-            <input
-                type="number"
-                id="quantity"
-                min="1"
-                value="1"
-                onchange="calculateTotal()"
-                oninput="calculateTotal()"
-            >
-
+        <div class="product-card" data-name="Sting 250ml" data-price="20">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Sting</h3>
+            <p>250 ml</p>
+            <span>MRP ₹20</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <div class="form-group">
-
-            <label>Customer Name</label>
-
-            <input type="text" id="customerName" placeholder="Enter your name">
-
+        <div class="product-card" data-name="Monster Energy 250ml" data-price="120">
+            <img src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?auto=format&fit=crop&w=600&q=80">
+            <h3>Monster Energy</h3>
+            <p>250 ml</p>
+            <span>MRP ₹120</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <div class="form-group">
-
-            <label>Mobile Number</label>
-
-            <input type="tel" id="mobile" placeholder="Enter mobile number">
-
+        <div class="product-card" data-name="Hell Energy 250ml" data-price="100">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Hell Energy</h3>
+            <p>250 ml</p>
+            <span>MRP ₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <div class="form-group">
-
-            <label>Address</label>
-
-            <textarea
-                id="address"
-                rows="4"
-                placeholder="Enter delivery address">
-            </textarea>
-
+        <div class="product-card" data-name="Adrenaline Rush 250ml" data-price="100">
+            <img src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?auto=format&fit=crop&w=600&q=80">
+            <h3>Adrenaline Rush</h3>
+            <p>250 ml</p>
+            <span>MRP ₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <div class="total-box">
-
-            Total Price:
-            ₹<span id="total">0</span>
-
+        <div class="product-card" data-name="Campa Energy 250ml" data-price="50">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Campa Energy</h3>
+            <p>250 ml</p>
+            <span>MRP ₹50</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
         </div>
 
 
-        <button class="btn" onclick="sendOrder()">
+        <div class="product-card" data-name="Power Horse 250ml" data-price="100">
+            <img src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?auto=format&fit=crop&w=600&q=80">
+            <h3>Power Horse</h3>
+            <p>250 ml</p>
+            <span>MRP ₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-name="Tzinga 250ml" data-price="50">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Tzinga</h3>
+            <p>250 ml</p>
+            <span>MRP ₹50</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-name="Burn 250ml" data-price="100">
+            <img src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?auto=format&fit=crop&w=600&q=80">
+            <h3>Burn</h3>
+            <p>250 ml</p>
+            <span>MRP ₹100</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-name="Gatorade 250ml" data-price="50">
+            <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80">
+            <h3>Gatorade</h3>
+            <p>250 ml</p>
+            <span>MRP ₹50</span>
+            <div class="quantity-box">
+                <button onclick="changeQty(this,-1)">−</button>
+                <input type="number" value="0" min="0">
+                <button onclick="changeQty(this,1)">+</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- GROCERY -->
+
+    <h3 class="category-title">
+        🛒 Grocery & Snacks
+    </h3>
+
+    <div class="products-grid">
+
+        <script>
+
+        const groceryProducts = [
+
+            ["Oats","500 g",120],
+            ["Corn Flakes","500 g",180],
+            ["Nutella","350 g",200],
+            ["Maggi / Instant Noodles","70 g",15],
+            ["Chips","50 g",20],
+            ["Namkeen","200 g",60],
+            ["Bhujia","200 g",60],
+            ["Kurkure-type Snacks","50 g",20],
+            ["Masala Packets","100 g",50],
+            ["Toffee / Candy","100 g",50],
+            ["Biscuits","100 g",30],
+            ["Tea Packets","250 g",250],
+            ["Coffee","50 g",225],
+            ["Pickle / Packaged Food","500 g",120],
+            ["Frozen Food Items","400 g",150],
+            ["Ice Cream / Frozen Products","1 Liter",300],
+
+            ["Flavoured Yogurt","100 g",30],
+            ["Greek Yogurt","100 g",60],
+            ["Milkshake","200 ml",40],
+            ["Custard","100 g",35],
+            ["Cheese Slices","200 g",160],
+            ["Cheese Spread","200 g",150],
+            ["Condensed Milk","200 g",140],
+
+            ["Cream Biscuits","100 g",30],
+            ["Glucose Biscuits","100 g",20],
+            ["Salt Biscuits","100 g",25],
+            ["Cookies","100 g",40],
+            ["Rusk","200 g",50],
+            ["Bread","400 g",45],
+            ["Buns","4 pcs",40],
+            ["Cake","200 g",80],
+            ["Muffins","4 pcs",80],
+
+            ["Dairy Milk","50 g",50],
+            ["KitKat","41.5 g",40],
+            ["5 Star","45 g",50],
+            ["Perk","40 g",40],
+            ["Munch","42 g",40],
+            ["Gems","22 g",20],
+            ["Eclairs","100 g",50],
+            ["Lollipop","10 pcs",20],
+
+            ["Coca-Cola","300 ml",40],
+            ["Pepsi","300 ml",40],
+            ["Sprite","300 ml",40],
+            ["Fanta","300 ml",40],
+            ["Thums Up","300 ml",40],
+            ["Limca","300 ml",40],
+            ["Maaza","600 ml",40],
+            ["Slice","600 ml",40],
+            ["Frooti","600 ml",40],
+            ["Appy Fizz","600 ml",40],
+            ["Real Juice","1 Liter",130],
+            ["Paper Boat Drinks","200 ml",40],
+
+            ["Packaged Drinking Water","1 Liter",20],
+            ["Soda","750 ml",25],
+            ["Coconut Water","200 ml",50],
+            ["Glucose Drink","200 g",100],
+            ["Lemon Drink","250 ml",20],
+
+            ["Yippee Noodles","70 g",15],
+            ["Top Ramen","70 g",15],
+            ["Pasta","500 g",80],
+            ["Vermicelli / Sevai","500 g",70],
+            ["Ready-to-Eat Poha","200 g",60],
+            ["Ready-to-Eat Upma","200 g",60],
+            ["Soup Packets","50 g",50],
+
+            ["Tomato Ketchup","500 g",120],
+            ["Mayonnaise","250 g",100],
+            ["Jam","500 g",150],
+            ["Peanut Butter","340 g",200],
+            ["Pasta Sauce","200 g",120],
+            ["Soy Sauce","200 ml",70],
+            ["Vinegar","500 ml",60],
+
+            ["Peanuts","200 g",60],
+            ["Roasted Chana","200 g",60],
+            ["Cashews","100 g",120],
+            ["Almonds","100 g",110],
+            ["Raisins","100 g",60],
+            ["Mixed Dry Fruits","200 g",250],
+
+            ["Frozen Peas","500 g",100],
+            ["Frozen Corn","500 g",100],
+            ["Frozen French Fries","400 g",150],
+            ["Frozen Paratha","400 g",120],
+            ["Frozen Samosa","400 g",150],
+            ["Frozen Momos","250 g",150],
+            ["Ice Cream Cups","100 ml",40],
+            ["Ice Cream Cones","100 ml",50],
+            ["Ice Cream Family Pack","1 Liter",300]
+
+        ];
+
+        groceryProducts.forEach(function(item) {
+
+            document.write(`
+            
+            <div class="product-card"
+                 data-name="${item[0]}"
+                 data-price="${item[2]}">
+
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80">
+
+                <h3>${item[0]}</h3>
+
+                <p>${item[1]}</p>
+
+                <span>MRP ₹${item[2]}</span>
+
+                <div class="quantity-box">
+
+                    <button onclick="changeQty(this,-1)">
+                        −
+                    </button>
+
+                    <input type="number"
+                           value="0"
+                           min="0">
+
+                    <button onclick="changeQty(this,1)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            `);
+
+        });
+
+        </script>
+
+    </div>
+
+
+    <!-- WHATSAPP -->
+
+    <div class="order-area">
+
+        <h3>🛒 Your Order</h3>
+
+        <p>
+            Select quantity for one or multiple products.
+            Your complete order will be sent to WhatsApp.
+        </p>
+
+        <button
+            class="whatsapp-order-btn"
+            onclick="sendWhatsAppOrder()">
+
             📱 Order on WhatsApp
+
         </button>
 
     </div>
@@ -759,110 +871,104 @@
 </section>
 
 
-<!-- ================= DELIVERY ================= -->
+<!-- =========================
+     DELIVERY
+========================= -->
 
-<section class="delivery" id="delivery">
+<section id="delivery">
 
-    <h2 class="section-title">📦 Delivery</h2>
+    <div class="section-title">
 
-    <div class="info-grid">
+        <h2>🚚 Home Delivery</h2>
 
-        <div class="info-card">
-
-            <div class="icon">🏠</div>
-
-            <h3>Home Delivery</h3>
-
-            <p>Fresh dairy products delivered directly to your home.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">📍</div>
-
-            <h3>Delivery Area</h3>
-
-            <p>Delivery available in selected nearby areas.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">⏰</div>
-
-            <h3>Delivery Timing</h3>
-
-            <p>Morning and evening delivery available.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">📦</div>
-
-            <h3>Minimum Order</h3>
-
-            <p>Minimum order information can be confirmed on WhatsApp.</p>
-
-        </div>
+        <p>
+            Fresh products delivered to your doorstep.
+        </p>
 
     </div>
 
-</section>
-
-
-<!-- ================= WHY CHOOSE US ================= -->
-
-<section class="why">
-
-    <h2 class="section-title">⭐ Why Choose Us?</h2>
-
     <div class="info-grid">
 
         <div class="info-card">
-
-            <div class="icon">🥛</div>
-
-            <h3>Fresh & Quality</h3>
-
-            <p>Quality dairy products for your family.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">🧼</div>
-
-            <h3>Hygienic Processing</h3>
-
-            <p>Products prepared with proper hygiene and care.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">🌅</div>
-
-            <h3>Fresh Daily</h3>
-
-            <p>Fresh dairy products prepared regularly.</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="icon">🚚</div>
-
             <h3>Fast Delivery</h3>
+            <p>
+                Get your daily products delivered quickly.
+            </p>
+        </div>
 
-            <p>Quick and convenient home delivery.</p>
+        <div class="info-card">
+            <h3>Easy Ordering</h3>
+            <p>
+                Select products and send your order directly on WhatsApp.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>Fresh Products</h3>
+            <p>
+                We focus on fresh dairy and quality products.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
+<section id="why">
+
+    <div class="section-title">
+
+        <h2>Why Choose Us?</h2>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h3>🥛 Fresh Dairy</h3>
+
+            <p>
+                Fresh dairy products for your family.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>⚡ Variety</h3>
+
+            <p>
+                Dairy, drinks, snacks, grocery and frozen products.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>📱 WhatsApp Ordering</h3>
+
+            <p>
+                Easy and quick ordering through WhatsApp.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>🚚 Delivery</h3>
+
+            <p>
+                Convenient home delivery service.
+            </p>
 
         </div>
 
@@ -871,52 +977,55 @@
 </section>
 
 
-<!-- ================= GALLERY ================= -->
+<!-- =========================
+     GALLERY
+========================= -->
 
-<section class="gallery" id="gallery">
+<section id="gallery">
 
-    <h2 class="section-title">📸 Gallery</h2>
+    <div class="section-title">
+
+        <h2>📸 Gallery</h2>
+
+    </div>
 
     <div class="gallery-grid">
 
-        <img src="https://images.unsplash.com/photo-1594761051656-1c4e7c7c4f4d?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80">
 
-        <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1601598851547-4302969d7c38?auto=format&fit=crop&w=800&q=80">
 
-        <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80">
 
-        <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=900&q=80">
-
-        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=900&q=80">
-
-        <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=800&q=80">
 
     </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =========================
+     ABOUT
+========================= -->
 
-<section class="about" id="about">
+<section id="about">
 
-    <h2 class="section-title">👨‍🌾 About Sai Amrut Dairy</h2>
+    <div class="section-title">
 
-    <div class="about-box">
+        <h2>About Sai Amrut Dairy</h2>
+
+    </div>
+
+    <div class="contact-box">
 
         <p>
-            Sai Amrut Dairy is focused on providing fresh and quality
-            dairy products to customers. Our goal is to provide
-            hygienic, fresh and delicious dairy products with
-            convenient home delivery.
+            Sai Amrut Dairy provides fresh dairy products,
+            beverages, snacks, grocery items and frozen products.
         </p>
 
-        <br>
-
         <p>
-            We believe in quality, freshness and customer satisfaction.
-            From milk and curd to paneer, ghee, lassi and cheese,
-            we aim to serve products that customers can enjoy every day.
+            Our goal is to provide quality products with
+            convenient ordering and home delivery.
         </p>
 
     </div>
@@ -924,56 +1033,87 @@
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =========================
+     CONTACT
+========================= -->
 
-<section class="contact" id="contact">
+<section id="contact">
 
-    <h2 class="section-title">📞 Contact Us</h2>
+    <div class="section-title">
 
-    <div class="contact-grid">
+        <h2>Contact Us</h2>
 
-        <div class="contact-card">
+    </div>
 
-            <h3>📱 Phone</h3>
+    <div class="contact-box">
 
-            <p>+91 7020034584</p>
+        <p>📞 Phone: +91 XXXXX XXXXX</p>
 
-        </div>
+        <p>📱 WhatsApp: +91 XXXXX XXXXX</p>
+
+        <p>📧 Email: saiamrutdairy@gmail.com</p>
+
+        <p>📍 Address: Your Shop Address</p>
+
+    </div>
+
+</section>
 
 
-        <div class="contact-card">
+<!-- =========================
+     REVIEWS
+========================= -->
 
-            <h3>💬 WhatsApp</h3>
+<section id="reviews">
+
+    <div class="section-title">
+
+        <h2>⭐ Customer Reviews</h2>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="review">
+
+            <strong>Rahul</strong>
 
             <p>
-                <a href="https://wa.me/7020034584" target="_blank">
-                    Chat on WhatsApp
-                </a>
+                ⭐⭐⭐⭐⭐
+            </p>
+
+            <p>
+                Fresh milk and quick service.
             </p>
 
         </div>
 
 
-        <div class="contact-card">
+        <div class="review">
 
-            <h3>📧 Email</h3>
+            <strong>Priya</strong>
 
             <p>
-                <a href="mailto:yourmail@example.com">
-                    yourmail@example.com
-                </a>
+                ⭐⭐⭐⭐⭐
+            </p>
+
+            <p>
+                WhatsApp ordering is very convenient.
             </p>
 
         </div>
 
 
-        <div class="contact-card">
+        <div class="review">
 
-            <h3>📍 Address</h3>
+            <strong>Amit</strong>
 
             <p>
-                Sai Amrut Dairy<br>
-                Your City, Maharashtra
+                ⭐⭐⭐⭐⭐
+            </p>
+
+            <p>
+                Good variety of snacks and dairy products.
             </p>
 
         </div>
@@ -983,188 +1123,158 @@
 </section>
 
 
-<!-- ================= REVIEWS ================= -->
-
-<section class="reviews">
-
-    <h2 class="section-title">⭐ Customer Reviews</h2>
-
-    <div class="review-grid">
-
-        <div class="review-card">
-
-            <h3>Rahul</h3>
-
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-
-            <p>
-                Fresh milk and very good quality products.
-            </p>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <h3>Pooja</h3>
-
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-
-            <p>
-                Paneer quality is very good and delivery is convenient.
-            </p>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <h3>Amit</h3>
-
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-
-            <p>
-                Good dairy products and excellent service.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= WHATSAPP ORDER ================= -->
-
-<section class="whatsapp-section">
-
-    <h2>📱 Order on WhatsApp</h2>
-
-    <p>
-        Send your order directly to Sai Amrut Dairy on WhatsApp.
-    </p>
-
-    <a
-        class="whatsapp-btn"
-        href="https://wa.me/91XXXXXXXXXX?text=Hello%20Sai%20Amrut%20Dairy,%20I%20want%20to%20place%20an%20order."
-        target="_blank">
-
-        💬 Order on WhatsApp
-
-    </a>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
+
+    <h3>🥛 Sai Amrut Dairy</h3>
+
+    <p>
+        Fresh Products • Easy Ordering • Home Delivery
+    </p>
 
     <p>
         © 2026 Sai Amrut Dairy. All Rights Reserved.
     </p>
 
-    <p>
-        Freshness • Quality • Trust
-    </p>
-
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-    function calculateTotal() {
 
-        const product =
-            Number(document.getElementById("product").value);
+function changeQty(button, amount) {
+
+    const input =
+        button.parentElement.querySelector("input");
+
+    let quantity =
+        parseInt(input.value) || 0;
+
+    quantity += amount;
+
+    if (quantity < 0) {
+        quantity = 0;
+    }
+
+    input.value = quantity;
+
+}
+
+
+function sendWhatsAppOrder() {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    let message =
+        "🛒 *SAI AMRUT DAIRY - NEW ORDER*%0A%0A";
+
+    let hasOrder = false;
+
+    let total = 0;
+
+
+    products.forEach(function(product) {
+
+        const input =
+            product.querySelector("input");
+
+        if (!input) return;
+
 
         const quantity =
-            Number(document.getElementById("quantity").value);
+            parseInt(input.value) || 0;
 
-        const total =
-            product * quantity;
 
-        document.getElementById("total").innerText =
-            total;
+        if (quantity > 0) {
+
+            const name =
+                product.getAttribute("data-name");
+
+            const price =
+                parseInt(product.getAttribute("data-price")) || 0;
+
+
+            const itemTotal =
+                price * quantity;
+
+
+            message +=
+                "• " +
+                name +
+                " × " +
+                quantity +
+                " = ₹" +
+                itemTotal +
+                "%0A";
+
+
+            total += itemTotal;
+
+            hasOrder = true;
+
+        }
+
+    });
+
+
+    if (!hasOrder) {
+
+        alert(
+            "Please select at least one product."
+        );
+
+        return;
 
     }
 
 
-    function sendOrder() {
+    message +=
+        "%0A--------------------%0A";
 
-        const productSelect =
-            document.getElementById("product");
+    message +=
+        "*Estimated Total: ₹" +
+        total +
+        "*%0A%0A";
 
-        const productName =
-            productSelect.options[productSelect.selectedIndex].text;
-
-        const quantity =
-            document.getElementById("quantity").value;
-
-        const name =
-            document.getElementById("customerName").value;
-
-        const mobile =
-            document.getElementById("mobile").value;
-
-        const address =
-            document.getElementById("address").value;
-
-        const total =
-            document.getElementById("total").innerText;
+    message +=
+        "Please confirm my order.%0A";
 
 
-        if (!productSelect.value) {
+    /* =================================
+       YOUR WHATSAPP NUMBER
+       CHANGE THIS NUMBER
+    ================================= */
 
-            alert("Please select a product.");
-
-            return;
-
-        }
-
-
-        if (!name || !mobile || !address) {
-
-            alert("Please fill all customer details.");
-
-            return;
-
-        }
+    const phoneNumber =
+        "7020034584";
 
 
-        const message =
-            `Hello Sai Amrut Dairy,
-
-I want to place an order.
-
-Product: ${productName}
-Quantity: ${quantity}
-Customer Name: ${name}
-Mobile: ${mobile}
-Address: ${address}
-Total Price: ₹${total}
-
-Thank you.`;
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        message;
 
 
-        const whatsappNumber =
-            "7020034584";
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
 
+}
 
-        const whatsappURL =
-            "https://wa.me/" +
-            whatsappNumber +
-            "?text=" +
-            encodeURIComponent(message);
-
-
-        window.open(whatsappURL, "_blank");
-
-    }
 
 </script>
 
+
 </body>
+
 </html>
