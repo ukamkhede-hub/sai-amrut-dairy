@@ -2846,7 +2846,647 @@ renderProducts();
 updateCartCount();
 
 </script>
+<!-- =====================================================
+     ORDER CONFIRMATION SYSTEM
+===================================================== -->
 
+<style>
+
+.order-confirmation{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.order-confirmation.show{
+    display:flex;
+}
+
+.confirmation-box{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+    animation:confirmationPop 0.35s ease;
+}
+
+@keyframes confirmationPop{
+
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.success-icon{
+    width:75px;
+    height:75px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#dcfce7;
+    color:#16a34a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+}
+
+.confirmation-box h2{
+    color:#087f5b;
+    margin-bottom:8px;
+}
+
+.confirmation-message{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.order-id-box{
+    background:#f0fdf4;
+    border:2px dashed #087f5b;
+    border-radius:12px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.order-id-label{
+    font-size:13px;
+    color:#666;
+    margin-bottom:3px;
+}
+
+.order-id{
+    font-size:24px;
+    font-weight:bold;
+    color:#087f5b;
+    letter-spacing:1px;
+}
+
+.confirmation-details{
+    text-align:left;
+    background:#f8fafc;
+    border-radius:12px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.confirmation-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:6px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.confirmation-row:last-child{
+    border-bottom:none;
+}
+
+.confirmation-row strong{
+    color:#333;
+}
+
+.cod-confirmation{
+    background:#dcfce7;
+    color:#166534;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.confirmation-close{
+    width:100%;
+    border:none;
+    background:#087f5b;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.confirmation-close:hover{
+    background:#056548;
+}
+
+body.dark .confirmation-box{
+    background:#1f2937;
+    color:white;
+}
+
+body.dark .confirmation-message{
+    color:#bbb;
+}
+
+body.dark .confirmation-details{
+    background:#111827;
+}
+
+body.dark .confirmation-row{
+    border-color:#374151;
+}
+
+body.dark .confirmation-row strong{
+    color:#eee;
+}
+
+</style>
+
+
+<!-- =====================================================
+     ORDER CONFIRMATION POPUP
+===================================================== -->
+
+<div
+    class="order-confirmation"
+    id="orderConfirmation"
+>
+
+    <div class="confirmation-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Order Sent Successfully!
+        </h2>
+
+        <p class="confirmation-message">
+            Your order details have been sent to
+            Sai Amrut Dairy on WhatsApp.
+        </p>
+
+
+        <div class="order-id-box">
+
+            <div class="order-id-label">
+                YOUR ORDER ID
+            </div>
+
+            <div
+                class="order-id"
+                id="confirmationOrderId"
+            >
+                SA-000000
+            </div>
+
+        </div>
+
+
+        <div class="confirmation-details">
+
+            <div class="confirmation-row">
+
+                <strong>
+                    Customer
+                </strong>
+
+                <span id="confirmationCustomer">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="confirmation-row">
+
+                <strong>
+                    Mobile
+                </strong>
+
+                <span id="confirmationMobile">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="confirmation-row">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong id="confirmationTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="confirmation-row">
+
+                <strong>
+                    Date & Time
+                </strong>
+
+                <span id="confirmationDate">
+                    -
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="cod-confirmation">
+
+            💵 Payment Method:
+            Cash on Delivery
+
+        </div>
+
+
+        <button
+            class="confirmation-close"
+            onclick="closeOrderConfirmation()"
+        >
+            🏠 Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ORDER CONFIRMATION SYSTEM
+===================================================== */
+
+
+/* GENERATE ORDER ID */
+
+function generateOrderId(){
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(now.getMonth() + 1)
+        .padStart(2,"0");
+
+    const day =
+        String(now.getDate())
+        .padStart(2,"0");
+
+    const random =
+        Math.floor(
+            1000 + Math.random() * 9000
+        );
+
+    return `SA-${year}${month}${day}-${random}`;
+
+}
+
+
+/* GET DATE & TIME */
+
+function getOrderDateTime(){
+
+    const now = new Date();
+
+    return now.toLocaleString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"2-digit",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:true
+        }
+    );
+
+}
+
+
+/* SHOW CONFIRMATION */
+
+function showOrderConfirmation(
+    orderId,
+    customer,
+    total,
+    dateTime
+){
+
+    document
+        .getElementById("confirmationOrderId")
+        .textContent = orderId;
+
+
+    document
+        .getElementById("confirmationCustomer")
+        .textContent = customer.name;
+
+
+    document
+        .getElementById("confirmationMobile")
+        .textContent = customer.mobile;
+
+
+    document
+        .getElementById("confirmationTotal")
+        .textContent = "₹" + total;
+
+
+    document
+        .getElementById("confirmationDate")
+        .textContent = dateTime;
+
+
+    document
+        .getElementById("orderConfirmation")
+        .classList
+        .add("show");
+
+}
+
+
+/* CLOSE CONFIRMATION */
+
+function closeOrderConfirmation(){
+
+    document
+        .getElementById("orderConfirmation")
+        .classList
+        .remove("show");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   UPDATED ORDER FUNCTION
+===================================================== */
+
+function orderCartOnWhatsApp(){
+
+    const items =
+        products.filter(
+            product => cart[product.name] > 0
+        );
+
+
+    /* CHECK CART */
+
+    if(items.length === 0){
+
+        alert(
+            "Your cart is empty. Please add products first."
+        );
+
+        document
+            .getElementById("products")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+        return;
+
+    }
+
+
+    /* CUSTOMER DETAILS */
+
+    const customer =
+        getCustomerDetails();
+
+
+    if(!customer.name){
+
+        alert(
+            "Please enter Customer Name."
+        );
+
+        document
+            .getElementById("customerName")
+            .focus();
+
+        return;
+
+    }
+
+
+    if(!customer.mobile){
+
+        alert(
+            "Please enter Mobile Number."
+        );
+
+        document
+            .getElementById("customerMobile")
+            .focus();
+
+        return;
+
+    }
+
+
+    if(!validateMobile(customer.mobile)){
+
+        alert(
+            "Please enter a valid 10-digit Indian mobile number."
+        );
+
+        document
+            .getElementById("customerMobile")
+            .focus();
+
+        return;
+
+    }
+
+
+    if(!customer.address){
+
+        alert(
+            "Please enter Delivery Address."
+        );
+
+        document
+            .getElementById("customerAddress")
+            .focus();
+
+        return;
+
+    }
+
+
+    /* CREATE ORDER ID */
+
+    const orderId =
+        generateOrderId();
+
+
+    /* DATE & TIME */
+
+    const orderDateTime =
+        getOrderDateTime();
+
+
+    /* CALCULATE TOTAL */
+
+    let total = 0;
+
+
+    let message =
+`🥛 *SAI AMRUT DAIRY ORDER*
+
+🆔 *ORDER ID:* ${orderId}
+
+📅 *ORDER DATE & TIME:* ${orderDateTime}
+
+👤 *Customer:* ${customer.name}
+📱 *Mobile:* ${customer.mobile}
+📍 *Delivery Address:* ${customer.address}
+
+🛒 *ORDER DETAILS:*
+
+`;
+
+
+    items.forEach(
+        (product,index) => {
+
+            const quantity =
+                cart[product.name];
+
+            const itemTotal =
+                product.price * quantity;
+
+            total += itemTotal;
+
+
+            message +=
+`${index + 1}. ${product.name}
+Quantity: ${quantity}
+Price: ₹${product.price}
+Total: ₹${itemTotal}
+
+`;
+
+        }
+    );
+
+
+    /* FINAL WHATSAPP MESSAGE */
+
+    message +=
+`💰 *GRAND TOTAL: ₹${total}*
+
+💵 *PAYMENT METHOD: CASH ON DELIVERY*
+
+📝 *Order Notes:*
+${customer.notes || "No special instructions"}
+
+🏪 *Shop:* Sai Amrut Dairy
+👤 *Owner:* Umesh Kamkhede
+📞 *Shop Mobile:* 7020034584
+📍 *Shop Address:* Akhare Medical Samor, Post Office Road, Hingoli
+
+Thank you for shopping with Sai Amrut Dairy! 🥛`;
+
+
+    /* WHATSAPP URL */
+
+    const url =
+        `https://wa.me/917020034584?text=${encodeURIComponent(message)}`;
+
+
+    /* OPEN WHATSAPP */
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+
+    /* SAVE LAST ORDER ID */
+
+    localStorage.setItem(
+        "saiAmrutLastOrderId",
+        orderId
+    );
+
+
+    /* CLEAR CART */
+
+    cart = {};
+
+    saveCart();
+
+    updateCartCount();
+
+    renderProducts();
+
+    renderCart();
+
+
+    /* SHOW CONFIRMATION */
+
+    setTimeout(
+        function(){
+
+            showOrderConfirmation(
+                orderId,
+                customer,
+                total,
+                orderDateTime
+            );
+
+        },
+        500
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE POPUP WHEN CLICKING OUTSIDE
+===================================================== */
+
+document
+    .getElementById("orderConfirmation")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeOrderConfirmation();
+
+            }
+
+        }
+    );
+
+</script>
 </body>
 </html>
 ```
