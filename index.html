@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,10 @@
 <title>Sai Amrut Dairy | Fresh Dairy Products</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -21,14 +24,15 @@ html{
 }
 
 body{
-    background:#f7f9fc;
-    color:#222;
+    background:#f5f8f7;
+    color:#1f2937;
     line-height:1.6;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+button,
+input,
+textarea{
+    font:inherit;
 }
 
 button{
@@ -36,220 +40,374 @@ button{
 }
 
 
-/* =========================
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-    background:#ffffff;
-    box-shadow:0 2px 12px rgba(0,0,0,0.12);
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 3px 18px rgba(0,0,0,.06);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:14px 6%;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:9px;
     color:#087f5b;
+    font-size:22px;
+    font-weight:800;
+    white-space:nowrap;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:25px;
 }
 
 .nav-links a{
-    font-weight:bold;
-    color:#333;
-    transition:0.3s;
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+    transition:.25s;
 }
 
 .nav-links a:hover{
     color:#087f5b;
 }
 
-.cart-button{
-    background:#087f5b;
-    color:white !important;
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-btn{
     border:none;
-    padding:10px 16px;
-    border-radius:25px;
+    background:#f0fdf4;
+    color:#087f5b;
+    padding:9px 13px;
+    border-radius:10px;
     font-weight:bold;
 }
 
-.cart-button:hover{
-    background:#056548;
+.cart-btn{
+    background:#087f5b;
+    color:white;
 }
 
-.mobile-cart-button{
+.mobile-cart{
     display:none;
 }
 
-.dark-button{
-    border:none;
-    background:#eee;
-    padding:9px 12px;
-    border-radius:50%;
-    font-size:18px;
-}
 
-
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
-    min-height:480px;
+    min-height:590px;
+    position:relative;
+    overflow:hidden;
     display:flex;
-    justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:60px 20px;
-    background:linear-gradient(135deg,#dff8ef,#ffffff);
+    background:
+        linear-gradient(135deg,rgba(3,105,76,.94),rgba(8,127,91,.78)),
+        url("images/dairy-hero.jpg") center/cover;
 }
 
-.hero-content h1{
-    font-size:55px;
-    color:#087f5b;
-    margin-bottom:10px;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-100px;
+    top:-100px;
 }
 
-.hero-content p{
-    font-size:22px;
-    color:#555;
-    margin-bottom:25px;
+.hero-container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    max-width:700px;
+    color:white;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.3);
+    padding:8px 15px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#d1fae5;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:600px;
+    opacity:.95;
+    margin-bottom:30px;
 }
 
 .hero-buttons{
     display:flex;
-    justify-content:center;
-    gap:12px;
     flex-wrap:wrap;
+    gap:12px;
 }
 
-.btn{
-    display:inline-block;
-    padding:13px 24px;
+.hero-btn{
     border:none;
-    border-radius:30px;
+    padding:14px 23px;
+    border-radius:12px;
     font-weight:bold;
-    font-size:16px;
+    text-decoration:none;
+    display:inline-block;
+    transition:.3s;
 }
 
-.btn-primary{
-    background:#087f5b;
-    color:white;
+.hero-btn:hover{
+    transform:translateY(-3px);
 }
 
-.btn-primary:hover{
-    background:#056548;
-}
-
-.btn-whatsapp{
-    background:#25D366;
-    color:white;
-}
-
-.btn-call{
-    background:#2563eb;
-    color:white;
-}
-
-
-/* =========================
-   INFO
-========================= */
-
-.info-section{
-    padding:45px 6%;
+.hero-primary{
     background:white;
+    color:#087f5b;
+}
+
+.hero-whatsapp{
+    background:#25d366;
+    color:white;
+}
+
+.hero-call{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:1px solid rgba(255,255,255,.4);
+}
+
+
+/* =====================================================
+   INFO STRIP
+===================================================== */
+
+.info-strip{
+    max-width:1100px;
+    margin:-45px auto 60px;
+    position:relative;
+    z-index:5;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 12px 35px rgba(0,0,0,.1);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    overflow:hidden;
+}
+
+.info-card{
+    padding:25px;
+    text-align:center;
+    border-right:1px solid #e5e7eb;
+}
+
+.info-card:last-child{
+    border-right:none;
+}
+
+.info-icon{
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.info-card h3{
+    color:#087f5b;
+    margin-bottom:4px;
+}
+
+.info-card p{
+    color:#6b7280;
+}
+
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+.section{
+    max-width:1200px;
+    margin:0 auto;
+    padding:70px 20px;
 }
 
 .section-title{
     text-align:center;
-    font-size:32px;
-    color:#087f5b;
-    margin-bottom:30px;
+    margin-bottom:40px;
 }
 
-.info-grid{
+.section-title span{
+    color:#087f5b;
+    font-weight:bold;
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin:8px 0;
+    color:#111827;
+}
+
+.section-title p{
+    color:#6b7280;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-box{
+    background:white;
+    border-radius:24px;
+    padding:40px;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+    grid-template-columns:1.4fr 1fr;
+    gap:35px;
+    align-items:center;
 }
 
-.info-card{
-    background:#f7f9fc;
-    padding:25px 18px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+.about-content h2{
+    font-size:34px;
+    margin-bottom:15px;
 }
 
-.info-card .icon{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.info-card h3{
-    margin-bottom:8px;
+.about-content h2 span{
     color:#087f5b;
 }
 
-.info-card p{
-    color:#555;
+.about-content p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.about-list{
+    list-style:none;
+}
+
+.about-list li{
+    margin:12px 0;
+    font-weight:600;
+}
+
+.about-list li::first-letter{
+    color:#087f5b;
+}
+
+.about-highlight{
+    background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.about-highlight .big-icon{
+    font-size:70px;
+}
+
+.about-highlight h3{
+    color:#087f5b;
+    font-size:25px;
 }
 
 
-/* =========================
+/* =====================================================
    PRODUCTS
-========================= */
+===================================================== */
 
 .products-section{
-    padding:60px 6%;
+    background:#f5f8f7;
 }
 
 .search-box{
-    max-width:600px;
+    max-width:650px;
     margin:0 auto 25px;
+    position:relative;
 }
 
 .search-box input{
     width:100%;
-    padding:15px 20px;
-    border:1px solid #ddd;
-    border-radius:30px;
+    padding:16px 20px;
+    border:1px solid #d1d5db;
+    border-radius:14px;
     outline:none;
+    background:white;
     font-size:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.04);
+}
+
+.search-box input:focus{
+    border-color:#087f5b;
+    box-shadow:0 0 0 3px rgba(8,127,91,.1);
 }
 
 .filters{
     display:flex;
     justify-content:center;
-    gap:10px;
     flex-wrap:wrap;
+    gap:10px;
     margin-bottom:35px;
 }
 
 .filter-btn{
-    border:1px solid #087f5b;
+    border:1px solid #d1d5db;
     background:white;
-    color:#087f5b;
-    padding:10px 20px;
+    padding:10px 18px;
     border-radius:25px;
     font-weight:bold;
+    color:#4b5563;
+    transition:.25s;
 }
 
-.filter-btn.active,
-.filter-btn:hover{
+.filter-btn:hover,
+.filter-btn.active{
     background:#087f5b;
     color:white;
+    border-color:#087f5b;
 }
 
 .product-grid{
@@ -260,62 +418,80 @@ button{
 
 .product-card{
     background:white;
-    border-radius:18px;
+    border-radius:20px;
     overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
+    box-shadow:0 6px 22px rgba(0,0,0,.06);
+    transition:.3s;
     position:relative;
+    border:1px solid #eef2f0;
 }
 
 .product-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
 }
 
 .product-image{
+    height:210px;
+    background:#f0fdf4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
     width:100%;
-    height:200px;
+    height:100%;
     object-fit:cover;
-    background:#f1f5f9;
+    transition:.4s;
 }
 
-.product-content{
-    padding:16px;
+.product-card:hover .product-image img{
+    transform:scale(1.06);
 }
 
-.product-content h3{
-    color:#222;
-    margin-bottom:5px;
+.product-emoji{
+    font-size:70px;
 }
 
-.product-unit{
-    color:#777;
-    font-size:14px;
-}
-
-.product-price{
-    font-size:20px;
-    color:#087f5b;
-    font-weight:bold;
-    margin:8px 0;
-}
-
-.badge{
+.product-badge{
     position:absolute;
     top:12px;
     left:12px;
     background:#087f5b;
     color:white;
-    padding:5px 10px;
-    border-radius:15px;
+    padding:6px 10px;
+    border-radius:20px;
     font-size:11px;
     font-weight:bold;
 }
 
+.product-info{
+    padding:18px;
+}
+
+.product-info h3{
+    font-size:19px;
+    margin-bottom:3px;
+}
+
+.product-unit{
+    color:#6b7280;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.product-price{
+    font-size:22px;
+    color:#087f5b;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
 .product-actions{
     display:flex;
-    align-items:center;
-    justify-content:space-between;
     gap:8px;
 }
 
@@ -324,80 +500,91 @@ button{
     border:none;
     background:#087f5b;
     color:white;
-    padding:10px;
-    border-radius:8px;
+    padding:11px;
+    border-radius:10px;
     font-weight:bold;
 }
 
-.add-btn:hover{
-    background:#056548;
+.details-btn{
+    border:1px solid #087f5b;
+    background:white;
+    color:#087f5b;
+    padding:10px 12px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-.quantity-box{
+.qty-control{
     display:flex;
     align-items:center;
+    justify-content:space-between;
     gap:7px;
+    background:#ecfdf5;
+    border-radius:10px;
+    padding:4px;
 }
 
-.quantity-box button{
-    width:30px;
-    height:30px;
+.qty-control button{
+    width:34px;
+    height:34px;
     border:none;
-    background:#e7f6f0;
-    color:#087f5b;
-    border-radius:50%;
+    border-radius:8px;
+    background:#087f5b;
+    color:white;
+    font-weight:bold;
     font-size:18px;
+}
+
+.qty-control span{
     font-weight:bold;
 }
 
 
-/* =========================
-   DELIVERY / CUSTOMER
-========================= */
+/* =====================================================
+   DELIVERY / ORDER
+===================================================== */
 
 .delivery-section{
-    padding:55px 6%;
-    background:#eafaf4;
-}
-
-.delivery-box{
-    max-width:900px;
-    margin:auto;
     background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-.delivery-grid{
+.order-layout{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:18px;
+    gap:30px;
+}
+
+.order-panel{
+    background:#f8fafc;
+    border-radius:20px;
+    padding:28px;
+    border:1px solid #e5e7eb;
+}
+
+.order-panel h3{
+    font-size:24px;
+    margin-bottom:20px;
 }
 
 .form-group{
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
 
 .form-group label{
     display:block;
-    font-weight:bold;
     margin-bottom:6px;
+    font-weight:bold;
+    color:#374151;
 }
 
 .form-group input,
 .form-group textarea{
     width:100%;
-    padding:13px;
-    border:1px solid #ddd;
+    border:1px solid #d1d5db;
     border-radius:10px;
+    padding:13px;
     outline:none;
-    font-size:15px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-    border-color:#087f5b;
+    background:white;
 }
 
 .form-group textarea{
@@ -405,114 +592,117 @@ button{
     resize:vertical;
 }
 
-.full{
-    grid-column:1 / -1;
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#087f5b;
 }
 
-
-/* =========================
-   COD PAYMENT BOX
-========================= */
-
-.payment-box{
-    margin-top:10px;
-    margin-bottom:20px;
-    padding:20px;
-    border:2px solid #087f5b;
-    border-radius:15px;
-    background:#f4fffb;
-}
-
-.payment-box h3{
-    color:#087f5b;
-    margin-bottom:12px;
-}
-
-.payment-option{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:12px;
-    background:white;
-    border-radius:10px;
-    border:1px solid #ddd;
-    cursor:pointer;
-}
-
-.payment-option input{
-    width:18px;
-    height:18px;
-    accent-color:#087f5b;
-}
-
-.payment-title{
+.cod-box{
+    background:#ecfdf5;
+    border:1px solid #86efac;
+    padding:15px;
+    border-radius:12px;
+    margin:15px 0;
+    color:#166534;
     font-weight:bold;
-    font-size:17px;
 }
 
-.payment-note{
-    margin-top:10px;
-    font-size:14px;
-    color:#666;
+.order-btn{
+    width:100%;
+    border:none;
+    background:#25d366;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    transition:.25s;
 }
 
+.order-btn:hover{
+    transform:translateY(-2px);
+    background:#1fbd5b;
+}
 
-/* =========================
-   CONTACT
-========================= */
-
-.contact-section{
-    padding:60px 6%;
+.cart-preview{
     background:white;
+    border-radius:20px;
+    padding:25px;
+    min-height:300px;
 }
+
+.cart-preview h3{
+    color:#087f5b;
+    margin-bottom:15px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:13px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.cart-empty{
+    text-align:center;
+    color:#9ca3af;
+    padding:70px 10px;
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
-    max-width:1000px;
-    margin:auto;
+    gap:20px;
 }
 
 .contact-card{
-    text-align:center;
-    padding:30px 20px;
-    background:#f7f9fc;
+    background:white;
     border-radius:18px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 7px 25px rgba(0,0,0,.06);
 }
 
 .contact-card .icon{
-    font-size:38px;
+    font-size:40px;
     margin-bottom:10px;
 }
 
 .contact-card h3{
     color:#087f5b;
-    margin-bottom:8px;
 }
 
 .contact-card p{
-    color:#555;
-    margin-bottom:15px;
+    color:#6b7280;
+    margin:5px 0 15px;
 }
 
 .contact-card a{
-    display:inline-block;
+    text-decoration:none;
     color:#087f5b;
     font-weight:bold;
 }
 
 
-/* =========================
+/* =====================================================
    REVIEWS
-========================= */
+===================================================== */
 
-.reviews-section{
-    padding:60px 6%;
-    background:#f7f9fc;
-}
-
-.reviews-grid{
+.reviews{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
@@ -522,18 +712,17 @@ button{
     background:white;
     padding:25px;
     border-radius:18px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+    box-shadow:0 7px 25px rgba(0,0,0,.06);
 }
 
 .stars{
     color:#f59e0b;
-    font-size:20px;
     margin-bottom:10px;
 }
 
 .review-card p{
-    color:#555;
-    margin-bottom:12px;
+    color:#6b7280;
+    margin-bottom:15px;
 }
 
 .review-card strong{
@@ -541,241 +730,288 @@ button{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
-footer{
-    background:#073b2d;
+.footer{
+    background:#063f2e;
     color:white;
-    padding:35px 6%;
+    padding:45px 20px 25px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer h3{
+    color:#d1fae5;
+    margin-bottom:12px;
+}
+
+.footer p,
+.footer a{
+    color:#cbd5d1;
+}
+
+.footer a{
+    text-decoration:none;
+    display:block;
+    margin:7px 0;
+}
+
+.footer-bottom{
+    max-width:1200px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
     text-align:center;
-}
-
-footer h2{
-    margin-bottom:8px;
-}
-
-footer p{
-    opacity:0.9;
-    margin:5px 0;
-}
-
-.footer-links{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin-top:15px;
-    flex-wrap:wrap;
-}
-
-.footer-links a{
-    color:white;
+    color:#9ca3af;
 }
 
 
-/* =========================
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    z-index:2000;
+    z-index:3000;
+    background:rgba(0,0,0,.7);
+    padding:20px;
+    align-items:center;
+    justify-content:center;
 }
 
 .modal.show{
-    display:block;
+    display:flex;
 }
 
-.modal-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.65);
-}
-
-.modal-content{
-    position:relative;
-    background:white;
-    width:90%;
-    max-width:550px;
-    margin:5vh auto;
-    border-radius:20px;
-    padding:25px;
-    z-index:2;
+.modal-box{
+    width:100%;
+    max-width:500px;
     max-height:90vh;
-    overflow-y:auto;
+    overflow:auto;
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    position:relative;
 }
 
-.close-btn{
+.close-modal{
     position:absolute;
     right:15px;
-    top:10px;
-    border:none;
-    background:#eee;
+    top:12px;
     width:35px;
     height:35px;
+    border:none;
     border-radius:50%;
+    background:#f3f4f6;
     font-size:20px;
 }
 
 .modal-image{
     width:100%;
-    height:280px;
+    height:250px;
     object-fit:cover;
     border-radius:15px;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
-.modal-content h2{
+.modal-box h2{
     color:#087f5b;
+    margin-bottom:5px;
 }
 
 .modal-price{
-    color:#087f5b;
     font-size:25px;
+    color:#087f5b;
     font-weight:bold;
-    margin:8px 0;
+    margin:10px 0;
 }
 
-.popup-quantity{
+.modal-qty{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:15px;
+    gap:18px;
     margin:20px 0;
 }
 
-.popup-quantity button{
+.modal-qty button{
     width:40px;
     height:40px;
     border:none;
-    border-radius:50%;
-    background:#e7f6f0;
-    color:#087f5b;
-    font-size:22px;
+    border-radius:10px;
+    background:#087f5b;
+    color:white;
+    font-size:20px;
+}
+
+.modal-qty span{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.modal-order{
+    width:100%;
+    border:none;
+    background:#25d366;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
 
-/* =========================
-   CART MODAL
-========================= */
+/* =====================================================
+   ORDER CONFIRMATION
+===================================================== */
 
-.cart-modal .modal-content{
-    max-width:700px;
-}
-
-.cart-header{
-    display:flex;
-    justify-content:space-between;
+.order-confirmation{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,.75);
+    justify-content:center;
     align-items:center;
+    padding:20px;
+}
+
+.order-confirmation.show{
+    display:flex;
+}
+
+.confirmation-box{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    animation:confirmationPop .35s ease;
+}
+
+@keyframes confirmationPop{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.success-icon{
+    width:78px;
+    height:78px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#dcfce7;
+    color:#16a34a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:43px;
+    font-weight:bold;
+}
+
+.confirmation-box h2{
+    color:#087f5b;
+    margin-bottom:8px;
+}
+
+.confirmation-message{
+    color:#6b7280;
     margin-bottom:20px;
 }
 
-.cart-header h2{
-    color:#087f5b;
+.order-id-box{
+    background:#f0fdf4;
+    border:2px dashed #087f5b;
+    border-radius:13px;
+    padding:15px;
+    margin:15px 0;
 }
 
-.cart-item{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:15px 0;
-    border-bottom:1px solid #eee;
-}
-
-.cart-item-image{
-    width:75px;
-    height:75px;
-    object-fit:cover;
-    border-radius:12px;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.cart-item-info h4{
-    margin-bottom:3px;
-}
-
-.cart-item-price{
-    color:#087f5b;
+.order-id-label{
+    font-size:12px;
+    color:#6b7280;
     font-weight:bold;
 }
 
-.cart-quantity{
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.cart-quantity button{
-    width:30px;
-    height:30px;
-    border:none;
-    border-radius:50%;
-    background:#e7f6f0;
+.order-id{
+    font-size:23px;
+    font-weight:800;
     color:#087f5b;
-    font-weight:bold;
+    letter-spacing:1px;
 }
 
-.remove-cart{
-    border:none;
-    background:#fee2e2;
-    color:#dc2626;
-    width:32px;
-    height:32px;
-    border-radius:50%;
+.confirmation-details{
+    text-align:left;
+    background:#f8fafc;
+    border-radius:13px;
+    padding:15px;
+    margin:15px 0;
 }
 
-.cart-total{
+.confirmation-row{
     display:flex;
     justify-content:space-between;
-    font-size:22px;
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.confirmation-row:last-child{
+    border-bottom:none;
+}
+
+.confirmation-row strong{
+    color:#374151;
+}
+
+.cod-confirmation{
+    background:#dcfce7;
+    color:#166534;
+    padding:12px;
+    border-radius:10px;
     font-weight:bold;
-    padding:20px 0;
-    color:#087f5b;
+    margin:15px 0;
 }
 
-.cart-empty{
-    text-align:center;
-    padding:40px 10px;
-    color:#777;
-    font-size:18px;
-}
-
-.cart-whatsapp{
+.confirmation-close{
     width:100%;
     border:none;
-    background:#25D366;
+    background:#087f5b;
     color:white;
-    padding:15px;
-    border-radius:10px;
+    padding:14px;
+    border-radius:11px;
     font-size:16px;
     font-weight:bold;
 }
 
-.cod-small{
-    margin-top:10px;
-    padding:10px;
-    border-radius:8px;
-    background:#f0fdf4;
-    color:#166534;
-    font-size:14px;
-    text-align:center;
-    font-weight:bold;
+.confirmation-close:hover{
+    background:#056548;
 }
 
 
-/* =========================
+/* =====================================================
    FLOATING BUTTONS
-========================= */
+===================================================== */
 
 .floating-buttons{
     position:fixed;
-    right:20px;
+    right:18px;
     bottom:20px;
     z-index:1500;
     display:flex;
@@ -784,125 +1020,118 @@ footer p{
 }
 
 .float-btn{
-    width:50px;
-    height:50px;
+    width:52px;
+    height:52px;
     border-radius:50%;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     color:white;
-    font-size:22px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    text-decoration:none;
+    font-size:23px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
 .float-whatsapp{
-    background:#25D366;
+    background:#25d366;
 }
 
 .float-call{
-    background:#2563eb;
+    background:#087f5b;
 }
 
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-#backToTop{
-    display:none;
+.top-btn{
     position:fixed;
-    bottom:25px;
-    left:20px;
+    bottom:20px;
+    left:18px;
     width:45px;
     height:45px;
     border:none;
     border-radius:50%;
     background:#087f5b;
     color:white;
-    font-size:20px;
+    display:none;
     z-index:1500;
 }
 
 
-/* =========================
+/* =====================================================
    DARK MODE
-========================= */
+===================================================== */
 
 body.dark{
-    background:#111827;
-    color:#eee;
+    background:#0f172a;
+    color:#e5e7eb;
 }
 
 body.dark .navbar,
-body.dark .info-section,
-body.dark .contact-section,
-body.dark .modal-content,
-body.dark .delivery-box{
-    background:#1f2937;
-}
-
+body.dark .info-strip,
+body.dark .about-box,
 body.dark .product-card,
-body.dark .info-card,
 body.dark .contact-card,
-body.dark .review-card{
-    background:#1f2937;
-    color:#eee;
+body.dark .review-card,
+body.dark .cart-preview,
+body.dark .modal-box,
+body.dark .confirmation-box{
+    background:#1e293b;
+    border-color:#334155;
 }
 
-body.dark .product-content h3,
 body.dark .nav-links a{
-    color:#eee;
+    color:#e5e7eb;
 }
 
+body.dark .section-title h2,
+body.dark .about-content h2,
+body.dark .product-info h3{
+    color:#f8fafc;
+}
+
+body.dark .section-title p,
 body.dark .product-unit,
+body.dark .about-content p,
 body.dark .contact-card p,
 body.dark .review-card p,
-body.dark .info-card p{
-    color:#bbb;
+body.dark .confirmation-message{
+    color:#94a3b8;
 }
 
-body.dark .products-section,
-body.dark .reviews-section{
-    background:#111827;
-}
-
-body.dark .hero{
-    background:linear-gradient(135deg,#102d25,#111827);
-}
-
-body.dark .hero-content p{
-    color:#bbb;
-}
-
-body.dark .delivery-section{
-    background:#102d25;
-}
-
+body.dark .search-box input,
 body.dark .form-group input,
-body.dark .form-group textarea,
-body.dark .search-box input{
-    background:#111827;
+body.dark .form-group textarea{
+    background:#0f172a;
     color:white;
+    border-color:#475569;
+}
+
+body.dark .order-panel{
+    background:#111827;
+    border-color:#334155;
+}
+
+body.dark .confirmation-details{
+    background:#111827;
+}
+
+body.dark .confirmation-row{
     border-color:#374151;
 }
 
-body.dark .payment-box{
-    background:#16251f;
+body.dark .confirmation-row strong{
+    color:#e5e7eb;
 }
 
-body.dark .payment-option{
-    background:#1f2937;
-    border-color:#374151;
+body.dark .filter-btn,
+body.dark .details-btn{
+    background:#1e293b;
+    color:#e5e7eb;
+    border-color:#475569;
 }
 
-body.dark .payment-note{
-    color:#bbb;
-}
 
-
-/* =========================
-   MOBILE
-========================= */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:1000px){
 
@@ -910,726 +1139,878 @@ body.dark .payment-note{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .info-grid{
-        grid-template-columns:repeat(2,1fr);
+    .hero h1{
+        font-size:48px;
     }
 }
 
-@media(max-width:700px){
-
-    .navbar{
-        padding:12px 4%;
-    }
-
-    .logo{
-        font-size:19px;
-    }
+@media(max-width:800px){
 
     .nav-links{
         display:none;
     }
 
-    .mobile-cart-button{
+    .mobile-cart{
         display:block;
-        border:none;
-        background:#087f5b;
-        color:white;
-        padding:9px 14px;
-        border-radius:20px;
-        font-weight:bold;
     }
 
-    .dark-button{
-        margin-left:5px;
+    .info-strip{
+        margin:20px;
+        grid-template-columns:1fr;
     }
 
-    .hero{
-        min-height:420px;
+    .info-card{
+        border-right:none;
+        border-bottom:1px solid #e5e7eb;
     }
 
-    .hero-content h1{
-        font-size:38px;
+    .info-card:last-child{
+        border-bottom:none;
     }
 
-    .hero-content p{
-        font-size:18px;
+    .about-box,
+    .order-layout{
+        grid-template-columns:1fr;
     }
 
     .product-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:12px;
     }
 
-    .product-image{
-        height:150px;
-    }
-
-    .product-content{
-        padding:12px;
-    }
-
-    .product-content h3{
-        font-size:16px;
-    }
-
-    .product-price{
-        font-size:18px;
-    }
-
-    .info-grid,
     .contact-grid,
-    .reviews-grid{
+    .reviews{
         grid-template-columns:1fr;
     }
 
-    .delivery-grid{
+    .footer-container{
         grid-template-columns:1fr;
-    }
-
-    .full{
-        grid-column:auto;
-    }
-
-    .cart-item{
-        gap:8px;
-    }
-
-    .cart-item-image{
-        width:60px;
-        height:60px;
-    }
-
-    .cart-quantity{
-        gap:3px;
-    }
-
-    .cart-quantity button{
-        width:25px;
-        height:25px;
-    }
-
-    .remove-cart{
-        width:28px;
-        height:28px;
-    }
-
-    .modal-content{
-        width:94%;
-        margin:3vh auto;
-        padding:18px;
     }
 }
 
-@media(max-width:450px){
+@media(max-width:550px){
 
-    .product-grid{
-        grid-template-columns:1fr 1fr;
+    .nav-container{
+        padding:12px 14px;
     }
 
-    .product-actions{
+    .logo{
+        font-size:18px;
+    }
+
+    .nav-actions .nav-btn:not(.cart-btn){
+        display:none;
+    }
+
+    .hero{
+        min-height:540px;
+    }
+
+    .hero-container{
+        padding:60px 18px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .hero-buttons{
         flex-direction:column;
         align-items:stretch;
     }
 
-    .quantity-box{
-        justify-content:center;
+    .hero-btn{
+        text-align:center;
     }
 
-    .floating-buttons{
-        right:12px;
-        bottom:12px;
+    .section{
+        padding:50px 15px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .about-box{
+        padding:25px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:240px;
+    }
+
+    .confirmation-box{
+        padding:23px 18px;
+    }
+
+    .confirmation-row{
+        font-size:14px;
+    }
+
+    .order-id{
+        font-size:20px;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
-<nav class="navbar">
+<header class="navbar">
+
+<div class="nav-container">
 
     <div class="logo">
         🥛 Sai Amrut Dairy
     </div>
 
-    <div class="nav-links">
-
+    <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#products">Products</a>
-        <a href="#delivery">Order</a>
+        <a href="#order">Order</a>
         <a href="#contact">Contact</a>
+    </nav>
 
-        <button class="cart-button" onclick="openCart()">
+    <div class="nav-actions">
+
+        <button class="nav-btn cart-btn" onclick="openCart()">
             🛒 Cart (<span id="cartCount">0</span>)
         </button>
 
-        <button class="dark-button" onclick="toggleDarkMode()">
+        <button class="nav-btn" onclick="toggleDarkMode()">
             🌙
         </button>
 
     </div>
 
-    <div>
+</div>
 
-        <button class="mobile-cart-button" onclick="openCart()">
-            🛒 <span id="cartCountMobile">0</span>
-        </button>
-
-    </div>
-
-</nav>
+</header>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-container">
 
-        <h1>🥛 Sai Amrut Dairy</h1>
+<div class="hero-content">
 
-        <p>Fresh Dairy Products & Beverages</p>
+    <div class="hero-badge">
+        🥛 Fresh • Hygienic • Trusted
+    </div>
 
-        <div class="hero-buttons">
+    <h1>
+        Freshness You Can
+        <span>Trust.</span>
+    </h1>
 
-            <a href="#products" class="btn btn-primary">
-                🛒 Shop Now
-            </a>
+    <p>
+        Fresh dairy products, beverages and daily essentials
+        delivered with care from Sai Amrut Dairy, Hingoli.
+    </p>
 
-            <a href="tel:7020034584" class="btn btn-call">
-                📞 Call Now
-            </a>
+    <div class="hero-buttons">
 
-            <a
-                href="https://wa.me/917020034584"
-                target="_blank"
-                class="btn btn-whatsapp"
-            >
-                💬 WhatsApp
-            </a>
+        <a href="#products" class="hero-btn hero-primary">
+            🛒 Shop Now
+        </a>
 
-        </div>
+        <a href="https://wa.me/917020034584"
+           target="_blank"
+           class="hero-btn hero-whatsapp">
+            💬 WhatsApp
+        </a>
+
+        <a href="tel:7020034584"
+           class="hero-btn hero-call">
+            📞 Call Now
+        </a>
 
     </div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
-     SHOP INFO
-========================= -->
+<!-- =====================================================
+     INFO STRIP
+===================================================== -->
 
-<section class="info-section">
+<div class="info-strip">
 
-    <h2 class="section-title">
-        🏪 About Sai Amrut Dairy
-    </h2>
+    <div class="info-card">
+        <div class="info-icon">🥛</div>
+        <h3>Fresh Products</h3>
+        <p>Quality dairy products</p>
+    </div>
 
-    <div class="info-grid">
+    <div class="info-card">
+        <div class="info-icon">🚚</div>
+        <h3>Home Delivery</h3>
+        <p>Easy local delivery</p>
+    </div>
 
-        <div class="info-card">
-            <div class="icon">🏪</div>
-            <h3>Shop Name</h3>
-            <p>Sai Amrut Dairy</p>
-        </div>
+    <div class="info-card">
+        <div class="info-icon">💵</div>
+        <h3>Cash on Delivery</h3>
+        <p>Pay when you receive</p>
+    </div>
 
-        <div class="info-card">
-            <div class="icon">👤</div>
-            <h3>Shop Owner</h3>
-            <p>Umesh Kamkhede</p>
-        </div>
+</div>
 
-        <div class="info-card">
-            <div class="icon">📞</div>
-            <h3>Mobile Number</h3>
-            <p>7020034584</p>
-        </div>
 
-        <div class="info-card">
-            <div class="icon">🚚</div>
-            <h3>Home Delivery</h3>
-            <p>Available</p>
-        </div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section">
+
+<div class="about-box">
+
+    <div class="about-content">
+
+        <h2>
+            Welcome to
+            <span>Sai Amrut Dairy</span>
+        </h2>
+
+        <p>
+            Your trusted local shop for fresh dairy products,
+            energy drinks and grocery essentials. We focus on
+            quality products and convenient service for our customers.
+        </p>
+
+        <ul class="about-list">
+
+            <li>🥛 Fresh dairy products</li>
+            <li>🛒 Daily grocery essentials</li>
+            <li>🚚 Home delivery available</li>
+            <li>💵 Cash on Delivery</li>
+            <li>💬 Easy WhatsApp ordering</li>
+
+        </ul>
 
     </div>
+
+    <div class="about-highlight">
+
+        <div class="big-icon">🏪</div>
+
+        <h3>Sai Amrut Dairy</h3>
+
+        <p>
+            Akhare Medical Samor,
+            Post Office Road, Hingoli
+        </p>
+
+    </div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PRODUCTS
-========================= -->
+===================================================== -->
 
-<section class="products-section" id="products">
+<section class="section products-section" id="products">
 
-    <h2 class="section-title">
-        🛍️ Our Products
-    </h2>
+<div class="section-title">
 
-    <div class="search-box">
+    <span>Our Products</span>
+
+    <h2>Fresh & Quality Products</h2>
+
+    <p>
+        Choose your favourite products and add them to your cart.
+    </p>
+
+</div>
+
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search milk, paneer, ghee, coffee..."
+        oninput="searchProducts()"
+    >
+
+</div>
+
+
+<div class="filters">
+
+    <button class="filter-btn active"
+            onclick="filterCategory('All',this)">
+        All
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('Dairy',this)">
+        🥛 Dairy
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('Energy',this)">
+        ⚡ Beverages
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('Grocery',this)">
+        🛒 Grocery
+    </button>
+
+</div>
+
+
+<div class="product-grid" id="productGrid"></div>
+
+</section>
+
+
+<!-- =====================================================
+     ORDER
+===================================================== -->
+
+<section class="section delivery-section" id="order">
+
+<div class="section-title">
+
+    <span>Easy Ordering</span>
+
+    <h2>Place Your Order</h2>
+
+    <p>
+        Add products to cart and enter your delivery details.
+    </p>
+
+</div>
+
+
+<div class="order-layout">
+
+
+<div class="order-panel">
+
+    <h3>👤 Customer Details</h3>
+
+    <div class="form-group">
+
+        <label>Customer Name</label>
 
         <input
             type="text"
-            id="searchInput"
-            placeholder="🔎 Search products..."
-            oninput="searchProducts()"
+            id="customerName"
+            placeholder="Enter your name"
         >
 
     </div>
 
-    <div class="filters">
 
-        <button
-            class="filter-btn active"
-            data-category="All"
-            onclick="filterProducts('All',this)"
-        >
-            All
-        </button>
+    <div class="form-group">
 
-        <button
-            class="filter-btn"
-            data-category="Dairy"
-            onclick="filterProducts('Dairy',this)"
-        >
-            🥛 Dairy
-        </button>
+        <label>Mobile Number</label>
 
-        <button
-            class="filter-btn"
-            data-category="Energy"
-            onclick="filterProducts('Energy',this)"
+        <input
+            type="tel"
+            id="customerMobile"
+            maxlength="10"
+            placeholder="10-digit mobile number"
         >
-            ⚡ Energy
-        </button>
-
-        <button
-            class="filter-btn"
-            data-category="Grocery"
-            onclick="filterProducts('Grocery',this)"
-        >
-            🛒 Grocery
-        </button>
 
     </div>
 
-    <div id="productGrid" class="product-grid"></div>
+
+    <div class="form-group">
+
+        <label>Delivery Address</label>
+
+        <textarea
+            id="customerAddress"
+            placeholder="Enter complete delivery address"
+        ></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Order Notes</label>
+
+        <textarea
+            id="orderNotes"
+            placeholder="Any special instructions?"
+        ></textarea>
+
+    </div>
+
+
+    <div class="cod-box">
+
+        💵 Payment Method:
+        Cash on Delivery
+
+    </div>
+
+
+    <button
+        class="order-btn"
+        onclick="orderCartOnWhatsApp()"
+    >
+        💬 Place COD Order on WhatsApp
+    </button>
+
+</div>
+
+
+<div class="cart-preview">
+
+    <h3>🛒 Your Cart</h3>
+
+    <div id="cartPreviewItems"></div>
+
+    <div class="cart-total">
+
+        <span>Total</span>
+
+        <span id="cartPreviewTotal">
+            ₹0
+        </span>
+
+    </div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
-     DELIVERY / CUSTOMER
-========================= -->
-
-<section class="delivery-section" id="delivery">
-
-    <h2 class="section-title">
-        🚚 Delivery & Customer Details
-    </h2>
-
-    <div class="delivery-box">
-
-        <div class="delivery-grid">
-
-            <div class="form-group">
-
-                <label>👤 Customer Name</label>
-
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Enter your name"
-                    maxlength="50"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>📱 Mobile Number</label>
-
-                <input
-                    type="tel"
-                    id="customerMobile"
-                    placeholder="Enter 10-digit mobile number"
-                    maxlength="10"
-                    inputmode="numeric"
-                >
-
-            </div>
-
-
-            <div class="form-group full">
-
-                <label>📍 Delivery Address</label>
-
-                <textarea
-                    id="customerAddress"
-                    placeholder="Enter your complete delivery address"
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-group full">
-
-                <label>📝 Order Notes</label>
-
-                <textarea
-                    id="orderNotes"
-                    placeholder="Any special instructions..."
-                ></textarea>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================
-             CASH ON DELIVERY
-        ========================= -->
-
-        <div class="payment-box">
-
-            <h3>💳 Payment Method</h3>
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="Cash on Delivery"
-                    checked
-                >
-
-                <span class="payment-title">
-                    💵 Cash on Delivery
-                </span>
-
-            </label>
-
-            <p class="payment-note">
-                Pay cash when your order is delivered to your doorstep.
-            </p>
-
-        </div>
-
-
-        <button
-            class="cart-whatsapp"
-            onclick="orderCartOnWhatsApp()"
-        >
-            💬 Place COD Order on WhatsApp
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
-<section class="contact-section" id="contact">
+<section class="section" id="contact">
 
-    <h2 class="section-title">
-        📞 Contact Sai Amrut Dairy
-    </h2>
+<div class="section-title">
 
-    <div class="contact-grid">
+    <span>Get In Touch</span>
 
-        <div class="contact-card">
-
-            <div class="icon">👤</div>
-
-            <h3>Shop Owner</h3>
-
-            <p>Umesh Kamkhede</p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <div class="icon">📞</div>
-
-            <h3>Call Us</h3>
-
-            <p>7020034584</p>
-
-            <a href="tel:7020034584">
-                Call Now
-            </a>
-
-        </div>
-
-
-        <div class="contact-card">
-
-            <div class="icon">📍</div>
-
-            <h3>Shop Address</h3>
-
-            <p>
-                Akhare Medical Samor,
-                Post Office Road,
-                Hingoli
-            </p>
-
-            <a
-                href="https://www.google.com/maps/search/?api=1&query=Post+Office+Road+Hingoli+Maharashtra"
-                target="_blank"
-            >
-                📍 Open Google Maps
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     REVIEWS
-========================= -->
-
-<section class="reviews-section">
-
-    <h2 class="section-title">
-        ⭐ Customer Reviews
-    </h2>
-
-    <div class="reviews-grid">
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                Fresh milk and dairy products. Good service.
-            </p>
-
-            <strong>
-                Happy Customer
-            </strong>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                Products are fresh and delivery service is useful.
-            </p>
-
-            <strong>
-                Local Customer
-            </strong>
-
-        </div>
-
-
-        <div class="review-card">
-
-            <div class="stars">
-                ⭐⭐⭐⭐⭐
-            </div>
-
-            <p>
-                Good quality products and quick WhatsApp ordering.
-            </p>
-
-            <strong>
-                Sai Amrut Customer
-            </strong>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <h2>🥛 Sai Amrut Dairy</h2>
-
-    <p>Fresh Dairy Products & Beverages</p>
-
-    <p>👤 Owner: Umesh Kamkhede</p>
-
-    <p>📞 7020034584</p>
+    <h2>Contact Sai Amrut Dairy</h2>
 
     <p>
-        📍 Akhare Medical Samor, Post Office Road, Hingoli
+        We are happy to serve you.
     </p>
 
-    <div class="footer-links">
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+    <div class="icon">👤</div>
+
+    <h3>Owner</h3>
+
+    <p>Umesh Kamkhede</p>
+
+</div>
+
+
+<div class="contact-card">
+
+    <div class="icon">📞</div>
+
+    <h3>Call Us</h3>
+
+    <p>7020034584</p>
+
+    <a href="tel:7020034584">
+        Call Now
+    </a>
+
+</div>
+
+
+<div class="contact-card">
+
+    <div class="icon">📍</div>
+
+    <h3>Shop Address</h3>
+
+    <p>
+        Akhare Medical Samor,
+        Post Office Road, Hingoli
+    </p>
+
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=Post+Office+Road+Hingoli+Maharashtra"
+        target="_blank"
+    >
+        Open Google Maps
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <span>Customer Reviews</span>
+
+    <h2>What Customers Say</h2>
+
+</div>
+
+
+<div class="reviews">
+
+    <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+            Fresh products and very good service.
+            WhatsApp ordering is very convenient.
+        </p>
+
+        <strong>— Happy Customer</strong>
+
+    </div>
+
+
+    <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+            Good quality dairy products and
+            quick local delivery.
+        </p>
+
+        <strong>— Local Customer</strong>
+
+    </div>
+
+
+    <div class="review-card">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+            Easy ordering and Cash on Delivery
+            makes shopping simple.
+        </p>
+
+        <strong>— Sai Amrut Customer</strong>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+    <div>
+
+        <h3>🥛 Sai Amrut Dairy</h3>
+
+        <p>
+            Fresh dairy products, beverages and
+            grocery essentials at your local trusted shop.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>Quick Links</h3>
 
         <a href="#home">Home</a>
         <a href="#products">Products</a>
-        <a href="#delivery">Order</a>
+        <a href="#order">Order</a>
         <a href="#contact">Contact</a>
 
     </div>
 
-    <p style="margin-top:20px;">
-        © 2026 Sai Amrut Dairy. All Rights Reserved.
-    </p>
+
+    <div>
+
+        <h3>Contact</h3>
+
+        <p>📞 7020034584</p>
+        <p>👤 Umesh Kamkhede</p>
+        <p>📍 Hingoli, Maharashtra</p>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 Sai Amrut Dairy. All Rights Reserved.
+
+</div>
 
 </footer>
 
 
-<!-- =========================
+<!-- =====================================================
      PRODUCT MODAL
-========================= -->
+===================================================== -->
 
 <div class="modal" id="productModal">
 
-    <div
-        class="modal-overlay"
-        onclick="closeProductDetails()"
-    ></div>
+<div class="modal-box">
 
-    <div class="modal-content">
+    <button class="close-modal"
+            onclick="closeProductModal()">
+        ×
+    </button>
 
-        <button
-            class="close-btn"
-            onclick="closeProductDetails()"
-        >
-            ×
+    <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt="Product"
+    >
+
+    <h2 id="modalName"></h2>
+
+    <p id="modalUnit"></p>
+
+    <div class="modal-price" id="modalPrice">
+        ₹0
+    </div>
+
+    <div class="modal-qty">
+
+        <button onclick="changeModalQty(-1)">
+            −
         </button>
 
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt="Product"
+        <span id="modalQty">
+            0
+        </span>
+
+        <button onclick="changeModalQty(1)">
+            +
+        </button>
+
+    </div>
+
+    <div class="cod-box">
+        💵 Cash on Delivery Available
+    </div>
+
+    <button
+        class="modal-order"
+        onclick="orderPopupOnWhatsApp()"
+    >
+        💬 Order This Product on WhatsApp
+    </button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     CART MODAL
+===================================================== -->
+
+<div class="modal" id="cartModal">
+
+<div class="modal-box">
+
+    <button class="close-modal"
+            onclick="closeCart()">
+        ×
+    </button>
+
+    <h2>🛒 Your Shopping Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+
+        <span>Grand Total</span>
+
+        <span id="cartTotal">
+            ₹0
+        </span>
+
+    </div>
+
+    <div class="cod-box">
+        💵 Payment: Cash on Delivery
+    </div>
+
+    <button
+        class="order-btn"
+        onclick="scrollToCustomerDetails()"
+    >
+        Continue to Customer Details
+    </button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ORDER CONFIRMATION
+===================================================== -->
+
+<div
+    class="order-confirmation"
+    id="orderConfirmation"
+>
+
+<div class="confirmation-box">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>
+        Order Sent Successfully!
+    </h2>
+
+    <p class="confirmation-message">
+        Your order details have been sent to
+        Sai Amrut Dairy on WhatsApp.
+    </p>
+
+    <div class="order-id-box">
+
+        <div class="order-id-label">
+            YOUR ORDER ID
+        </div>
+
+        <div
+            class="order-id"
+            id="confirmationOrderId"
         >
+            SA-000000
+        </div>
 
-        <h2 id="modalName"></h2>
+    </div>
 
-        <p id="modalUnit" class="product-unit"></p>
 
-        <div id="modalPrice" class="modal-price"></div>
+    <div class="confirmation-details">
 
-        <div class="popup-quantity">
+        <div class="confirmation-row">
 
-            <button onclick="changePopupQty(-1)">
-                −
-            </button>
+            <strong>Customer</strong>
 
-            <strong id="modalQty">
-                0
+            <span id="confirmationCustomer">
+                -
+            </span>
+
+        </div>
+
+
+        <div class="confirmation-row">
+
+            <strong>Mobile</strong>
+
+            <span id="confirmationMobile">
+                -
+            </span>
+
+        </div>
+
+
+        <div class="confirmation-row">
+
+            <strong>Total</strong>
+
+            <strong id="confirmationTotal">
+                ₹0
             </strong>
 
-            <button onclick="changePopupQty(1)">
-                +
-            </button>
-
         </div>
 
-        <div class="cod-small">
-            💵 Payment: Cash on Delivery
-        </div>
 
-        <button
-            class="cart-whatsapp"
-            onclick="orderPopupOnWhatsApp()"
-            style="margin-top:12px;"
-        >
-            💬 Order This Product on WhatsApp
-        </button>
+        <div class="confirmation-row">
 
-    </div>
+            <strong>Date & Time</strong>
 
-</div>
-
-
-<!-- =========================
-     CART MODAL
-========================= -->
-
-<div class="modal cart-modal" id="cartModal">
-
-    <div
-        class="modal-overlay"
-        onclick="closeCart()"
-    ></div>
-
-    <div class="modal-content">
-
-        <div class="cart-header">
-
-            <h2>
-                🛒 Your Cart
-            </h2>
-
-            <button
-                class="close-btn"
-                onclick="closeCart()"
-            >
-                ×
-            </button>
-
-        </div>
-
-        <div id="cartItems"></div>
-
-        <div class="cart-total">
-
-            <span>
-                Total:
-            </span>
-
-            <span id="cartTotal">
-                ₹0
+            <span id="confirmationDate">
+                -
             </span>
 
         </div>
 
-        <div class="cod-small">
-            💵 Payment Method: Cash on Delivery
-        </div>
+    </div>
 
-        <button
-            class="cart-whatsapp"
-            onclick="scrollToCustomerDetails()"
-            style="margin-top:12px;"
-        >
-            🚚 Continue to Customer Details
-        </button>
+
+    <div class="cod-confirmation">
+
+        💵 Payment Method:
+        Cash on Delivery
 
     </div>
+
+
+    <button
+        class="confirmation-close"
+        onclick="closeOrderConfirmation()"
+    >
+        🏠 Continue Shopping
+    </button>
+
+</div>
 
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      FLOATING BUTTONS
-========================= -->
+===================================================== -->
 
 <div class="floating-buttons">
 
@@ -1637,7 +2018,6 @@ body.dark .payment-note{
         href="https://wa.me/917020034584"
         target="_blank"
         class="float-btn float-whatsapp"
-        title="WhatsApp"
     >
         💬
     </a>
@@ -1645,7 +2025,6 @@ body.dark .payment-note{
     <a
         href="tel:7020034584"
         class="float-btn float-call"
-        title="Call"
     >
         📞
     </a>
@@ -1653,7 +2032,11 @@ body.dark .payment-note{
 </div>
 
 
-<button id="backToTop" onclick="window.scrollTo(0,0)">
+<button
+    class="top-btn"
+    id="topBtn"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
     ↑
 </button>
 
@@ -1666,205 +2049,196 @@ body.dark .payment-note{
 
 const products = [
 
-    {
-        name:"Milk",
-        price:70,
-        unit:"1 Liter",
-        category:"Dairy",
-        emoji:"🥛",
-        badge:"FRESH",
-        image:"images/milk.jpg"
-    },
+{
+    name:"Milk",
+    price:70,
+    unit:"1 Liter",
+    category:"Dairy",
+    image:"images/milk.jpg",
+    emoji:"🥛",
+    badge:"FRESH"
+},
 
-    {
-        name:"Paneer",
-        price:500,
-        unit:"1 Kg",
-        category:"Dairy",
-        emoji:"🧀",
-        badge:"POPULAR",
-        image:"images/paneer.jpg"
-    },
+{
+    name:"Paneer",
+    price:500,
+    unit:"1 Kg",
+    category:"Dairy",
+    image:"images/paneer.jpg",
+    emoji:"🧀",
+    badge:"POPULAR"
+},
 
-    {
-        name:"Curd",
-        price:120,
-        unit:"1 Kg",
-        category:"Dairy",
-        emoji:"🥣",
-        badge:"FRESH",
-        image:"images/curd.jpg"
-    },
+{
+    name:"Curd",
+    price:120,
+    unit:"1 Kg",
+    category:"Dairy",
+    image:"images/curd.jpg",
+    emoji:"🥣",
+    badge:"FRESH"
+},
 
-    {
-        name:"Ghee",
-        price:1000,
-        unit:"1 Kg",
-        category:"Dairy",
-        emoji:"🫙",
-        badge:"PREMIUM",
-        image:"images/ghee.jpg"
-    },
+{
+    name:"Ghee",
+    price:1000,
+    unit:"1 Kg",
+    category:"Dairy",
+    image:"images/ghee.jpg",
+    emoji:"🫙",
+    badge:"PREMIUM"
+},
 
-    {
-        name:"Lassi",
-        price:100,
-        unit:"1 Liter",
-        category:"Dairy",
-        emoji:"🥤",
-        badge:"POPULAR",
-        image:"images/lassi.jpg"
-    },
+{
+    name:"Lassi",
+    price:100,
+    unit:"1 Liter",
+    category:"Dairy",
+    image:"images/lassi.jpg",
+    emoji:"🥤",
+    badge:"POPULAR"
+},
 
-    {
-        name:"Cheese",
-        price:200,
-        unit:"1 Kg",
-        category:"Dairy",
-        emoji:"🧀",
-        badge:"",
-        image:"images/cheese.jpg"
-    },
+{
+    name:"Cheese",
+    price:200,
+    unit:"1 Kg",
+    category:"Dairy",
+    image:"images/cheese.jpg",
+    emoji:"🧀"
+},
 
-    {
-        name:"Butter",
-        price:80,
-        unit:"100 g",
-        category:"Dairy",
-        emoji:"🧈",
-        badge:"",
-        image:"images/butter.jpg"
-    },
+{
+    name:"Butter",
+    price:80,
+    unit:"100 g",
+    category:"Dairy",
+    image:"images/butter.jpg",
+    emoji:"🧈"
+},
 
-    {
-        name:"Buttermilk",
-        price:30,
-        unit:"1 Liter",
-        category:"Dairy",
-        emoji:"🥛",
-        badge:"FRESH",
-        image:"images/buttermilk.jpg"
-    },
+{
+    name:"Buttermilk",
+    price:30,
+    unit:"1 Liter",
+    category:"Dairy",
+    image:"images/buttermilk.jpg",
+    emoji:"🥛",
+    badge:"FRESH"
+},
 
-    {
-        name:"Red Bull",
-        price:125,
-        unit:"250 ml",
-        category:"Energy",
-        emoji:"⚡",
-        badge:"POPULAR",
-        image:"images/red-bull.jpg"
-    },
+{
+    name:"Red Bull",
+    price:125,
+    unit:"250 ml",
+    category:"Energy",
+    image:"images/red-bull.jpg",
+    emoji:"⚡",
+    badge:"POPULAR"
+},
 
-    {
-        name:"Sting",
-        price:20,
-        unit:"250 ml",
-        category:"Energy",
-        emoji:"⚡",
-        badge:"BEST SELLER",
-        image:"images/sting.jpg"
-    },
+{
+    name:"Sting",
+    price:20,
+    unit:"250 ml",
+    category:"Energy",
+    image:"images/sting.jpg",
+    emoji:"⚡",
+    badge:"BEST SELLER"
+},
 
-    {
-        name:"Monster Energy",
-        price:120,
-        unit:"250 ml",
-        category:"Energy",
-        emoji:"⚡",
-        badge:"POPULAR",
-        image:"images/monster-energy.jpg"
-    },
+{
+    name:"Monster Energy",
+    price:120,
+    unit:"250 ml",
+    category:"Energy",
+    image:"images/monster-energy.jpg",
+    emoji:"⚡",
+    badge:"POPULAR"
+},
 
-    {
-        name:"Coca-Cola",
-        price:40,
-        unit:"300 ml",
-        category:"Energy",
-        emoji:"🥤",
-        badge:"",
-        image:"images/coca-cola.jpg"
-    },
+{
+    name:"Coca-Cola",
+    price:40,
+    unit:"300 ml",
+    category:"Energy",
+    image:"images/coca-cola.jpg",
+    emoji:"🥤"
+},
 
-    {
-        name:"Pepsi",
-        price:40,
-        unit:"300 ml",
-        category:"Energy",
-        emoji:"🥤",
-        badge:"",
-        image:"images/pepsi.jpg"
-    },
+{
+    name:"Pepsi",
+    price:40,
+    unit:"300 ml",
+    category:"Energy",
+    image:"images/pepsi.jpg",
+    emoji:"🥤"
+},
 
-    {
-        name:"Sprite",
-        price:40,
-        unit:"300 ml",
-        category:"Energy",
-        emoji:"🥤",
-        badge:"",
-        image:"images/sprite.jpg"
-    },
+{
+    name:"Sprite",
+    price:40,
+    unit:"300 ml",
+    category:"Energy",
+    image:"images/sprite.jpg",
+    emoji:"🥤"
+},
 
-    {
-        name:"Oats",
-        price:150,
-        unit:"500 g",
-        category:"Grocery",
-        emoji:"🌾",
-        badge:"HEALTHY",
-        image:"images/oats.jpg"
-    },
+{
+    name:"Oats",
+    price:150,
+    unit:"500 g",
+    category:"Grocery",
+    image:"images/oats.jpg",
+    emoji:"🌾",
+    badge:"HEALTHY"
+},
 
-    {
-        name:"Maggi",
-        price:15,
-        unit:"70 g",
-        category:"Grocery",
-        emoji:"🍜",
-        badge:"POPULAR",
-        image:"images/maggi.jpg"
-    },
+{
+    name:"Maggi",
+    price:15,
+    unit:"70 g",
+    category:"Grocery",
+    image:"images/maggi.jpg",
+    emoji:"🍜",
+    badge:"POPULAR"
+},
 
-    {
-        name:"Nutella",
-        price:350,
-        unit:"350 g",
-        category:"Grocery",
-        emoji:"🍫",
-        badge:"",
-        image:"images/nutella.jpg"
-    },
+{
+    name:"Nutella",
+    price:350,
+    unit:"350 g",
+    category:"Grocery",
+    image:"images/nutella.jpg",
+    emoji:"🍫"
+},
 
-    {
-        name:"Chips",
-        price:20,
-        unit:"1 Pack",
-        category:"Grocery",
-        emoji:"🍟",
-        badge:"",
-        image:"images/chips.jpg"
-    },
+{
+    name:"Chips",
+    price:20,
+    unit:"1 Pack",
+    category:"Grocery",
+    image:"images/chips.jpg",
+    emoji:"🍟"
+},
 
-    {
-        name:"Biscuits",
-        price:30,
-        unit:"1 Pack",
-        category:"Grocery",
-        emoji:"🍪",
-        badge:"",
-        image:"images/biscuits.jpg"
-    },
+{
+    name:"Biscuits",
+    price:30,
+    unit:"1 Pack",
+    category:"Grocery",
+    image:"images/biscuits.jpg",
+    emoji:"🍪"
+},
 
-    {
-        name:"Coffee",
-        price:180,
-        unit:"200 g",
-        category:"Grocery",
-        emoji:"☕",
-        badge:"",
-        image:"images/coffee.jpg"
-    }
+{
+    name:"Coffee",
+    price:180,
+    unit:"200 g",
+    category:"Grocery",
+    image:"images/coffee.jpg",
+    emoji:"☕"
+}
 
 ];
 
@@ -1874,16 +2248,13 @@ const products = [
 ===================================================== */
 
 let cart =
-    JSON.parse(localStorage.getItem("saiAmrutCart")) || {};
+    JSON.parse(
+        localStorage.getItem("saiAmrutCart")
+    ) || {};
 
 let selectedProductName = "";
-
 let currentCategory = "All";
 
-
-/* =====================================================
-   SAVE CART
-===================================================== */
 
 function saveCart(){
 
@@ -1896,22 +2267,20 @@ function saveCart(){
 
 
 /* =====================================================
-   UPDATE CART COUNT
+   CART COUNT
 ===================================================== */
 
 function updateCartCount(){
 
-    let count = 0;
+    const total =
+        Object.values(cart)
+        .reduce(
+            (sum,qty)=>sum + qty,
+            0
+        );
 
-    Object.values(cart).forEach(qty => {
-
-        count += qty;
-
-    });
-
-    document.getElementById("cartCount").textContent = count;
-
-    document.getElementById("cartCountMobile").textContent = count;
+    document.getElementById("cartCount")
+        .textContent = total;
 
 }
 
@@ -1930,14 +2299,18 @@ function renderProducts(list = products){
     if(list.length === 0){
 
         grid.innerHTML = `
-            <div style="grid-column:1/-1;text-align:center;padding:40px;">
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+                color:#6b7280;
+            ">
                 <h3>😔 No products found</h3>
-                <p>Try another product name.</p>
+                <p>Try another search.</p>
             </div>
         `;
 
         return;
-
     }
 
 
@@ -1946,52 +2319,43 @@ function renderProducts(list = products){
         const quantity =
             cart[product.name] || 0;
 
+
         const card =
             document.createElement("div");
 
-        card.className = "product-card";
-
-        card.onclick = () => {
-
-            openProductDetails(product);
-
-        };
+        card.className =
+            "product-card";
 
 
         card.innerHTML = `
 
-            ${
-                product.badge
-                ?
-                `<div class="badge">${product.badge}</div>`
-                :
-                ""
-            }
+            <div class="product-image">
 
-            <img
-                src="${product.image}"
-                class="product-image"
-                alt="${product.name}"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            >
+                ${
+                    product.badge
+                    ?
+                    `<div class="product-badge">
+                        ${product.badge}
+                    </div>`
+                    :
+                    ""
+                }
 
-            <div
-                style="
-                    display:none;
-                    height:200px;
-                    justify-content:center;
-                    align-items:center;
-                    font-size:60px;
-                    background:#f1f5f9;
-                "
-            >
-                ${product.emoji}
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    onerror="this.style.display='none';
+                    this.parentElement.innerHTML +=
+                    '<div class=product-emoji>${product.emoji}</div>';"
+                >
+
             </div>
 
-            <div class="product-content">
+
+            <div class="product-info">
 
                 <h3>
-                    ${product.emoji} ${product.name}
+                    ${product.name}
                 </h3>
 
                 <div class="product-unit">
@@ -2005,47 +2369,62 @@ function renderProducts(list = products){
                 <div class="product-actions">
 
                     ${
-                        quantity === 0
+                        quantity > 0
                         ?
-
                         `
-                        <button
-                            class="add-btn"
-                            onclick="event.stopPropagation();changeQty('${product.name}',1)"
-                        >
-                            🛒 Add to Cart
-                        </button>
-                        `
-
-                        :
-
-                        `
-                        <div class="quantity-box">
+                        <div class="qty-control">
 
                             <button
-                                onclick="event.stopPropagation();changeQty('${product.name}',-1)"
+                                onclick="event.stopPropagation();
+                                changeQty('${product.name}',-1)"
                             >
                                 −
                             </button>
 
-                            <strong>
+                            <span>
                                 ${quantity}
-                            </strong>
+                            </span>
 
                             <button
-                                onclick="event.stopPropagation();changeQty('${product.name}',1)"
+                                onclick="event.stopPropagation();
+                                changeQty('${product.name}',1)"
                             >
                                 +
                             </button>
 
                         </div>
                         `
+                        :
+                        `
+                        <button
+                            class="add-btn"
+                            onclick="event.stopPropagation();
+                            changeQty('${product.name}',1)"
+                        >
+                            🛒 Add to Cart
+                        </button>
+                        `
                     }
+
+                    <button
+                        class="details-btn"
+                        onclick="event.stopPropagation();
+                        openProductModal('${product.name}')"
+                    >
+                        View
+                    </button>
 
                 </div>
 
             </div>
         `;
+
+
+        card.addEventListener(
+            "click",
+            () => openProductModal(product.name)
+        );
+
 
         grid.appendChild(card);
 
@@ -2055,36 +2434,37 @@ function renderProducts(list = products){
 
 
 /* =====================================================
-   CHANGE PRODUCT QUANTITY
+   CHANGE QUANTITY
 ===================================================== */
 
-function changeQty(name, change){
+function changeQty(name,change){
 
-    let quantity =
+    const current =
         cart[name] || 0;
 
-    quantity += change;
+    const newQty =
+        Math.max(
+            0,
+            Math.min(
+                99,
+                current + change
+            )
+        );
 
-    if(quantity < 0){
-        quantity = 0;
-    }
 
-    if(quantity > 99){
-        quantity = 99;
-    }
-
-    if(quantity === 0){
+    if(newQty === 0){
         delete cart[name];
     }
     else{
-        cart[name] = quantity;
+        cart[name] = newQty;
     }
+
 
     saveCart();
 
     updateCartCount();
 
-    applyFilters();
+    renderProducts();
 
     renderCart();
 
@@ -2097,7 +2477,35 @@ function changeQty(name, change){
 
 function searchProducts(){
 
-    applyFilters();
+    const query =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    let filtered =
+        products.filter(product => {
+
+            const matchesSearch =
+                product.name
+                .toLowerCase()
+                .includes(query);
+
+
+            const matchesCategory =
+                currentCategory === "All"
+                ||
+                product.category === currentCategory;
+
+
+            return matchesSearch && matchesCategory;
+
+        });
+
+
+    renderProducts(filtered);
 
 }
 
@@ -2106,108 +2514,66 @@ function searchProducts(){
    FILTER
 ===================================================== */
 
-function filterProducts(category, button){
+function filterCategory(category,button){
 
     currentCategory = category;
 
     document
         .querySelectorAll(".filter-btn")
-        .forEach(btn => {
-
-            btn.classList.remove("active");
-
-        });
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
 
     button.classList.add("active");
 
-    applyFilters();
+    searchProducts();
 
 }
 
 
 /* =====================================================
-   APPLY FILTERS
+   PRODUCT MODAL
 ===================================================== */
 
-function applyFilters(){
+function openProductModal(name){
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    let list = products;
-
-    if(currentCategory !== "All"){
-
-        list = list.filter(product =>
-
-            product.category === currentCategory
-
+    const product =
+        products.find(
+            p => p.name === name
         );
 
-    }
+    if(!product) return;
 
-    if(search){
-
-        list = list.filter(product =>
-
-            product.name
-            .toLowerCase()
-            .includes(search)
-
-        );
-
-    }
-
-    renderProducts(list);
-
-}
+    selectedProductName = name;
 
 
-/* =====================================================
-   PRODUCT DETAILS
-===================================================== */
+    document.getElementById("modalName")
+        .textContent = product.name;
 
-function openProductDetails(product){
+    document.getElementById("modalUnit")
+        .textContent = product.unit;
 
-    selectedProductName =
-        product.name;
+    document.getElementById("modalPrice")
+        .textContent = "₹" + product.price;
 
-    const modalImage =
+    document.getElementById("modalQty")
+        .textContent = cart[name] || 0;
+
+
+    const image =
         document.getElementById("modalImage");
 
-    modalImage.style.display = "block";
+    image.src = product.image;
 
-    modalImage.src = product.image;
+    image.alt = product.name;
 
-    modalImage.onerror = function(){
+
+    image.onerror = function(){
 
         this.style.display = "none";
 
     };
 
-    document
-        .getElementById("modalName")
-        .textContent =
-        product.emoji + " " + product.name;
-
-    document
-        .getElementById("modalUnit")
-        .textContent =
-        product.unit;
-
-    document
-        .getElementById("modalPrice")
-        .textContent =
-        "₹" + product.price;
-
-    document
-        .getElementById("modalQty")
-        .textContent =
-        cart[product.name] || 0;
 
     document
         .getElementById("productModal")
@@ -2216,7 +2582,7 @@ function openProductDetails(product){
 }
 
 
-function closeProductDetails(){
+function closeProductModal(){
 
     document
         .getElementById("productModal")
@@ -2225,23 +2591,16 @@ function closeProductDetails(){
 }
 
 
-/* =====================================================
-   POPUP QUANTITY
-===================================================== */
+function changeModalQty(change){
 
-function changePopupQty(change){
-
-    if(!selectedProductName){
-        return;
-    }
+    if(!selectedProductName) return;
 
     changeQty(
         selectedProductName,
         change
     );
 
-    document
-        .getElementById("modalQty")
+    document.getElementById("modalQty")
         .textContent =
         cart[selectedProductName] || 0;
 
@@ -2249,7 +2608,7 @@ function changePopupQty(change){
 
 
 /* =====================================================
-   POPUP WHATSAPP - COD
+   SINGLE PRODUCT WHATSAPP
 ===================================================== */
 
 function orderPopupOnWhatsApp(){
@@ -2259,46 +2618,42 @@ function orderPopupOnWhatsApp(){
             p => p.name === selectedProductName
         );
 
-    if(!product){
-        return;
-    }
+    if(!product) return;
+
 
     const quantity =
-        cart[product.name] || 0;
+        cart[product.name] || 1;
 
-    if(quantity === 0){
 
-        alert(
-            "Please add this product to cart first."
-        );
-
-        return;
-
+    if(!cart[product.name]){
+        cart[product.name] = 1;
+        saveCart();
+        updateCartCount();
+        renderProducts();
     }
+
 
     const total =
         product.price * quantity;
 
-    const message =
 
+    const message =
 `🥛 *SAI AMRUT DAIRY ORDER*
 
-🛒 *Product:* ${product.name}
-📦 *Quantity:* ${quantity}
-💰 *Price:* ₹${product.price}
-💵 *Total:* ₹${total}
+🛒 Product: ${product.name}
+📦 Quantity: ${quantity}
+💰 Total: ₹${total}
 
-💳 *Payment Method:* Cash on Delivery
+💵 Payment: Cash on Delivery
 
-🏪 *Shop:* Sai Amrut Dairy
-👤 *Owner:* Umesh Kamkhede
-📞 *Shop Mobile:* 7020034584
-📍 *Shop Address:* Akhare Medical Samor, Post Office Road, Hingoli
+🏪 Sai Amrut Dairy
+📞 7020034584
+📍 Akhare Medical Samor, Post Office Road, Hingoli`;
 
-Thank you for shopping with Sai Amrut Dairy! 🥛`;
 
     const url =
         `https://wa.me/917020034584?text=${encodeURIComponent(message)}`;
+
 
     window.open(url,"_blank");
 
@@ -2306,7 +2661,7 @@ Thank you for shopping with Sai Amrut Dairy! 🥛`;
 
 
 /* =====================================================
-   OPEN CART
+   CART MODAL
 ===================================================== */
 
 function openCart(){
@@ -2320,10 +2675,6 @@ function openCart(){
 }
 
 
-/* =====================================================
-   CLOSE CART
-===================================================== */
-
 function closeCart(){
 
     document
@@ -2333,223 +2684,167 @@ function closeCart(){
 }
 
 
-/* =====================================================
-   RENDER CART
-===================================================== */
-
 function renderCart(){
 
     const container =
         document.getElementById("cartItems");
 
-    container.innerHTML = "";
+    const preview =
+        document.getElementById("cartPreviewItems");
+
+
+    const items =
+        products.filter(
+            p => cart[p.name] > 0
+        );
+
+
+    if(items.length === 0){
+
+        const empty =
+            `
+            <div class="cart-empty">
+                🛒<br><br>
+                Your cart is empty.
+            </div>
+            `;
+
+        container.innerHTML = empty;
+
+        preview.innerHTML = empty;
+
+        document.getElementById("cartTotal")
+            .textContent = "₹0";
+
+        document.getElementById("cartPreviewTotal")
+            .textContent = "₹0";
+
+        return;
+
+    }
+
 
     let total = 0;
 
-    let hasItems = false;
+
+    let html = "";
 
 
-    products.forEach(product => {
+    items.forEach(product => {
 
         const quantity =
-            cart[product.name] || 0;
-
-        if(quantity <= 0){
-            return;
-        }
-
-        hasItems = true;
+            cart[product.name];
 
         const itemTotal =
             product.price * quantity;
 
         total += itemTotal;
 
-        const item =
-            document.createElement("div");
 
-        item.className =
-            "cart-item";
+        html += `
 
-        item.innerHTML = `
+        <div class="cart-item">
 
-            <img
-                src="${product.image}"
-                class="cart-item-image"
-                alt="${product.name}"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="cart-item-info">
-
-                <h4>
-                    ${product.emoji} ${product.name}
-                </h4>
-
-                <div>
-                    ${product.unit}
-                </div>
-
-                <div class="cart-item-price">
-                    ₹${product.price} × ${quantity}
-                    = ₹${itemTotal}
-                </div>
-
-            </div>
-
-            <div class="cart-quantity">
-
-                <button
-                    onclick="changeCartQuantity('${product.name}',-1)"
-                >
-                    −
-                </button>
+            <div>
 
                 <strong>
-                    ${quantity}
+                    ${product.name}
                 </strong>
 
-                <button
-                    onclick="changeCartQuantity('${product.name}',1)"
-                >
-                    +
-                </button>
+                <div style="color:#6b7280;font-size:13px;">
+                    ₹${product.price} × ${quantity}
+                </div>
 
             </div>
 
-            <button
-                class="remove-cart"
-                onclick="removeFromCart('${product.name}')"
-            >
-                🗑️
-            </button>
+            <div>
+
+                <strong>
+                    ₹${itemTotal}
+                </strong>
+
+                <div style="margin-top:5px;">
+
+                    <button
+                        onclick="changeQty('${product.name}',-1)"
+                        style="
+                            border:none;
+                            background:#fee2e2;
+                            padding:3px 8px;
+                            border-radius:5px;
+                        "
+                    >
+                        −
+                    </button>
+
+                    <button
+                        onclick="changeQty('${product.name}',1)"
+                        style="
+                            border:none;
+                            background:#dcfce7;
+                            padding:3px 8px;
+                            border-radius:5px;
+                        "
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
         `;
-
-        container.appendChild(item);
 
     });
 
 
-    if(!hasItems){
+    container.innerHTML = html;
 
-        container.innerHTML = `
+    preview.innerHTML = html;
 
-            <div class="cart-empty">
+    document.getElementById("cartTotal")
+        .textContent = "₹" + total;
 
-                🛒 Your cart is empty.
-
-                <br><br>
-
-                Add some fresh products!
-
-            </div>
-
-        `;
-
-    }
-
-
-    document
-        .getElementById("cartTotal")
-        .textContent =
-        "₹" + total;
-
-    updateCartCount();
+    document.getElementById("cartPreviewTotal")
+        .textContent = "₹" + total;
 
 }
 
 
 /* =====================================================
-   CART QUANTITY
-===================================================== */
-
-function changeCartQuantity(name, change){
-
-    changeQty(name, change);
-
-    renderCart();
-
-}
-
-
-/* =====================================================
-   REMOVE CART ITEM
-===================================================== */
-
-function removeFromCart(name){
-
-    delete cart[name];
-
-    saveCart();
-
-    updateCartCount();
-
-    renderCart();
-
-    applyFilters();
-
-}
-
-
-/* =====================================================
-   GET CART TOTAL
-===================================================== */
-
-function getCartTotal(){
-
-    let total = 0;
-
-    products.forEach(product => {
-
-        const quantity =
-            cart[product.name] || 0;
-
-        total +=
-            product.price * quantity;
-
-    });
-
-    return total;
-
-}
-
-
-/* =====================================================
-   CUSTOMER DETAILS
+   GET CUSTOMER DETAILS
 ===================================================== */
 
 function getCustomerDetails(){
 
-    const name =
-        document
-        .getElementById("customerName")
-        .value
-        .trim();
-
-    const mobile =
-        document
-        .getElementById("customerMobile")
-        .value
-        .trim();
-
-    const address =
-        document
-        .getElementById("customerAddress")
-        .value
-        .trim();
-
-    const notes =
-        document
-        .getElementById("orderNotes")
-        .value
-        .trim();
-
     return {
-        name,
-        mobile,
-        address,
-        notes
+
+        name:
+            document
+            .getElementById("customerName")
+            .value
+            .trim(),
+
+        mobile:
+            document
+            .getElementById("customerMobile")
+            .value
+            .trim(),
+
+        address:
+            document
+            .getElementById("customerAddress")
+            .value
+            .trim(),
+
+        notes:
+            document
+            .getElementById("orderNotes")
+            .value
+            .trim()
+
     };
 
 }
@@ -2567,7 +2862,114 @@ function validateMobile(mobile){
 
 
 /* =====================================================
-   ORDER CART ON WHATSAPP - COD
+   GENERATE ORDER ID
+===================================================== */
+
+function generateOrderId(){
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(now.getMonth()+1)
+        .padStart(2,"0");
+
+    const day =
+        String(now.getDate())
+        .padStart(2,"0");
+
+    const random =
+        Math.floor(
+            1000 + Math.random()*9000
+        );
+
+    return `SA-${year}${month}${day}-${random}`;
+
+}
+
+
+/* =====================================================
+   DATE & TIME
+===================================================== */
+
+function getOrderDateTime(){
+
+    return new Date().toLocaleString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"2-digit",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:true
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ORDER CONFIRMATION
+===================================================== */
+
+function showOrderConfirmation(
+    orderId,
+    customer,
+    total,
+    dateTime
+){
+
+    document.getElementById(
+        "confirmationOrderId"
+    ).textContent = orderId;
+
+
+    document.getElementById(
+        "confirmationCustomer"
+    ).textContent = customer.name;
+
+
+    document.getElementById(
+        "confirmationMobile"
+    ).textContent = customer.mobile;
+
+
+    document.getElementById(
+        "confirmationTotal"
+    ).textContent = "₹" + total;
+
+
+    document.getElementById(
+        "confirmationDate"
+    ).textContent = dateTime;
+
+
+    document.getElementById(
+        "orderConfirmation"
+    ).classList.add("show");
+
+}
+
+
+function closeOrderConfirmation(){
+
+    document.getElementById(
+        "orderConfirmation"
+    ).classList.remove("show");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   FINAL ORDER TO WHATSAPP
 ===================================================== */
 
 function orderCartOnWhatsApp(){
@@ -2577,16 +2979,14 @@ function orderCartOnWhatsApp(){
             product => cart[product.name] > 0
         );
 
+
     if(items.length === 0){
 
         alert(
             "Your cart is empty. Please add products first."
         );
 
-        closeCart();
-
-        document
-            .getElementById("products")
+        document.getElementById("products")
             .scrollIntoView({
                 behavior:"smooth"
             });
@@ -2604,8 +3004,7 @@ function orderCartOnWhatsApp(){
 
         alert("Please enter Customer Name.");
 
-        document
-            .getElementById("customerName")
+        document.getElementById("customerName")
             .focus();
 
         return;
@@ -2617,8 +3016,7 @@ function orderCartOnWhatsApp(){
 
         alert("Please enter Mobile Number.");
 
-        document
-            .getElementById("customerMobile")
+        document.getElementById("customerMobile")
             .focus();
 
         return;
@@ -2632,8 +3030,7 @@ function orderCartOnWhatsApp(){
             "Please enter a valid 10-digit Indian mobile number."
         );
 
-        document
-            .getElementById("customerMobile")
+        document.getElementById("customerMobile")
             .focus();
 
         return;
@@ -2645,710 +3042,21 @@ function orderCartOnWhatsApp(){
 
         alert("Please enter Delivery Address.");
 
-        document
-            .getElementById("customerAddress")
+        document.getElementById("customerAddress")
             .focus();
 
         return;
 
     }
 
-
-    let message =
-`🥛 *SAI AMRUT DAIRY ORDER*
-
-👤 *Customer:* ${customer.name}
-📱 *Mobile:* ${customer.mobile}
-📍 *Delivery Address:* ${customer.address}
-
-🛒 *ORDER DETAILS:*
-
-`;
-
-
-    let total = 0;
-
-
-    items.forEach((product,index) => {
-
-        const quantity =
-            cart[product.name];
-
-        const itemTotal =
-            product.price * quantity;
-
-        total += itemTotal;
-
-        message +=
-`${index + 1}. ${product.name}
-Quantity: ${quantity}
-Price: ₹${product.price}
-Total: ₹${itemTotal}
-
-`;
-
-    });
-
-
-    message +=
-`💰 *GRAND TOTAL: ₹${total}*
-
-💵 *PAYMENT METHOD: CASH ON DELIVERY*
-
-📝 *Order Notes:*
-${customer.notes || "No special instructions"}
-
-🏪 *Shop:* Sai Amrut Dairy
-👤 *Owner:* Umesh Kamkhede
-📞 *Shop Mobile:* 7020034584
-📍 *Shop Address:* Akhare Medical Samor, Post Office Road, Hingoli
-
-Thank you for shopping with Sai Amrut Dairy! 🥛`;
-
-
-    const url =
-        `https://wa.me/917020034584?text=${encodeURIComponent(message)}`;
-
-
-    alert(
-        "Your COD order details are ready. WhatsApp will open now."
-    );
-
-    window.open(url,"_blank");
-
-}
-
-
-/* =====================================================
-   SCROLL TO CUSTOMER DETAILS
-===================================================== */
-
-function scrollToCustomerDetails(){
-
-    closeCart();
-
-    document
-        .getElementById("delivery")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-}
-
-
-/* =====================================================
-   DARK MODE
-===================================================== */
-
-function toggleDarkMode(){
-
-    document
-        .body
-        .classList
-        .toggle("dark");
-
-    localStorage.setItem(
-        "saiAmrutDarkMode",
-        document.body.classList.contains("dark")
-    );
-
-}
-
-
-/* =====================================================
-   LOAD DARK MODE
-===================================================== */
-
-if(
-    localStorage.getItem("saiAmrutDarkMode")
-    === "true"
-){
-
-    document
-        .body
-        .classList
-        .add("dark");
-
-}
-
-
-/* =====================================================
-   BACK TO TOP
-===================================================== */
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        const button =
-            document.getElementById("backToTop");
-
-        if(window.scrollY > 400){
-
-            button.style.display = "block";
-
-        }
-        else{
-
-            button.style.display = "none";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   MOBILE NUMBER ONLY DIGITS
-===================================================== */
-
-document
-    .getElementById("customerMobile")
-    .addEventListener(
-        "input",
-        function(){
-
-            this.value =
-                this.value
-                .replace(/\D/g,"")
-                .slice(0,10);
-
-        }
-    );
-
-
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Escape"){
-
-            closeProductDetails();
-
-            closeCart();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   INITIAL LOAD
-===================================================== */
-
-renderProducts();
-
-updateCartCount();
-
-</script>
-<!-- =====================================================
-     ORDER CONFIRMATION SYSTEM
-===================================================== -->
-
-<style>
-
-.order-confirmation{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:5000;
-    background:rgba(0,0,0,0.7);
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.order-confirmation.show{
-    display:flex;
-}
-
-.confirmation-box{
-    width:100%;
-    max-width:500px;
-    background:white;
-    border-radius:22px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 10px 40px rgba(0,0,0,0.3);
-    animation:confirmationPop 0.35s ease;
-}
-
-@keyframes confirmationPop{
-
-    from{
-        transform:scale(0.8);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-
-}
-
-.success-icon{
-    width:75px;
-    height:75px;
-    margin:0 auto 15px;
-    border-radius:50%;
-    background:#dcfce7;
-    color:#16a34a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
-}
-
-.confirmation-box h2{
-    color:#087f5b;
-    margin-bottom:8px;
-}
-
-.confirmation-message{
-    color:#666;
-    margin-bottom:20px;
-}
-
-.order-id-box{
-    background:#f0fdf4;
-    border:2px dashed #087f5b;
-    border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-}
-
-.order-id-label{
-    font-size:13px;
-    color:#666;
-    margin-bottom:3px;
-}
-
-.order-id{
-    font-size:24px;
-    font-weight:bold;
-    color:#087f5b;
-    letter-spacing:1px;
-}
-
-.confirmation-details{
-    text-align:left;
-    background:#f8fafc;
-    border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-}
-
-.confirmation-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:6px 0;
-    border-bottom:1px solid #e5e7eb;
-}
-
-.confirmation-row:last-child{
-    border-bottom:none;
-}
-
-.confirmation-row strong{
-    color:#333;
-}
-
-.cod-confirmation{
-    background:#dcfce7;
-    color:#166534;
-    padding:12px;
-    border-radius:10px;
-    font-weight:bold;
-    margin:15px 0;
-}
-
-.confirmation-close{
-    width:100%;
-    border:none;
-    background:#087f5b;
-    color:white;
-    padding:14px;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-}
-
-.confirmation-close:hover{
-    background:#056548;
-}
-
-body.dark .confirmation-box{
-    background:#1f2937;
-    color:white;
-}
-
-body.dark .confirmation-message{
-    color:#bbb;
-}
-
-body.dark .confirmation-details{
-    background:#111827;
-}
-
-body.dark .confirmation-row{
-    border-color:#374151;
-}
-
-body.dark .confirmation-row strong{
-    color:#eee;
-}
-
-</style>
-
-
-<!-- =====================================================
-     ORDER CONFIRMATION POPUP
-===================================================== -->
-
-<div
-    class="order-confirmation"
-    id="orderConfirmation"
->
-
-    <div class="confirmation-box">
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-        <h2>
-            Order Sent Successfully!
-        </h2>
-
-        <p class="confirmation-message">
-            Your order details have been sent to
-            Sai Amrut Dairy on WhatsApp.
-        </p>
-
-
-        <div class="order-id-box">
-
-            <div class="order-id-label">
-                YOUR ORDER ID
-            </div>
-
-            <div
-                class="order-id"
-                id="confirmationOrderId"
-            >
-                SA-000000
-            </div>
-
-        </div>
-
-
-        <div class="confirmation-details">
-
-            <div class="confirmation-row">
-
-                <strong>
-                    Customer
-                </strong>
-
-                <span id="confirmationCustomer">
-                    -
-                </span>
-
-            </div>
-
-
-            <div class="confirmation-row">
-
-                <strong>
-                    Mobile
-                </strong>
-
-                <span id="confirmationMobile">
-                    -
-                </span>
-
-            </div>
-
-
-            <div class="confirmation-row">
-
-                <strong>
-                    Total
-                </strong>
-
-                <strong id="confirmationTotal">
-                    ₹0
-                </strong>
-
-            </div>
-
-
-            <div class="confirmation-row">
-
-                <strong>
-                    Date & Time
-                </strong>
-
-                <span id="confirmationDate">
-                    -
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="cod-confirmation">
-
-            💵 Payment Method:
-            Cash on Delivery
-
-        </div>
-
-
-        <button
-            class="confirmation-close"
-            onclick="closeOrderConfirmation()"
-        >
-            🏠 Continue Shopping
-        </button>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =====================================================
-   ORDER CONFIRMATION SYSTEM
-===================================================== */
-
-
-/* GENERATE ORDER ID */
-
-function generateOrderId(){
-
-    const now = new Date();
-
-    const year =
-        now.getFullYear();
-
-    const month =
-        String(now.getMonth() + 1)
-        .padStart(2,"0");
-
-    const day =
-        String(now.getDate())
-        .padStart(2,"0");
-
-    const random =
-        Math.floor(
-            1000 + Math.random() * 9000
-        );
-
-    return `SA-${year}${month}${day}-${random}`;
-
-}
-
-
-/* GET DATE & TIME */
-
-function getOrderDateTime(){
-
-    const now = new Date();
-
-    return now.toLocaleString(
-        "en-IN",
-        {
-            day:"2-digit",
-            month:"2-digit",
-            year:"numeric",
-            hour:"2-digit",
-            minute:"2-digit",
-            hour12:true
-        }
-    );
-
-}
-
-
-/* SHOW CONFIRMATION */
-
-function showOrderConfirmation(
-    orderId,
-    customer,
-    total,
-    dateTime
-){
-
-    document
-        .getElementById("confirmationOrderId")
-        .textContent = orderId;
-
-
-    document
-        .getElementById("confirmationCustomer")
-        .textContent = customer.name;
-
-
-    document
-        .getElementById("confirmationMobile")
-        .textContent = customer.mobile;
-
-
-    document
-        .getElementById("confirmationTotal")
-        .textContent = "₹" + total;
-
-
-    document
-        .getElementById("confirmationDate")
-        .textContent = dateTime;
-
-
-    document
-        .getElementById("orderConfirmation")
-        .classList
-        .add("show");
-
-}
-
-
-/* CLOSE CONFIRMATION */
-
-function closeOrderConfirmation(){
-
-    document
-        .getElementById("orderConfirmation")
-        .classList
-        .remove("show");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   UPDATED ORDER FUNCTION
-===================================================== */
-
-function orderCartOnWhatsApp(){
-
-    const items =
-        products.filter(
-            product => cart[product.name] > 0
-        );
-
-
-    /* CHECK CART */
-
-    if(items.length === 0){
-
-        alert(
-            "Your cart is empty. Please add products first."
-        );
-
-        document
-            .getElementById("products")
-            .scrollIntoView({
-                behavior:"smooth"
-            });
-
-        return;
-
-    }
-
-
-    /* CUSTOMER DETAILS */
-
-    const customer =
-        getCustomerDetails();
-
-
-    if(!customer.name){
-
-        alert(
-            "Please enter Customer Name."
-        );
-
-        document
-            .getElementById("customerName")
-            .focus();
-
-        return;
-
-    }
-
-
-    if(!customer.mobile){
-
-        alert(
-            "Please enter Mobile Number."
-        );
-
-        document
-            .getElementById("customerMobile")
-            .focus();
-
-        return;
-
-    }
-
-
-    if(!validateMobile(customer.mobile)){
-
-        alert(
-            "Please enter a valid 10-digit Indian mobile number."
-        );
-
-        document
-            .getElementById("customerMobile")
-            .focus();
-
-        return;
-
-    }
-
-
-    if(!customer.address){
-
-        alert(
-            "Please enter Delivery Address."
-        );
-
-        document
-            .getElementById("customerAddress")
-            .focus();
-
-        return;
-
-    }
-
-
-    /* CREATE ORDER ID */
 
     const orderId =
         generateOrderId();
 
 
-    /* DATE & TIME */
-
     const orderDateTime =
         getOrderDateTime();
 
-
-    /* CALCULATE TOTAL */
 
     let total = 0;
 
@@ -3382,7 +3090,7 @@ function orderCartOnWhatsApp(){
 
 
             message +=
-`${index + 1}. ${product.name}
+`${index+1}. ${product.name}
 Quantity: ${quantity}
 Price: ₹${product.price}
 Total: ₹${itemTotal}
@@ -3392,8 +3100,6 @@ Total: ₹${itemTotal}
         }
     );
 
-
-    /* FINAL WHATSAPP MESSAGE */
 
     message +=
 `💰 *GRAND TOTAL: ₹${total}*
@@ -3411,13 +3117,9 @@ ${customer.notes || "No special instructions"}
 Thank you for shopping with Sai Amrut Dairy! 🥛`;
 
 
-    /* WHATSAPP URL */
-
     const url =
         `https://wa.me/917020034584?text=${encodeURIComponent(message)}`;
 
-
-    /* OPEN WHATSAPP */
 
     window.open(
         url,
@@ -3425,15 +3127,11 @@ Thank you for shopping with Sai Amrut Dairy! 🥛`;
     );
 
 
-    /* SAVE LAST ORDER ID */
-
     localStorage.setItem(
         "saiAmrutLastOrderId",
         orderId
     );
 
-
-    /* CLEAR CART */
 
     cart = {};
 
@@ -3445,8 +3143,6 @@ Thank you for shopping with Sai Amrut Dairy! 🥛`;
 
     renderCart();
 
-
-    /* SHOW CONFIRMATION */
 
     setTimeout(
         function(){
@@ -3466,27 +3162,173 @@ Thank you for shopping with Sai Amrut Dairy! 🥛`;
 
 
 /* =====================================================
-   CLOSE POPUP WHEN CLICKING OUTSIDE
+   CUSTOMER DETAILS SCROLL
 ===================================================== */
 
-document
-    .getElementById("orderConfirmation")
-    .addEventListener(
-        "click",
-        function(event){
+function scrollToCustomerDetails(){
 
-            if(
-                event.target === this
-            ){
+    closeCart();
 
-                closeOrderConfirmation();
+    document.getElementById("order")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
-            }
+}
 
-        }
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "saiAmrutDarkMode",
+        document.body.classList.contains("dark")
     );
 
+}
+
+
+if(
+    localStorage.getItem("saiAmrutDarkMode")
+    === "true"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const btn =
+            document.getElementById("topBtn");
+
+        if(window.scrollY > 400){
+
+            btn.style.display = "block";
+
+        }
+        else{
+
+            btn.style.display = "none";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE NUMBER ONLY
+===================================================== */
+
+document.getElementById(
+    "customerMobile"
+).addEventListener(
+    "input",
+    function(){
+
+        this.value =
+            this.value.replace(/\D/g,"");
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MODALS OUTSIDE
+===================================================== */
+
+document.getElementById(
+    "productModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeProductModal();
+
+        }
+
+    }
+);
+
+
+document.getElementById(
+    "cartModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeCart();
+
+        }
+
+    }
+);
+
+
+document.getElementById(
+    "orderConfirmation"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === this){
+
+            closeOrderConfirmation();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeProductModal();
+            closeCart();
+            closeOrderConfirmation();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+renderProducts();
+
+updateCartCount();
+
+renderCart();
+
 </script>
+
 </body>
 </html>
-```
